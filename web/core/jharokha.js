@@ -91,37 +91,100 @@
     return { top: 0, bottom: h, left: w, right: w + 1 };
   }
   function gap(a1, a2, b1, b2) { return Math.max(0, Math.max(a1, b1) - Math.min(a2, b2)); }
-  function move(dir) {
-    var cur = document.activeElement;
-    var hasCur = cur && cur !== document.body && cur !== document.documentElement;
-    var r = hasCur ? cur.getBoundingClientRect() : null;
-    if (!r || !inView(r)) r = virtualRect(dir);
-    var best = null, bestScore = Infinity;
+
+  /* Zones: a page can split itself into areas, e.g. <nav data-nav-zone data-nav-entry="a.on"> and
+     <main data-nav-zone>. Up/Down never leave the current zone; Left/Right hop between zones.
+     Entering a zone focuses its data-nav-entry element, else the nearest item ON SCREEN, else the
+     zone itself (so Up/Down then scroll it like a page). */
+  function zoneOf(el) { return el && el.closest ? el.closest('[data-nav-zone]') : null; }
+  function prepZones() { document.querySelectorAll('[data-nav-zone]').forEach(function (z) { if (!z.hasAttribute('tabindex')) z.setAttribute('tabindex', '-1'); }); }
+  function scrollerOf(zone) {
+    if (zone) { var o = getComputedStyle(zone).overflowY; if ((o === 'auto' || o === 'scroll') && zone.scrollHeight > zone.clientHeight) return zone; }
+    return window;
+  }
+  function pageScroll(zone, dir) {
+    var s = scrollerOf(zone), amt = (dir === 'down' ? 1 : -1) * innerHeight * 0.55;
+    var before = s === window ? scrollY : s.scrollTop;
+    s.scrollBy({ top: amt, behavior: 'smooth' });
+    var max = s === window ? document.documentElement.scrollHeight - innerHeight : s.scrollHeight - s.clientHeight;
+    return dir === 'down' ? before < max - 2 : before > 2;      // false at the very end
+  }
+  function candidates(r, dir, cur, zoneFilter) {
+    var list = [];
     document.querySelectorAll(BASE_SEL).forEach(function (el) {
       if (el === cur || !usable(el)) return;
+      if (zoneFilter !== undefined && zoneOf(el) !== zoneFilter) return;
       var c = el.getBoundingClientRect(), prim, sec;
       if (dir === 'down') { if (c.top < r.bottom - 4 || (c.top + c.bottom) / 2 <= (r.top + r.bottom) / 2) return; prim = c.top - r.bottom; sec = gap(c.left, c.right, r.left, r.right); }
       else if (dir === 'up') { if (c.bottom > r.top + 4 || (c.top + c.bottom) / 2 >= (r.top + r.bottom) / 2) return; prim = r.top - c.bottom; sec = gap(c.left, c.right, r.left, r.right); }
       else if (dir === 'right') { if (c.left < r.right - 4 || (c.left + c.right) / 2 <= (r.left + r.right) / 2) return; prim = c.left - r.right; sec = gap(c.top, c.bottom, r.top, r.bottom); }
       else { if (c.right > r.left + 4 || (c.left + c.right) / 2 >= (r.left + r.right) / 2) return; prim = r.left - c.right; sec = gap(c.top, c.bottom, r.top, r.bottom); }
-      var score = Math.max(0, prim) + sec * 3;
-      if (score < bestScore) { bestScore = score; best = { el: el, prim: Math.max(0, prim), rect: c }; }
+      list.push({ el: el, rect: c, prim: Math.max(0, prim), score: Math.max(0, prim) + sec * 3 });
     });
-    var vertical = dir === 'up' || dir === 'down';
-    // Long reading pages: if the next focusable is far away, scroll instead of jumping past the text.
-    if (vertical && (!best || best.prim > innerHeight * 0.85)) {
-      window.scrollBy({ top: (dir === 'down' ? 1 : -1) * innerHeight * 0.6, behavior: 'smooth' });
-      return true;
-    }
-    if (!best) return false;
-    best.el.focus({ preventScroll: true });
-    best.el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
-    // keep a little breathing room from the screen edge
-    var nr = best.el.getBoundingClientRect(), pad = 60;
-    if (inScroller(best.el)) return true;
+    list.sort(function (a, b) { return a.score - b.score; });
+    return list;
+  }
+  function onScreen(c) { return c.top >= -2 && c.top < innerHeight - 30 && c.bottom > 30; }
+  function focusEl(el) {
+    el.focus({ preventScroll: true });
+    if (zoneOf(el) === el) return;                       // zone itself: don't move the page
+    el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+    if (inScroller(el)) return;
+    var nr = el.getBoundingClientRect(), pad = 60;       // breathing room from the screen edge
     if (nr.bottom > innerHeight - pad && nr.height < innerHeight - 2 * pad) window.scrollBy({ top: nr.bottom - innerHeight + pad, behavior: 'smooth' });
     else if (nr.top < pad && nr.height < innerHeight - 2 * pad) window.scrollBy({ top: nr.top - pad, behavior: 'smooth' });
+  }
+  function enterZone(zone, fromRect) {
+    var entry = zone.getAttribute('data-nav-entry'), pick = null;
+    if (entry) { var e = zone.querySelector(entry); if (e && usable(e)) pick = e; }
+    if (!pick) {
+      var cy = (fromRect.top + fromRect.bottom) / 2, bestD = Infinity;
+      zone.querySelectorAll(BASE_SEL).forEach(function (el) {
+        if (!usable(el)) return; var c = el.getBoundingClientRect(); if (!onScreen(c)) return;
+        var d = Math.abs((c.top + c.bottom) / 2 - cy); if (d < bestD) { bestD = d; pick = el; }
+      });
+    }
+    focusEl(pick || zone);
     return true;
+  }
+  function move(dir) {
+    prepZones();
+    var cur = document.activeElement;
+    var hasCur = cur && cur !== document.body && cur !== document.documentElement;
+    var zone = hasCur ? zoneOf(cur) : null;
+    var isZoneItself = hasCur && zone === cur;
+    var r = hasCur ? cur.getBoundingClientRect() : null;
+    if (!r || !inView(r) || isZoneItself || r.height > innerHeight * 0.8) r = virtualRect(dir);
+    var vertical = dir === 'up' || dir === 'down';
+    var hasZones = !!document.querySelector('[data-nav-zone]');
+
+    if (vertical) {
+      var list = candidates(r, dir, cur, hasZones && hasCur ? zone : undefined);
+      var best = list[0];
+      // Reading mode: only jump to an item that is already on screen (or right next to the current one).
+      // Otherwise scroll the text, so nothing is skipped.
+      if (!best || (!onScreen(best.rect) && best.prim > 120)) {
+        if (pageScroll(zone, dir)) return true;
+        if (best) { focusEl(best.el); return true; }
+        return true;                                      // at the end — swallow the key
+      }
+      focusEl(best.el); return true;
+    }
+
+    // Left / Right: stay inside the zone if something is that way, else hop to the neighbouring zone.
+    var same = candidates(r, dir, cur, hasZones ? zone : undefined).filter(function (c) { return onScreen(c.rect) || inScroller(c.el); });
+    if (same.length) { focusEl(same[0].el); return true; }
+    if (!hasZones) return false;
+    var from = hasCur && !isZoneItself ? cur.getBoundingClientRect() : { top: innerHeight / 2 - 1, bottom: innerHeight / 2 + 1 };
+    var bestZ = null, bestG = Infinity;
+    document.querySelectorAll('[data-nav-zone]').forEach(function (z) {
+      if (z === zone) return; var zr = z.getBoundingClientRect();
+      if (zr.width < 2 || zr.right <= 0 || zr.left >= innerWidth) return;
+      var g = dir === 'right' ? zr.left - (hasCur ? cur.getBoundingClientRect().right : 0) : (hasCur ? cur.getBoundingClientRect().left : innerWidth) - zr.right;
+      if (g < -4) return; if (g < bestG) { bestG = g; bestZ = z; }
+    });
+    if (bestZ) return enterZone(bestZ, from);
+    return false;
   }
   function inScroller(el) {
     for (var p = el.parentElement; p && p !== document.body; p = p.parentElement) {
@@ -130,13 +193,28 @@
     }
     return false;
   }
+
+  /* Text fields on TV: reaching one with the remote must NOT pop the keyboard.
+     It stays read-only until OK is pressed; it locks again when focus leaves. */
+  function textField(el) { return !!el && (el.tagName === 'TEXTAREA' || (el.tagName === 'INPUT' && /^(text|search|email|url|tel|password|number|)$/i.test(el.type || ''))); }
+  function lockField(el) { if (isTV && textField(el) && !el.readOnly && !el.hasAttribute('data-j-editing')) { el.readOnly = true; el.setAttribute('data-j-locked', ''); } }
+  document.addEventListener('focusin', function (e) { lockField(e.target); }, true);
+  document.addEventListener('click', function (e) { var t = e.target; if (t && t.hasAttribute && t.hasAttribute('data-j-locked')) unlockField(t); }, true);
+  document.addEventListener('focusout', function (e) { var el = e.target; if (el.hasAttribute && el.hasAttribute('data-j-editing')) { el.removeAttribute('data-j-editing'); lockField(el); } }, true);
+  function unlockField(el) {
+    el.blur();                                           // re-focus while editable → Android shows the keyboard
+    el.readOnly = false; el.removeAttribute('data-j-locked'); el.setAttribute('data-j-editing', '');
+    el.focus();
+    try { var n = el.value.length; el.setSelectionRange(n, n); } catch (x) {}
+  }
+
   var DIRS = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
-  function textField(el) { return el && (el.tagName === 'TEXTAREA' || (el.tagName === 'INPUT' && /^(text|search|email|url|tel|password|number|)$/i.test(el.type || ''))); }
   document.addEventListener('keydown', function (e) {
     if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
     var a = document.activeElement, dir = DIRS[e.key];
+    var locked = a && a.hasAttribute && a.hasAttribute('data-j-locked');
     if (dir) {
-      if (textField(a) && (dir === 'left' || dir === 'right') && a.type !== 'number') {
+      if (textField(a) && !locked && (dir === 'left' || dir === 'right') && a.type !== 'number') {
         try { var atStart = a.selectionStart === 0 && a.selectionEnd === 0, atEnd = a.selectionStart === a.value.length;
           if ((dir === 'left' && !atStart) || (dir === 'right' && !atEnd)) return; } catch (x) { return; }
       }
@@ -144,7 +222,8 @@
       if (move(dir)) e.preventDefault();
       return;
     }
-    if ((e.key === 'Enter' || e.key === ' ') && a && a.matches && a.matches('[tabindex]:not(a):not(button):not(input):not(select):not(textarea):not(summary)')) {
+    if (e.key === 'Enter' && locked) { e.preventDefault(); unlockField(a); return; }
+    if ((e.key === 'Enter' || e.key === ' ') && a && a.matches && a.matches('[tabindex]:not([tabindex="-1"]):not(a):not(button):not(input):not(select):not(textarea):not(summary)')) {
       e.preventDefault();
       a.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
       return;

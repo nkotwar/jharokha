@@ -61,6 +61,8 @@ html,body{background:var(--j-bg);color:var(--j-text)}
 /* ---------- Remote / keyboard focus ---------- */
 :focus{outline:none}
 :focus-visible{outline:3px solid var(--j-accent)!important;outline-offset:3px;box-shadow:0 0 0 7px var(--j-glow)!important;border-radius:8px;position:relative;z-index:2}
+/* a whole zone (e.g. the reading pane) is focused: accent bar on its left edge instead of a ring */
+[data-nav-zone]:focus-visible{outline:none!important;box-shadow:inset 4px 0 0 var(--j-accent)!important;border-radius:0}
 svg :focus-visible{outline:none!important;box-shadow:none!important}
 svg [tabindex]:focus rect{stroke:var(--j-accent)!important;stroke-width:4!important}
 html.j-tv{scroll-behavior:smooth}
