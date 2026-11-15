@@ -284,13 +284,42 @@
     return fetch(ROOT + path, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
   }
 
+  /* ---------- updates ----------
+     The version the page was loaded with is remembered; when the app comes back to the screen
+     (or every 30 min) the live version.json is checked. Hub: updates itself automatically.
+     Elsewhere: a quiet toast, so a mock test isn't interrupted. */
+  var loadedVer = null, checking = false;
+  function fetchVer() { return fetch(ROOT + 'version.json', { cache: 'no-store' }).then(function (r) { return r.json(); }); }
+  fetchVer().then(function (v) { loadedVer = v.web; }).catch(function () {});
+  function checkUpdate() {
+    return fetchVer().then(function (v) { return { current: loadedVer, latest: v.web, available: !!loadedVer && v.web !== loadedVer && v.web !== 'dev', info: v }; });
+  }
+  function applyUpdate() {
+    var jobs = [];
+    try { if (window.caches) jobs.push(caches.keys().then(function (ks) { return Promise.all(ks.map(function (k) { return caches.delete(k); })); })); } catch (e) {}
+    try { if (navigator.serviceWorker) jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) { return Promise.all(rs.map(function (r) { return r.update().catch(function () {}); })); })); } catch (e) {}
+    Promise.all(jobs).catch(function () {}).then(function () { location.reload(); });
+  }
+  function autoCheck() {
+    if (checking) return; checking = true;
+    checkUpdate().then(function (u) { if (u.available) document.dispatchEvent(new CustomEvent('jharokha:update', { detail: u })); })
+      .catch(function () {}).then(function () { checking = false; });
+  }
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') autoCheck(); });
+  window.addEventListener('focus', autoCheck);
+  setInterval(autoCheck, 30 * 60 * 1000);
+  document.addEventListener('jharokha:update', function (e) {
+    if (isHub()) return;   // the hub handles it itself
+    toast('New version ' + e.detail.latest + ' ready — open Jharokha home to update');
+  });
+
   /* ---------- public API ---------- */
   var J = window.Jharokha = {
     ROOT: ROOT, THEMES: THEMES, pref: pref, setTheme: setTheme, toast: toast,
     isTV: isTV, native: N, nativeHas: nativeHas,
     move: move, back: back, home: home, remember: remember,
     recent: recent, recentFor: recentFor,
-    voice: voice, loadJSON: loadJSON,
+    voice: voice, loadJSON: loadJSON, checkUpdate: checkUpdate, applyUpdate: applyUpdate, loadedVersion: function () { return loadedVer; },
     apkVersion: function () { return nativeHas('versionCode') ? Number(N.versionCode()) : null; },
     // called by the Android app:
     onVoiceResult: function (text) { if (voiceCb) voiceCb(String(text || '')); },

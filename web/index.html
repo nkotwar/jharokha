@@ -75,6 +75,8 @@ footer{margin-top:48px;color:var(--j-muted);font-size:13px;display:flex;gap:16px
 .fields input,.fields select{width:100%;background:var(--j-surface);color:var(--j-text);border:1px solid var(--j-line);border-radius:10px;padding:11px 12px;font:inherit}
 .btn{background:var(--j-surface);color:var(--j-text);border:1px solid var(--j-line);border-radius:10px;padding:11px 18px;font:inherit;cursor:pointer}
 .btn.pri{background:var(--j-accent);color:var(--j-on-accent);border-color:var(--j-accent);font-weight:600}
+.upd{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:22px;padding:14px 16px;border:1px solid var(--j-line);border-radius:12px;background:var(--j-surface)}
+.upd b{display:block}.upd span{color:var(--j-text-2);font-size:14px}
 .sheet .actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}
 @media (max-width:640px){.clock{display:none}.brand .w{font-size:24px}}
 </style>
@@ -132,6 +134,7 @@ footer{margin-top:48px;color:var(--j-muted);font-size:13px;display:flex;gap:16px
       <div><label for="tvmode">Remote-friendly mode</label>
         <select id="tvmode"><option value="auto">Automatic</option><option value="on">Always on</option><option value="off">Off</option></select></div>
     </div>
+    <div class="upd"><div><b>Updates</b><span id="updInfo">Checking version…</span></div><button class="btn" id="checkUpd">Check for updates</button></div>
     <div class="actions"><button class="btn pri" id="closeSettings">Done</button></div>
   </div>
 </div>
@@ -259,6 +262,13 @@ $('#openSettings').onclick = openSettings;
 $('#closeSettings').onclick = closeSettings;
 modal.addEventListener('j-close', closeSettings);
 modal.addEventListener('click', e => { if(e.target === modal) closeSettings(); });
+
+/* updates */
+function verText(u){ const apk = J.apkVersion(); const app = apk ? ` · App ${J.nativeHas('versionName') ? J.native.versionName() : apk} (build ${apk})` : ''; return `You have web ${u.current || '…'}${app}.`; }
+function refreshUpdInfo(){ J.checkUpdate().then(u => { $('#updInfo').textContent = u.available ? `${verText(u)} Version ${u.latest} is ready.` : `${verText(u)} You're up to date.`; const b = $('#checkUpd'); b.textContent = u.available ? 'Update now' : 'Check for updates'; b.classList.toggle('pri', u.available); b.dataset.ready = u.available ? '1' : ''; }).catch(() => { $('#updInfo').textContent = 'Couldn’t reach the update server — check the internet.'; }); }
+$('#checkUpd').onclick = () => { const b = $('#checkUpd'); if (b.dataset.ready) { b.textContent = 'Updating…'; J.applyUpdate(); } else { b.textContent = 'Checking…'; refreshUpdInfo(); } };
+$('#openSettings').addEventListener('click', refreshUpdInfo);
+document.addEventListener('jharokha:update', e => { if (modal.classList.contains('open')) { refreshUpdInfo(); return; } J.toast(`Updating to ${e.detail.latest}…`); setTimeout(J.applyUpdate, 1200); });
 
 /* offline support */
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(()=>{}); }

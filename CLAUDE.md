@@ -32,6 +32,7 @@ Only when `android/**` changes (new native capability, manifest, icon, bridge me
 - TELL BUC a fresh install is needed (Downloader → nkotwar.github.io/jharokha/get).
 
 ## Versions
+- After every push to web/**, check the Pages run succeeded (GitHub API: actions/workflows/pages.yml/runs). If it failed, fix or re-run before telling Buc it's live.
 - Web version is stamped automatically by pages.yml as `1.<run_number>` — don't edit `web` in version.json by hand.
 - Add a line to CHANGELOG.md for every user-visible change (web: next 1.N; app: versionName + build).
 
