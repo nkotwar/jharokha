@@ -463,7 +463,7 @@ function buildNav(){
     const d=document.createElement('div');d.className='grp';d.textContent=g;nav.appendChild(d);
     items.forEach(([id,t])=>{
       const a=document.createElement('a');a.href='#'+id;a.dataset.id=id;a.innerHTML='<span class="dot"></span>'+t;
-      a.onclick=()=>nav.classList.remove('open');nav.appendChild(a);
+      a.onclick=()=>{nav.classList.remove('open');setTimeout(()=>$('#main').focus({preventScroll:true}),0);};nav.appendChild(a);
     });
   });
 }
@@ -1021,6 +1021,8 @@ function render(){
   $('#main').innerHTML=V[id]();afterRender(id);
   if(id!=='home'){seen[id]=1;saveSeen();}
   updateNav(id);window.scrollTo(0,0);
+  // the item that was focused got replaced (e.g. a Course map card) → keep the remote in the reading pane
+  if(document.activeElement===document.body) $('#main').focus({preventScroll:true});
   if(window.Jharokha && !backing) Jharokha.remember({app:'bglc', title:'BG & LC Masterclass', sub:TITLES[id]||'Course map', url:location.href, scroll:0});
 }
 let backing=false;   // true while the user is stepping back with the remote: don't overwrite "Continue"
