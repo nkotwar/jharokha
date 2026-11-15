@@ -52,7 +52,9 @@
   var N = window.JharokhaNative || null;            // Android bridge, if present
   function nativeHas(fn) { return !!(N && typeof N[fn] === 'function'); }
   var tvPref = pref('tvmode');
-  var isTV = tvPref === true || (tvPref !== false && (/JharokhaTV/i.test(navigator.userAgent) || /[?&]tv=1/.test(location.search)));
+  // Inside the Android app, ask the device (the same APK runs on phones and TVs); elsewhere use ?tv=1.
+  var deviceTV = nativeHas('isTV') ? !!N.isTV() : /[?&]tv=1/.test(location.search);
+  var isTV = tvPref === true || (tvPref !== false && deviceTV);
   if (isTV) document.documentElement.classList.add('j-tv');
 
   /* ---------- toast ---------- */
