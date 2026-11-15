@@ -20,6 +20,7 @@ Buc's personal all-in-one Google TV app. Everything is remote-first (D-pad + OK 
 3. Every clickable thing must be a real `a`/`button`/`input`/`summary`, or listed in `<html data-nav-extra="...">` so the remote can reach it.
    Pages with a side menu + long content: mark them `<nav data-nav-zone data-nav-entry="a.on">` and `<main data-nav-zone>`.
    Up/Down stay in a zone and scroll text until an item is on screen; Left/Right hop zones. Text fields open the keyboard only on OK.
+   Back must go UP a level, never replay history: define `window.JharokhaPageBack = () => {...; return true}` (see bglc: pane → menu → section index → home).
 4. Give a visible "← Jharokha" link to `../../`. Call `Jharokha.remember({title, sub, url})` when the user opens something worth resuming.
 5. Add an entry (with `sections` keywords) to `web/modules/registry.json`.
 Pushing `web/**` updates the TV on next launch. No APK needed.
