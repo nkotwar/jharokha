@@ -235,7 +235,16 @@
 
   /* ---------- back ---------- */
   var isHub = function () { return document.body && document.body.hasAttribute('data-jharokha-hub'); };
+  /* Phones: a slide-out menu closes when you tap outside it (or press Back). */
+  function openMenu() { return document.querySelector('nav.side.open'); }
+  document.addEventListener('click', function (e) {
+    var m = openMenu(); if (!m) return;
+    if (m.contains(e.target) || (e.target.closest && e.target.closest('[data-j-menu]'))) return;
+    m.classList.remove('open'); e.preventDefault(); e.stopPropagation();
+  }, true);
+
   function back() {
+    var menu = openMenu(); if (menu) { menu.classList.remove('open'); return 'handled'; }
     var modal = document.querySelector('[data-j-modal].open');
     if (modal) { modal.dispatchEvent(new CustomEvent('j-close')); return 'handled'; }
     if (typeof window.JharokhaPageBack === 'function' && window.JharokhaPageBack() === true) return 'handled';
