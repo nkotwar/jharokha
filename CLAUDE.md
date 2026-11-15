@@ -31,6 +31,10 @@ Only when `android/**` changes (new native capability, manifest, icon, bridge me
 - set `latestApk` in `web/version.json` (and `minApk` only if the web now REQUIRES the new bridge),
 - TELL BUC a fresh install is needed (Downloader → nkotwar.github.io/jharokha/get).
 
+## Versions
+- Web version is stamped automatically by pages.yml as `1.<run_number>` — don't edit `web` in version.json by hand.
+- Add a line to CHANGELOG.md for every user-visible change (web: next 1.N; app: versionName + build).
+
 ## Compatibility rules (older APK + newer web is normal)
 - Native bridge `window.JharokhaNative`: add methods only, never rename/remove. Web must feature-check (`Jharokha.nativeHas('x')`).
 - Prefs live in localStorage under `j_*` keys; when changing a pref's shape, read old shapes too.

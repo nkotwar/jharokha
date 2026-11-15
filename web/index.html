@@ -223,7 +223,8 @@ J.loadJSON('modules/registry.json').then(r => { REG = r; buildIndex(); renderApp
 /* version / app update notice */
 J.loadJSON('version.json').then(v => {
   const apk = J.apkVersion();
-  $('#ver').textContent = `Web ${v.web}` + (apk ? ` · App ${apk}` : '');
+  const appName = J.nativeHas('versionName') ? J.native.versionName() : apk;
+  $('#ver').textContent = `Jharokha web ${v.web}` + (apk ? ` · App ${appName} (build ${apk})` : '') + (v.built ? ` · ${v.built}` : '');
   if(apk != null && apk < v.minApk){
     $('#notice').innerHTML = `<div class="notice"><b>App update needed.</b> Some features need the newer Jharokha app. In <i>Downloader</i>, open <b>${esc(v.apkShortUrl||v.apkUrl)}</b> and install.</div>`;
   } else if(apk != null && apk < v.latestApk){

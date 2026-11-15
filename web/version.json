@@ -1,5 +1,6 @@
 {
-  "web": "2026.11.15.4",
+  "web": "dev",
+  "built": "",
   "minApk": 1,
   "latestApk": 1,
   "apkUrl": "https://github.com/nkotwar/jharokha/releases/latest/download/jharokha.apk",

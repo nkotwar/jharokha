@@ -24,6 +24,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Stamp web version (1.<publish number>)
+        run: |
+          jq --arg v "1.${{ github.run_number }}" --arg d "$(date -u +%Y-%m-%d)" '.web=$v | .built=$d' web/version.json > v.tmp && mv v.tmp web/version.json
+          cat web/version.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web
