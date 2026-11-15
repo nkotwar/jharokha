@@ -8,7 +8,7 @@ Buc's personal all-in-one Google TV app. Everything is remote-first (D-pad + OK 
   - `core/jharokha.js` — shared runtime: themes, spatial remote navigation, Back handling, recents, voice, prefs, native bridge.
   - `index.html` — the hub (home screen): greeting, search + voice, Continue row, app tiles, theme/settings sheet.
   - `modules/registry.json` — list of apps shown on the hub; `sections` feed search/voice deep links.
-  - `modules/<id>/index.html` — each app. First: `bglc` (BG & LC Masterclass).
+  - `modules/<id>/index.html` — each app. Apps: `bglc` (BG & LC Masterclass), `ccp` (CCP Credit Desk — data.js holds cards/MCQs/cases/radar/news; app.js holds labs, numerical generators, quiz/mock engine).
   - `version.json` — `web` build label, `minApk` / `latestApk` (APK versionCodes) for update notices.
   - `sw.js` — network-first service worker (fresh content online, last copy offline).
 - `android/` — Android TV shell (Java WebView). Built and released by `.github/workflows/apk.yml`

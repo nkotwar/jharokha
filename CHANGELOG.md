@@ -7,6 +7,7 @@ Two version numbers:
 The home screen footer shows both.
 
 ## Web
+- **1.8** — New app: **CCP Credit Desk** (IIBF Certified Credit Professional) — concept cards, 4 live labs, Credit Desk cases, unlimited numericals, Daily 10, 100-question mock, Exam Radar, what's new.
 - **1.7** — Automatic version numbers; this changelog; footer shows web + app versions.
 - **1.6** — Course: choosing a chapter moves the remote into the reading pane.
 - **1.5** — Continue row: one card per app, saved where you were when you started pressing Back (chapter + scroll).

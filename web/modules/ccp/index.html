@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#141A24">
+<title>CCP Credit Desk — Jharokha</title>
+<link rel="stylesheet" href="../../core/jharokha.css">
+<script src="../../core/jharokha.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;line-height:1.25}
+h1{font-size:2rem;margin:.2em 0 .4em}
+h2{font-size:1.35rem;margin:1.6em 0 .6em;border-bottom:1px solid var(--j-line);padding-bottom:.3em}
+h3{font-size:1.02rem;margin:1.2em 0 .4em;color:var(--j-accent)}
+.lead{color:var(--j-text-2);font-size:1.05rem}
+.small,small{color:var(--j-muted);font-size:.84rem}
+a{color:var(--j-accent)}
+.layout{display:flex;min-height:100vh}
+nav.side{width:260px;flex:0 0 260px;background:var(--j-surface);border-right:1px solid var(--j-line);position:sticky;top:0;height:100vh;overflow-y:auto;padding:18px 0 40px}
+nav.side .brand{padding:0 20px 14px;border-bottom:1px solid var(--j-line);margin-bottom:6px}
+nav.side .brand a.j-home{display:block;padding:4px 0 10px;font-weight:600;border:0}
+nav.side .brand b{font-family:"Source Serif 4";font-size:1.15rem;display:block}
+nav.side .grp{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--j-muted);padding:14px 20px 4px}
+nav.side a{display:block;color:var(--j-text-2);text-decoration:none;padding:6px 20px;font-size:.92rem;border-left:3px solid transparent}
+nav.side a:hover{background:var(--j-surface-2)}
+nav.side a.on{background:var(--j-surface-2);border-left-color:var(--j-accent);color:var(--j-text)}
+main{flex:1;min-width:0;padding:30px clamp(16px,4vw,52px) 80px;max-width:1080px}
+.topbar{display:none}
+button,.btn{font:inherit;font-size:.95rem;border:1px solid var(--j-line);background:var(--j-surface);color:var(--j-text);padding:9px 16px;border-radius:9px;cursor:pointer;text-decoration:none;display:inline-block}
+button:disabled{opacity:.4;cursor:default}
+button.pri,.btn.pri{background:var(--j-accent);color:var(--j-on-accent);border-color:var(--j-accent);font-weight:600}
+button.sel{background:color-mix(in srgb,var(--j-accent) 22%,var(--j-surface));border-color:var(--j-accent)}
+.hero{background:var(--j-surface);border:1px solid var(--j-line);border-radius:16px;padding:24px 26px;margin-bottom:18px}
+.hero h1{margin-top:0}
+.hero p{color:var(--j-text-2);margin:0 0 14px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{background:var(--j-surface-2);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.row3{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 6px}
+.act{background:var(--j-surface);border:1px solid var(--j-line);border-radius:12px;padding:12px 18px;color:var(--j-text);text-decoration:none;font-weight:500}
+.act.pri{background:var(--j-accent);color:var(--j-on-accent);border-color:var(--j-accent)}
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.mod{display:block;background:var(--j-surface);border:1px solid var(--j-line);border-radius:14px;padding:14px 16px;color:var(--j-text);text-decoration:none}
+.mod b{display:block;margin:6px 0}
+.mk{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--j-accent);color:var(--j-on-accent);font-weight:700;font-size:.85rem;flex:0 0 28px}
+.bars{display:block;height:6px;background:var(--j-line);border-radius:3px;overflow:hidden;margin:4px 0 6px}
+.bars i{display:block;height:100%;background:var(--j-good)}
+.list{display:grid;gap:8px;margin:12px 0}
+.li{display:flex;gap:14px;align-items:flex-start;background:var(--j-surface);border:1px solid var(--j-line);border-radius:12px;padding:12px 16px;color:var(--j-text);text-decoration:none}
+.li b{display:block}
+.li small{display:block}
+.heat{font-size:.8rem;letter-spacing:2px;min-width:44px;padding-top:2px}
+.heat.h3{color:var(--j-bad)}.heat.h2{color:var(--j-warn)}.heat.h1{color:var(--j-muted)}
+.date{font-size:.78rem;color:var(--j-accent);min-width:130px;padding-top:2px}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--j-surface-2);color:var(--j-accent)}
+.deckbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.chip{padding:6px 12px;font-size:.85rem}
+.card{background:var(--j-surface);border:1px solid var(--j-line);border-radius:18px;padding:22px 24px;margin:14px 0;min-height:240px}
+.card.flipped{border-color:var(--j-accent)}
+.cardtop{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.front{font-family:"Source Serif 4",serif;font-size:1.45rem;margin:16px 0}
+.back{border-top:1px dashed var(--j-line);padding-top:14px;font-size:1.02rem}
+.hint{color:var(--j-muted)}
+.trap{margin-top:12px;background:color-mix(in srgb,var(--j-warn) 14%,var(--j-surface));border-left:4px solid var(--j-warn);padding:9px 12px;border-radius:0 8px 8px 0;font-size:.95rem}
+.cardctl{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.lab{display:grid;grid-template-columns:minmax(260px,1fr) minmax(300px,1.25fr);gap:22px;align-items:start}
+.inputs{background:var(--j-surface);border:1px solid var(--j-line);border-radius:14px;padding:6px 16px 16px}
+.outputs{position:sticky;top:16px}
+.fld{margin:8px 0}
+.fld label{display:block;font-size:.86rem;color:var(--j-text-2);margin-bottom:3px}
+.stp{display:flex;gap:6px}
+.stp button{width:44px;padding:8px 0;font-size:1.1rem;font-weight:600}
+.stp input,.fld select{flex:1;min-width:0;background:var(--j-surface-2);color:var(--j-text);border:1px solid var(--j-line);border-radius:9px;padding:8px 10px;font:inherit}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.kpis div{background:var(--j-surface);border:1px solid var(--j-line);border-radius:12px;padding:10px 14px}
+.kpis small{display:block}
+.kpis b{font-size:1.15rem}
+table{border-collapse:collapse;width:100%;background:var(--j-surface);border-radius:12px;overflow:hidden;font-size:.94rem}
+th,td{border-bottom:1px solid var(--j-line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--j-surface-2);font-weight:600}
+td small{display:block}
+tr.hi td{background:color-mix(in srgb,var(--j-accent) 10%,var(--j-surface))}
+.pill{display:inline-block;font-size:.76rem;font-weight:600;padding:2px 9px;border-radius:999px}
+.pill.g{background:color-mix(in srgb,var(--j-good) 25%,var(--j-surface));color:var(--j-text)}
+.pill.w{background:color-mix(in srgb,var(--j-warn) 25%,var(--j-surface));color:var(--j-text)}
+.pill.b{background:color-mix(in srgb,var(--j-bad) 25%,var(--j-surface));color:var(--j-text)}
+.tl{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:6px 0 4px}
+.tl span{font-size:.72rem;text-align:center;padding:7px 2px;border-radius:6px;background:var(--j-surface-2);color:var(--j-muted)}
+.tl span.past{background:color-mix(in srgb,var(--j-bad) 22%,var(--j-surface));color:var(--j-text)}
+.tl span.now{background:var(--j-accent);color:var(--j-on-accent);font-weight:700}
+.file{background:var(--j-surface);border:1px solid var(--j-line);border-radius:14px;padding:14px 18px;margin:12px 0}
+.file summary{cursor:pointer;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:12px 0}
+.tile{display:flex;flex-direction:column;gap:6px;align-items:flex-start;text-align:left;padding:16px;border-radius:14px;min-height:96px}
+.tile small{color:var(--j-muted)}
+.qhead{display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--j-text-2)}
+.timer{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:1.2rem;background:var(--j-surface);border:1px solid var(--j-line);padding:4px 12px;border-radius:9px}
+.timer.low{color:var(--j-bad);border-color:var(--j-bad)}
+.qtext{display:flex;gap:12px;font-size:1.2rem;margin:18px 0 12px;line-height:1.5}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:12px 14px;font-size:1.02rem}
+.opt span{font-weight:700;color:var(--j-accent);min-width:18px}
+.opt.sel{border-color:var(--j-accent);background:color-mix(in srgb,var(--j-accent) 14%,var(--j-surface))}
+.opt.right{border-color:var(--j-good);background:color-mix(in srgb,var(--j-good) 20%,var(--j-surface))}
+.opt.wrong{border-color:var(--j-bad);background:color-mix(in srgb,var(--j-bad) 18%,var(--j-surface))}
+.fb{margin:12px 0;padding:12px 14px;border-radius:10px;border-left:4px solid}
+.fb.ok{border-color:var(--j-good);background:color-mix(in srgb,var(--j-good) 14%,var(--j-surface))}
+.fb.no{border-color:var(--j-bad);background:color-mix(in srgb,var(--j-bad) 12%,var(--j-surface))}
+.palette{margin-top:16px}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:5px;margin-top:10px}
+.pal button{padding:7px 0;font-size:.85rem}
+.pal button.done{background:color-mix(in srgb,var(--j-good) 22%,var(--j-surface))}
+.pal button.cur{border-color:var(--j-accent)}
+@media (max-width:900px){.lab{grid-template-columns:1fr}.outputs{position:static}}
+@media (max-width:860px){
+  nav.side{position:fixed;left:-280px;z-index:20;transition:.25s}
+  nav.side.open{left:0;box-shadow:0 0 40px rgba(0,0,0,.4)}
+  .topbar{display:flex;gap:10px;align-items:center;position:sticky;top:0;background:var(--j-surface);border-bottom:1px solid var(--j-line);padding:10px 14px;z-index:10}
+  main{padding-top:18px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><a class="btn" href="../../">← Home</a><button onclick="document.getElementById('nav').classList.toggle('open')">☰ Menu</button><b>CCP Credit Desk</b></div>
+<div class="layout">
+<nav class="side" id="nav" data-nav-zone data-nav-entry="a.on">
+  <div class="brand"><a class="j-home" href="../../">← Jharokha</a><b>CCP Credit Desk</b><small>IIBF Certified Credit Professional</small></div>
+</nav>
+<main id="main" data-nav-zone></main>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -8,29 +8,229 @@
       "category": "Learn",
       "icon": "learn",
       "path": "modules/bglc/",
-      "keywords": ["bank guarantee", "letter of credit", "trade finance", "lc", "bg", "ucp", "urdg", "isp98", "swift", "incoterms", "export", "import", "course"],
+      "keywords": [
+        "bank guarantee",
+        "letter of credit",
+        "trade finance",
+        "lc",
+        "bg",
+        "ucp",
+        "urdg",
+        "isp98",
+        "swift",
+        "incoterms",
+        "export",
+        "import",
+        "course"
+      ],
       "sections": [
-        {"t": "Why trade needs banks", "h": "foundations", "k": "payment risk ladder advance open account collection non fund based"},
-        {"t": "Bank Guarantee fundamentals", "h": "bg", "k": "bg surety principal debtor creditor section 126 demand conditional clause"},
-        {"t": "Types of Bank Guarantee", "h": "bg-types", "k": "bid bond emd tender performance advance payment retention warranty financial deferred payment customs shipping counter guarantee"},
-        {"t": "BG lifecycle & invocation", "h": "bg-life", "k": "invocation claim demand expiry stamp sfms closure"},
-        {"t": "BG law, fraud & URDG 758", "h": "bg-law", "k": "fraud injunction supreme court sumac himadri contract act urdg isp98"},
-        {"t": "LC fundamentals & parties", "h": "lc", "k": "applicant beneficiary issuing advising confirming nominated reimbursing mt700 fields"},
-        {"t": "How an LC pays (availability)", "h": "lc-avail", "k": "sight deferred payment acceptance negotiation recourse"},
-        {"t": "Types of LC", "h": "lc-types", "k": "confirmed silent transferable back to back revolving red clause green clause standby upas usance"},
-        {"t": "LC flow simulator", "h": "lc-flow", "k": "steps process flow lifecycle"},
-        {"t": "Documents under LC", "h": "docs", "k": "invoice bill of lading insurance certificate of origin airway bill packing list draft"},
-        {"t": "UCP 600 article by article", "h": "ucp", "k": "ucp 600 articles rules icc"},
-        {"t": "Dates, tolerances & interpretation", "h": "dates", "k": "on or about 21 days five banking days tolerance about approximately"},
-        {"t": "Incoterms 2020 explorer", "h": "incoterms", "k": "incoterms exw fca cpt cip dap dpu ddp fas fob cfr cif risk"},
-        {"t": "Every bank & its role", "h": "banks", "k": "issuing advising confirming negotiating reimbursing collecting remitting nostro"},
-        {"t": "SWIFT & SFMS messages", "h": "swift", "k": "swift mt700 mt760 mt707 mt734 mt754 sfms ifn 760 cov"},
-        {"t": "BG vs LC vs SBLC vs Collection", "h": "compare", "k": "comparison standby collection d/p d/a"},
-        {"t": "Indian regulation & practice", "h": "india", "k": "rbi non fund based directions 2025 stamp duty e-bg nesl fema fedai"},
-        {"t": "Trade finance calculators", "h": "tools", "k": "calculator presentation maturity tolerance insurance claim period"},
-        {"t": "Spot the discrepancy", "h": "cases", "k": "discrepancy cases practice"},
-        {"t": "BG & LC final quiz", "h": "quiz", "k": "quiz test"},
-        {"t": "BG & LC glossary", "h": "glossary", "k": "glossary terms definitions"}
+        {
+          "t": "Why trade needs banks",
+          "h": "foundations",
+          "k": "payment risk ladder advance open account collection non fund based"
+        },
+        {
+          "t": "Bank Guarantee fundamentals",
+          "h": "bg",
+          "k": "bg surety principal debtor creditor section 126 demand conditional clause"
+        },
+        {
+          "t": "Types of Bank Guarantee",
+          "h": "bg-types",
+          "k": "bid bond emd tender performance advance payment retention warranty financial deferred payment customs shipping counter guarantee"
+        },
+        {
+          "t": "BG lifecycle & invocation",
+          "h": "bg-life",
+          "k": "invocation claim demand expiry stamp sfms closure"
+        },
+        {
+          "t": "BG law, fraud & URDG 758",
+          "h": "bg-law",
+          "k": "fraud injunction supreme court sumac himadri contract act urdg isp98"
+        },
+        {
+          "t": "LC fundamentals & parties",
+          "h": "lc",
+          "k": "applicant beneficiary issuing advising confirming nominated reimbursing mt700 fields"
+        },
+        {
+          "t": "How an LC pays (availability)",
+          "h": "lc-avail",
+          "k": "sight deferred payment acceptance negotiation recourse"
+        },
+        {
+          "t": "Types of LC",
+          "h": "lc-types",
+          "k": "confirmed silent transferable back to back revolving red clause green clause standby upas usance"
+        },
+        {
+          "t": "LC flow simulator",
+          "h": "lc-flow",
+          "k": "steps process flow lifecycle"
+        },
+        {
+          "t": "Documents under LC",
+          "h": "docs",
+          "k": "invoice bill of lading insurance certificate of origin airway bill packing list draft"
+        },
+        {
+          "t": "UCP 600 article by article",
+          "h": "ucp",
+          "k": "ucp 600 articles rules icc"
+        },
+        {
+          "t": "Dates, tolerances & interpretation",
+          "h": "dates",
+          "k": "on or about 21 days five banking days tolerance about approximately"
+        },
+        {
+          "t": "Incoterms 2020 explorer",
+          "h": "incoterms",
+          "k": "incoterms exw fca cpt cip dap dpu ddp fas fob cfr cif risk"
+        },
+        {
+          "t": "Every bank & its role",
+          "h": "banks",
+          "k": "issuing advising confirming negotiating reimbursing collecting remitting nostro"
+        },
+        {
+          "t": "SWIFT & SFMS messages",
+          "h": "swift",
+          "k": "swift mt700 mt760 mt707 mt734 mt754 sfms ifn 760 cov"
+        },
+        {
+          "t": "BG vs LC vs SBLC vs Collection",
+          "h": "compare",
+          "k": "comparison standby collection d/p d/a"
+        },
+        {
+          "t": "Indian regulation & practice",
+          "h": "india",
+          "k": "rbi non fund based directions 2025 stamp duty e-bg nesl fema fedai"
+        },
+        {
+          "t": "Trade finance calculators",
+          "h": "tools",
+          "k": "calculator presentation maturity tolerance insurance claim period"
+        },
+        {
+          "t": "Spot the discrepancy",
+          "h": "cases",
+          "k": "discrepancy cases practice"
+        },
+        {
+          "t": "BG & LC final quiz",
+          "h": "quiz",
+          "k": "quiz test"
+        },
+        {
+          "t": "BG & LC glossary",
+          "h": "glossary",
+          "k": "glossary terms definitions"
+        }
+      ]
+    },
+    {
+      "id": "ccp",
+      "title": "CCP Credit Desk",
+      "subtitle": "IIBF Certified Credit Professional — cards, labs, cases, mock tests",
+      "category": "Learn",
+      "icon": "tool",
+      "path": "modules/ccp/",
+      "keywords": [
+        "ccp",
+        "certified credit professional",
+        "iibf",
+        "credit",
+        "exam",
+        "mock",
+        "mpbf",
+        "npa",
+        "working capital",
+        "appraisal"
+      ],
+      "sections": [
+        {
+          "t": "CCP dashboard",
+          "h": "home",
+          "k": "ccp start progress"
+        },
+        {
+          "t": "CCP Exam Radar (recalled questions)",
+          "h": "radar",
+          "k": "previous year questions pyq memory based"
+        },
+        {
+          "t": "CCP — what's new before cut-off",
+          "h": "news",
+          "k": "current developments msme psl gold loan ecl project finance"
+        },
+        {
+          "t": "Module A cards — credit basics",
+          "h": "deck-A",
+          "k": "principles lending borrowers huf partnership llp company exposure car crilc"
+        },
+        {
+          "t": "Module B cards — financial analysis",
+          "h": "deck-B",
+          "k": "balance sheet ratios tnw dscr cash flow project appraisal npv irr payback"
+        },
+        {
+          "t": "Module C cards — working capital",
+          "h": "deck-C",
+          "k": "mpbf tandon nayak turnover method drawing power cma lc bg co-acceptance"
+        },
+        {
+          "t": "Module D cards — export, PSL, retail",
+          "h": "deck-D",
+          "k": "packing credit pcfc ecgc priority sector msme mudra cgtmse home loan gold loan ltv"
+        },
+        {
+          "t": "Module E cards — monitoring & NPA",
+          "h": "deck-E",
+          "k": "documentation stamping limitation pledge hypothecation mortgage npa sma provisioning sarfaesi drt ibc wilful"
+        },
+        {
+          "t": "Ratio Lab",
+          "h": "lab-ratio",
+          "k": "current ratio tol tnw dscr calculator"
+        },
+        {
+          "t": "Working Capital Lab",
+          "h": "lab-wc",
+          "k": "mpbf turnover method operating cycle drawing power calculator"
+        },
+        {
+          "t": "Project Lab",
+          "h": "lab-project",
+          "k": "npv irr payback break even calculator"
+        },
+        {
+          "t": "NPA Time Machine",
+          "h": "lab-npa",
+          "k": "npa sma provisioning calculator"
+        },
+        {
+          "t": "Credit Desk cases",
+          "h": "cases",
+          "k": "case study"
+        },
+        {
+          "t": "Unlimited numericals",
+          "h": "numericals",
+          "k": "numerical practice"
+        },
+        {
+          "t": "CCP full mock test",
+          "h": "mock",
+          "k": "mock test 100 questions"
+        },
+        {
+          "t": "CCP Daily 10",
+          "h": "daily",
+          "k": "daily quiz"
+        }
       ]
     }
   ]
