@@ -47,7 +47,7 @@ const cardById = id => C.CARDS.find(c => c.id === id);
 function opts(correct, wrongs, fmt) {
   const seen = new Set([fmt(correct)]); const o = [fmt(correct)];
   wrongs.filter(w => isFinite(w) && w > 0).forEach(w => { const f = fmt(w); if (!seen.has(f) && o.length < 4) { seen.add(f); o.push(f); } });
-  let k = 1; while (o.length < 4) { const f = fmt(correct * (1 + 0.1 * k * (k % 2 ? 1 : -1))); if (!seen.has(f)) { seen.add(f); o.push(f); } k++; }
+  let k = 1; while (o.length < 4 && k < 60) { const v = k < 30 ? correct * (1 + 0.1 * k * (k % 2 ? 1 : -1)) : correct + k; const f = fmt(v); if (v > 0 && !seen.has(f)) { seen.add(f); o.push(f); } k++; }
   const sh = shuffle(o); return { o: sh, a: sh.indexOf(fmt(correct)) };
 }
 const GEN = {
@@ -55,7 +55,7 @@ const GEN = {
     return { q: `Current assets ${L(ca)}, current liabilities other than bank borrowings ${L(ocl)}. MPBF under Tandon Method I?`, ...opts(ans, [0.75 * ca - ocl, g, 0.25 * g], L), e: `WC gap = ${ca} − ${ocl} = ${g}. MPBF = 75% × ${g} = <b>${L(ans)}</b>. Borrower brings 25% of the gap.` }; } },
   mpbf2: { m: 'C', name: 'MPBF Method II', make() { const ca = rnd(200, 900, 10), ocl = rnd(40, Math.floor(ca * 0.4), 10), ans = 0.75 * ca - ocl;
     return { q: `Current assets ${L(ca)}, other current liabilities (excluding bank borrowings) ${L(ocl)}. MPBF under Tandon Method II?`, ...opts(ans, [0.75 * (ca - ocl), ca - ocl, 0.75 * ca], L), e: `MPBF = 75% × CA − OCL = ${r2(0.75 * ca)} − ${ocl} = <b>${L(ans)}</b>. Borrower funds 25% of total current assets.` }; } },
-  mpbf3: { m: 'C', name: 'MPBF Method III', make() { const ca = rnd(300, 900, 10), core = rnd(40, 120, 10), ocl = rnd(40, 150, 10), ans = 0.75 * (ca - core) - ocl;
+  mpbf3: { m: 'C', name: 'MPBF Method III', make() { const ca = rnd(300, 900, 10), core = rnd(40, 120, 10), ocl = rnd(40, Math.min(150, Math.floor(0.75 * (ca - core) / 10) * 10 - 40), 10), ans = 0.75 * (ca - core) - ocl;
     return { q: `CA ${L(ca)}, core current assets ${L(core)}, other current liabilities ${L(ocl)}. MPBF under Method III?`, ...opts(ans, [0.75 * ca - ocl, 0.75 * (ca - ocl), 0.75 * (ca - core - ocl)], L), e: `MPBF = 75% × (CA − core CA) − OCL = 75% × ${ca - core} − ${ocl} = <b>${L(ans)}</b>.` }; } },
   nayak: { m: 'C', name: 'Turnover method', make() { const t = rnd(100, 2000, 20), nwc = Math.random() < 0.5 ? r2(t * rnd(2, 4) / 100) : r2(t * rnd(6, 10) / 100), ans = Math.min(0.2 * t, 0.25 * t - nwc);
     return { q: `Projected annual turnover ${L(t)}; net working capital available ${L(nwc)}. Maximum bank finance under the turnover method?`, ...opts(ans, [0.25 * t, 0.2 * t === ans ? 0.25 * t - nwc : 0.2 * t, 0.05 * t, 0.25 * t - 0.05 * t + nwc], L), e: `Requirement 25% = ${r2(0.25 * t)}. Bank finance = lower of 20% of turnover (${r2(0.2 * t)}) and 25% − NWC (${r2(0.25 * t - nwc)}) = <b>${L(ans)}</b>.` }; } },
@@ -91,7 +91,12 @@ const GEN = {
     return { q: `Annual purchases under LC ${L(ann)}. Lead time ${lead} months, transit ${tr} month(s), usance ${us} months. LC limit required?`, ...opts(ans, [mon * (lead + tr), mon * us, ann / 4], L), e: `Monthly = ${r2(mon)}; × (${lead} + ${tr} + ${us}) = <b>${L(ans)}</b>.` }; } }
 };
 function maxLoan(v, bands) { let best = 0, lower = 0; bands.forEach(([up, ltv]) => { const cand = Math.min(v * ltv, up); if (cand > lower) best = Math.max(best, cand); lower = up; }); return r2(best); }
-function genQ(key) { const g = GEN[key || pick(Object.keys(GEN))]; const q = g.make(); q.m = g.m; q.gen = true; return q; }
+function genQ(key) {
+  const g = GEN[key || pick(Object.keys(GEN))]; let q;
+  // never serve a question whose answer or options are nonsensical (zero/negative/duplicate)
+  for (let i = 0; i < 25; i++) { q = g.make(); if (q.a >= 0 && q.o.length === 4 && new Set(q.o).size === 4 && !q.o.some(x => /NaN|Infinity|₹-|^-/.test(x))) break; }
+  q.m = g.m; q.gen = true; return q;
+}
 
 /* ================= ROUTES / VIEWS ================= */
 const V = {};
@@ -231,7 +236,7 @@ function wcCalc(v) {
   ${rw('MPBF Method III', m3, crOf(m3).toFixed(2), '75% × (CA − core) − OCL')}
   </table>
   <p class="small">Turnover method: MSE limits up to ₹5 crore. Method II is the Chore Committee choice; its minimum current ratio is 1.33.</p>
-  <div class="kpis"><div><small>Net operating cycle</small><b>${cyc} days</b></div><div><small>WC need at cycle (on turnover)</small><b>${L(t * cyc / 365)}</b></div></div>
+  <div class="kpis"><div><small>Net operating cycle</small><b>${cyc} days</b></div><div><small>Rough WC need (turnover × cycle ÷ 365)</small><b>${L(t * cyc / 365)}</b></div></div>
   <div class="kpis"><div><small>Drawing power</small><b>${L(dp)}</b></div><div><small>Can draw now</small><b>${L(draw)}</b></div><div><small>Limited by</small><b>${dp < v('lim') ? 'Drawing power' : 'Sanctioned limit'}</b></div></div>`;
 }
 
@@ -255,11 +260,11 @@ function projCalc(v) {
 
 V['lab-npa'] = () => `<h1>NPA Time Machine</h1><p class="lead">Move the overdue clock and watch the account slide from SMA to NPA and through the doubtful buckets — with the provision at each stage (current IRAC norms).</p>
 <div class="lab"><div class="inputs">
-${field('d', 'Days overdue', 45, 15, 'days')}${field('o', 'Outstanding', 50, 5)}${field('s', 'Realisable value of security', 30, 5)}${field('g', 'Covered by CGTMSE / ECGC', 0, 5)}
+${field('d', 'Days overdue', 45, 15, 'days')}${field('o', 'Outstanding', 50, 5)}${field('s', 'Realisable value of security', 30, 5)}${field('g', 'Guaranteed by CGTMSE / ECGC (on the unsecured part)', 0, 5)}
 <div class="fld"><label for="sec">Sector (for standard asset provision)</label><select id="sec"><option value="0.40">General / others · 0.40%</option><option value="0.25">Agriculture & SME · 0.25%</option><option value="1">CRE · 1%</option><option value="0.75">CRE-RH · 0.75%</option><option value="2">Teaser home loan · 2%</option></select></div>
 </div><div class="outputs" id="out" aria-live="polite"></div></div>`;
 function npaCalc(v) {
-  const d = Math.max(0, v('d')), o = v('o'), s = Math.min(v('s'), o), cover = Math.min(v('g'), o), net = o - cover, stdr = parseFloat($('#sec').value);
+  const d = Math.max(0, v('d')), o = v('o'), s = Math.min(v('s'), o), cover = Math.min(v('g'), Math.max(0, o - s)), net = o - cover, stdr = parseFloat($('#sec').value);
   let cls, prov, why, stage;
   if (d <= 90) {
     stage = d === 0 ? 0 : d <= 30 ? 1 : d <= 60 ? 2 : 3; cls = ['Standard (regular)', 'SMA-0 (standard)', 'SMA-1 (standard)', 'SMA-2 (standard)'][stage];
@@ -269,7 +274,7 @@ function npaCalc(v) {
     if (npaM <= 12) { stage = 4; cls = 'Sub-standard'; const r = unsecExp ? 25 : 15; prov = net * r / 100; why = `NPA for ${npaM.toFixed(1)} months → sub-standard: ${r}%${unsecExp ? ' (unsecured exposure)' : ''} of ${r2(net)}.`; }
     else { const y = (npaM - 12) / 12, b = y <= 1 ? ['D1', 25, 5] : y <= 3 ? ['D2', 40, 6] : ['D3', 100, 7]; stage = b[2]; cls = 'Doubtful ' + b[0];
       prov = uns + sec * b[1] / 100; why = `In doubtful for ${y.toFixed(1)} yrs → ${b[0]}: unsecured ${r2(uns)} × 100% + secured ${r2(sec)} × ${b[1]}%.`; }
-    if (cover) why += ` Guaranteed portion ${r2(cover)} excluded first.`;
+    if (cover) why += ` CGTMSE/ECGC-guaranteed portion ${r2(cover)} (on the unsecured part) needs no provision — RBI IRAC norms.`;
   }
   const steps = ['Regular', 'SMA-0', 'SMA-1', 'SMA-2', 'Sub-std', 'D1', 'D2', 'D3'];
   return `<div class="tl">${steps.map((x, i) => `<span class="${i === stage ? 'now' : i < stage ? 'past' : ''}">${x}</span>`).join('')}</div>

@@ -7,6 +7,7 @@ Two version numbers:
 The home screen footer shows both.
 
 ## Web
+- **1.9** — CCP fact-check: Method III numericals could produce a negative answer (fixed); a rare freeze in option generation (fixed); NPA Time Machine now applies CGTMSE/ECGC cover only to the unsecured part, per RBI's illustration; clearer labels.
 - **1.8** — New app: **CCP Credit Desk** (IIBF Certified Credit Professional) — concept cards, 4 live labs, Credit Desk cases, unlimited numericals, Daily 10, 100-question mock, Exam Radar, what's new.
 - **1.7** — Automatic version numbers; this changelog; footer shows web + app versions.
 - **1.6** — Course: choosing a chapter moves the remote into the reading pane.
