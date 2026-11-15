@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en" data-nav-extra=".modcard,.ladder div,#psvg .party,.timeline span">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Guarantees & Letters of Credit — The Complete Course</title>
+<meta name="theme-color" content="#141A24">
+<link rel="stylesheet" href="../../core/jharokha.css">
+<script src="../../core/jharokha.js"></script>
+<style>
+:root,[data-theme]{
+  --paper:var(--j-bg); --card:var(--j-surface); --ink:var(--j-text); --ink2:var(--j-text-2); --muted:var(--j-muted);
+  --line:var(--j-line); --accent:var(--j-accent); --accent-soft:color-mix(in srgb,var(--j-accent) 16%,var(--j-surface));
+  --teal:var(--j-accent-2); --teal-soft:color-mix(in srgb,var(--j-accent-2) 16%,var(--j-surface));
+  --gold:var(--j-warn); --gold-soft:color-mix(in srgb,var(--j-warn) 16%,var(--j-surface));
+  --good:var(--j-good); --good-soft:color-mix(in srgb,var(--j-good) 18%,var(--j-surface));
+  --bad:var(--j-bad); --bad-soft:color-mix(in srgb,var(--j-bad) 18%,var(--j-surface));
+  --radius:10px; --side:270px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3,h4{font-family:"Source Serif 4",Georgia,serif;line-height:1.25;margin:1.4em 0 .5em}
+h1{font-size:2.1rem;margin-top:.2em}
+h2{font-size:1.5rem;border-bottom:1px solid var(--line);padding-bottom:.3em}
+h3{font-size:1.18rem}
+h4{font-size:1rem;font-family:"IBM Plex Sans";font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;font-size:.8rem}
+p{margin:.5em 0 .9em}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+a{color:var(--teal)}
+.layout{display:flex;min-height:100vh}
+nav.side{width:var(--side);flex:0 0 var(--side);background:var(--j-surface);color:var(--ink2);border-right:1px solid var(--line);position:sticky;top:0;height:100vh;overflow-y:auto;padding:18px 0 40px}
+nav.side .brand{padding:0 20px 14px;border-bottom:1px solid var(--line);margin-bottom:8px}
+nav.side .brand b{font-family:"Source Serif 4";font-size:1.15rem;color:var(--ink);display:block}
+nav.side .brand span{font-size:.78rem;color:var(--muted)}
+nav.side a.j-home{padding:6px 0;margin-bottom:8px;color:var(--accent);font-weight:600;border:0}
+nav.side .grp{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:14px 20px 4px}
+nav.side a{display:flex;align-items:center;gap:8px;color:var(--ink2);text-decoration:none;padding:6px 20px;font-size:.9rem;border-left:3px solid transparent}
+nav.side a:hover{background:var(--j-surface-2)}
+nav.side a.on{background:var(--j-surface-2);border-left-color:var(--accent);color:var(--ink)}
+nav.side a .dot{width:7px;height:7px;border-radius:50%;background:var(--line);flex:0 0 7px}
+nav.side a.seen .dot{background:var(--good)}
+.prog{margin:10px 20px 0;font-size:.75rem;color:var(--muted)}
+.bar{height:5px;background:var(--line);border-radius:3px;margin-top:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--good);width:0}
+main{flex:1;min-width:0;padding:34px clamp(18px,4vw,56px) 80px;max-width:1080px}
+.topbar{display:none}
+.lead{font-size:1.08rem;color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:14px 0}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--teal-soft);color:var(--teal);margin:0 4px 4px 0}
+.tag.r{background:var(--accent-soft);color:var(--accent)} .tag.g{background:var(--gold-soft);color:var(--gold)}
+.note{border-left:4px solid var(--gold);background:var(--gold-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.94rem}
+.key{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.tip{border-left:4px solid var(--teal);background:var(--teal-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.94rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--j-surface-2);font-weight:600}
+.tw{overflow-x:auto;margin:12px 0;border-radius:8px}
+button,.btn{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:7px;cursor:pointer}
+button:hover{border-color:var(--ink2)}
+button.pri{background:var(--accent);color:var(--j-on-accent);border-color:var(--accent)}
+button.pri:hover{filter:brightness(1.08)}
+button.sel{background:var(--accent);color:var(--j-on-accent);border-color:var(--accent)}
+input,select{font:inherit;font-size:.92rem;padding:7px 9px;border:1px solid var(--line);border-radius:7px;background:var(--j-surface-2);color:var(--ink);width:100%}
+label{font-size:.82rem;color:var(--ink2);display:block;margin:8px 0 3px;font-weight:500}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.out{background:var(--j-surface-2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-top:12px;font-size:.92rem}
+.out b{color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chips button{padding:5px 11px;font-size:.84rem}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:8px 0;padding:0 14px}
+details summary{cursor:pointer;padding:10px 0;font-weight:600}
+details[open] summary{border-bottom:1px dashed var(--line);margin-bottom:8px}
+.pager{display:flex;justify-content:space-between;margin-top:40px;gap:10px}
+.hidden{display:none!important}
+#psvg rect{fill:var(--card);stroke:var(--ink2)}
+#psvg text{fill:var(--ink2)} #psvg text[font-weight="600"]{fill:var(--ink)} #psvg text[fill="#9a3b26"]{fill:var(--accent)}
+#psvg line{stroke:var(--muted)} #psvg line[stroke="#9a3b26"]{stroke:var(--accent)} #psvg marker path{fill:var(--muted)}
+#psvg .party.on rect{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2.5}
+.party{cursor:pointer;transition:.15s}
+.party:hover rect{stroke:var(--accent);stroke-width:2.5}
+.party.on rect{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2.5}
+svg text{font-family:"IBM Plex Sans";}
+.flowstep{display:flex;gap:14px;align-items:flex-start}
+.flowstep .n{flex:0 0 38px;height:38px;border-radius:50%;background:var(--accent);color:var(--j-on-accent);display:grid;place-items:center;font-weight:600}
+.timeline{display:flex;gap:4px;margin:12px 0}
+.timeline span{flex:1;height:6px;border-radius:3px;background:var(--line);cursor:pointer}
+.timeline span.on{background:var(--accent)}
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:14px 0}
+.ladder div{padding:10px 8px;border-radius:8px;text-align:center;font-size:.82rem;cursor:pointer;border:2px solid transparent;background:var(--card);border-color:var(--line)}
+.ladder div.on{border-color:var(--accent);background:var(--accent-soft)}
+.meter{height:12px;border-radius:6px;background:var(--line);overflow:hidden;margin:4px 0 10px}
+.meter i{display:block;height:100%;transition:width .3s}
+.journey{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin:16px 0 6px}
+.journey .st{font-size:.68rem;text-align:center;color:var(--ink2);line-height:1.2;padding:0 2px}
+.jbar{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin:3px 0}
+.jbar div{height:26px;border-radius:4px;font-size:.66rem;display:grid;place-items:center;color:var(--paper);font-weight:600}
+.s{background:var(--teal)} .b{background:var(--gold)}
+.case{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 18px;margin:12px 0}
+.case .lc{background:var(--j-surface-2);border-radius:6px;padding:8px 12px;font-size:.9rem;margin:6px 0}
+.case .doc{background:var(--teal-soft);border-radius:6px;padding:8px 12px;font-size:.9rem;margin:6px 0}
+.verdict{margin-top:10px;padding:10px 12px;border-radius:7px;font-size:.92rem}
+.verdict.ok{background:var(--good-soft);color:var(--ink);border-left:4px solid var(--good)}.verdict.no{background:var(--bad-soft);color:var(--ink);border-left:4px solid var(--bad)}
+.q{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 18px;margin:14px 0}
+.q .opts button{display:block;width:100%;text-align:left;margin:6px 0}
+.q .opts button.right{background:var(--good-soft);border-color:var(--good)}
+.q .opts button.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.score{position:sticky;top:0;background:var(--paper);padding:10px 0;z-index:3;border-bottom:1px solid var(--line)}
+.gl dt{font-weight:600;margin-top:12px}
+.gl dd{margin:2px 0 0 0;color:var(--ink2);font-size:.94rem}
+.art{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.art b.n{font-family:"IBM Plex Mono";color:var(--accent);font-size:.95rem}
+.hero{background:var(--j-surface-2);border:1px solid var(--line);color:var(--ink);border-radius:14px;padding:30px 30px 26px;margin-bottom:22px}
+.hero h1{color:var(--ink);margin:0 0 8px}
+.hero p{color:var(--ink2);max-width:640px}
+.modcard{cursor:pointer}
+.modcard:hover{border-color:var(--accent)}
+.modcard h3{margin:.2em 0 .3em}
+.small{font-size:.85rem;color:var(--muted)}
+@media (max-width:860px){
+  nav.side{position:fixed;left:-290px;z-index:20;transition:.25s;height:100vh}
+  nav.side.open{left:0;box-shadow:0 0 40px rgba(0,0,0,.4)}
+  .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;background:var(--j-surface);color:var(--ink);border-bottom:1px solid var(--line);padding:10px 14px;z-index:10}
+  .topbar button{background:var(--j-surface-2);color:var(--ink);border-color:var(--line)}
+  main{padding-top:20px}
+  .ladder{grid-template-columns:1fr 1fr}
+  .journey .st{font-size:.56rem}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><a href="../../" class="btn" style="text-decoration:none">← Home</a><button onclick="document.querySelector('nav.side').classList.toggle('open')">☰ Menu</button><b>BG & LC Course</b></div>
+<div class="layout">
+<nav class="side" id="nav">
+  <div class="brand"><a class="j-home" href="../../">← Jharokha</a><b>BG & LC Masterclass</b><span>Trade finance, from first principles</span></div>
+  <div class="prog">Progress <span id="progtxt">0%</span><div class="bar"><i id="progbar"></i></div></div>
+</nav>
+<main id="main"></main>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const NAV = [
+ ["Start",[["home","Course map"],["foundations","1 · Why trade needs banks"]]],
+ ["Bank Guarantee",[["bg","2 · BG fundamentals"],["bg-types","3 · Types of BG"],["bg-life","4 · BG lifecycle & invocation"],["bg-law","5 · Law, fraud & URDG 758"]]],
+ ["Letter of Credit",[["lc","6 · LC fundamentals & parties"],["lc-avail","7 · How an LC pays (availability)"],["lc-types","8 · Types of LC"],["lc-flow","9 · LC flow simulator"],["docs","10 · Documents under LC"],["ucp","11 · UCP 600 article by article"],["dates","12 · Dates, tolerances & interpretation"]]],
+ ["Trade terms & plumbing",[["incoterms","13 · Incoterms 2020 explorer"],["banks","14 · Every bank & its role"],["swift","15 · SWIFT / SFMS messages"],["compare","16 · BG vs LC vs SBLC vs Collection"]]],
+ ["India",[["india","17 · Indian regulation & practice"]]],
+ ["Practice",[["tools","Calculators"],["cases","Spot the discrepancy"],["quiz","Final quiz"],["glossary","Glossary"]]]
+];
+const ORDER = NAV.flatMap(g=>g[1].map(x=>x[0]));
+const TITLES = Object.fromEntries(NAV.flatMap(g=>g[1]));
+
+const BGTYPES = [
+ {n:"Bid Bond / Tender Guarantee / EMD guarantee",cls:"Performance",why:"Protects the tender-inviting authority if the bidder withdraws its bid during validity, or refuses to sign the contract / furnish the performance guarantee after award.",amt:"Typically 1–5% of bid value (as fixed in the tender).",val:"Bid validity + a cushion (often 45 days) + claim period.",watch:"Released to unsuccessful bidders after award; for the winner it is replaced by a performance guarantee."},
+ {n:"Performance Guarantee",cls:"Performance",why:"Secures due performance of the contract (supply, construction, service). Beneficiary claims if the contractor fails to perform.",amt:"Typically 5–10% of contract value.",val:"Contract period + defect liability / warranty period, as per contract.",watch:"Most litigated type. Wording decides whether it is a 'demand' (pay on first written demand) or 'conditional' guarantee."},
+ {n:"Advance Payment Guarantee (APG)",cls:"Performance (some banks treat as financial)",why:"Buyer pays a mobilisation / advance to a supplier; the APG assures refund if the supplier does not perform.",amt:"Equal to the advance; usually reduces as the advance is adjusted against running bills (reduction clause).",val:"Until full recovery of the advance.",watch:"Insert an 'effectiveness clause' — guarantee comes into force only when the advance is actually credited to the applicant's account."},
+ {n:"Retention Money Guarantee",cls:"Performance",why:"Buyers normally retain 5–10% of each bill until completion. This BG lets the contractor get the retention money released early.",amt:"Equal to retention amount released.",val:"Till end of defect liability period.",watch:"Release is often linked to a completion / taking-over certificate."},
+ {n:"Warranty / Maintenance / Defect Liability Guarantee",cls:"Performance",why:"Covers the supplier's obligation to rectify defects during the warranty period.",amt:"Usually 5–10% of contract value.",val:"Warranty period + claim period.",watch:"Often replaces the performance guarantee once supply is complete."},
+ {n:"Financial Guarantee",cls:"Financial",why:"Guarantees repayment of a monetary obligation — the bank effectively substitutes its credit for the applicant's (e.g., guaranteeing payment for goods bought on credit, or a statutory dues).",amt:"Full obligation.",val:"Tenor of the obligation.",watch:"Higher risk: 100% credit conversion factor for capital (vs 50% for performance). Appraised like a term loan."},
+ {n:"Deferred Payment Guarantee (DPG)",cls:"Financial",why:"Buyer purchases machinery/equipment and pays in instalments over years; bank guarantees each instalment to the seller.",amt:"Total deferred instalments + interest.",val:"Multi-year, matching the instalment schedule.",watch:"Treated as a term-loan-equivalent exposure; appraise cash flows like a term loan."},
+ {n:"Customs / GST / Excise / Statutory Guarantee",cls:"Financial",why:"In favour of a government authority — e.g., for provisional assessment, duty-free import under export obligation (EPCG/Advance Authorisation), court orders.",amt:"As demanded by the authority.",val:"Often long and open-ended; authorities frequently ask for 'auto-renewal'.",watch:"Insist on a fixed expiry; open-ended guarantees are a red flag for the bank."},
+ {n:"Shipping Guarantee / Delivery-without-B/L guarantee",cls:"Financial / indemnity",why:"Goods reach the port before the original Bill of Lading. Bank guarantees (indemnifies) the shipping line so it releases goods to the importer without the B/L.",amt:"Usually unlimited or 150–200% of invoice value (shipping line's format).",val:"Until the original B/L is surrendered to the shipping line.",watch:"Normally issued only for goods imported under the bank's own LC; the bank commits to accept the documents regardless of discrepancies."},
+ {n:"Counter Guarantee (indirect guarantee)",cls:"Depends on underlying",why:"Foreign beneficiary wants a guarantee from a local bank in its own country. Your bank issues a counter-guarantee to that local bank, which then issues the local guarantee.",amt:"Equal to the local guarantee (plus charges).",val:"Local guarantee expiry + mail/claim days.",watch:"Two layers: your bank pays the guarantor bank, which has paid the beneficiary. Governed by URDG 758 if stated."},
+ {n:"Standby Letter of Credit (SBLC)",cls:"Financial or performance",why:"A guarantee dressed as an LC — the beneficiary draws only if the applicant defaults. Common in the US (where banks historically could not issue 'guarantees').",amt:"As agreed.",val:"As agreed; evergreen clauses common.",watch:"Governed by ISP98 or UCP 600. Payment is against a simple statement of default."},
+ {n:"Payment Guarantee (for supplier credit)",cls:"Financial",why:"Supplier sells on open account; bank guarantees the buyer will pay on due date.",amt:"Invoice value.",val:"Credit period + claim period.",watch:"Close cousin of an SBLC; check FEMA rules for cross-border trade credit."}
+];
+
+const LCTYPES = [
+ {n:"Irrevocable LC",g:"By revocability",d:"Cannot be amended or cancelled without the agreement of the issuing bank, the confirming bank (if any) and the beneficiary. Under UCP 600 (Art 2, 3, 10) every credit is irrevocable, even if it does not say so.",u:"The default — every LC you will see today."},
+ {n:"Revocable LC (historic)",g:"By revocability",d:"Could be cancelled by the issuing bank without notice. Allowed under UCP 500; UCP 600 dropped it. Practically extinct.",u:"Exam questions only."},
+ {n:"Confirmed LC",g:"By security",d:"A second bank (usually in the beneficiary's country) adds its own definite undertaking to honour/negotiate (Art 8). The beneficiary now has two independent bank promises.",u:"When the exporter doubts the issuing bank or the issuing bank's country (country risk, transfer risk)."},
+ {n:"Unconfirmed LC",g:"By security",d:"Only the issuing bank undertakes. The advising bank merely authenticates and passes it on.",u:"When the issuing bank is well known and the country is stable."},
+ {n:"Silent Confirmation",g:"By security",d:"The beneficiary privately buys protection from a bank without the issuing bank's request or knowledge. Not a 'confirmation' under UCP — a bilateral risk contract.",u:"Issuing bank has not asked for confirmation (or forbids it), but exporter wants cover."},
+ {n:"Sight LC",g:"By payment time",d:"Payment upon complying presentation — the bank pays after examination (within max 5 banking days).",u:"Exporter needs cash immediately."},
+ {n:"Usance / Acceptance LC",g:"By payment time",d:"Beneficiary draws a time draft (e.g., 90 days after B/L date) which the bank accepts; payment on maturity. The accepted draft (banker's acceptance) can be discounted.",u:"Buyer gets credit period; seller gets a bank-accepted bill."},
+ {n:"Deferred Payment LC",g:"By payment time",d:"Like usance but without a draft; the bank issues a deferred payment undertaking and pays on the maturity date.",u:"Countries/sectors where draft stamp duty is a nuisance; machinery imports."},
+ {n:"Negotiation LC — Restricted",g:"By availability",d:"Only a named bank can negotiate (purchase drafts/documents, advance funds before reimbursement).",u:"Issuing bank wants a known bank to handle documents."},
+ {n:"Negotiation LC — Freely negotiable",g:"By availability",d:"'Available with any bank by negotiation' — every bank is a nominated bank.",u:"Gives the exporter flexibility to use its own bank."},
+ {n:"UPAS — Usance Payable At Sight",g:"By payment time",d:"An usance LC where the beneficiary is paid at sight: a bank (often an overseas branch) funds the seller and the buyer repays at usance maturity. Interest is for the applicant's account.",u:"Very common in Indian imports — buyer gets cheap credit, seller gets cash. Subject to RBI trade credit norms."},
+ {n:"Transferable LC",g:"Special",d:"The first beneficiary (usually a middleman) can ask the transferring bank to make the credit available to one or more second beneficiaries (Art 38). Can be transferred only once; the first beneficiary may substitute its own invoice and draft.",u:"Traders/agents who don't manufacture the goods."},
+ {n:"Back-to-Back LC",g:"Special",d:"A middleman uses the LC received (master LC) as security to have its bank open a second, separate LC in favour of the actual supplier. Two independent credits — not covered by Art 38.",u:"When the master LC is not transferable or the trader wants to hide the supplier from the buyer."},
+ {n:"Revolving LC",g:"Special",d:"Reinstates automatically after use, up to a time or value limit. Cumulative — unused amount carries forward; Non-cumulative — it lapses.",u:"Regular, repeated shipments to the same buyer."},
+ {n:"Red Clause LC",g:"Special (anticipatory)",d:"Authorises the nominated bank to give the beneficiary an advance before shipment (clause traditionally printed in red), against a simple undertaking. Applicant bears the risk.",u:"Pre-shipment finance for trusted suppliers (wool, agri)."},
+ {n:"Green Clause LC",g:"Special (anticipatory)",d:"Like red clause, but the advance is against warehouse receipts showing goods stored in the bank's name — more secure.",u:"Commodities stored pending shipment."},
+ {n:"Standby LC (SBLC)",g:"Special",d:"Payment only on default; works like a guarantee. Governed by ISP98 (or UCP 600 / URDG 758).",u:"Securing payment obligations, loans, performance."},
+ {n:"Import LC / Export LC",g:"By viewpoint",d:"Same instrument seen from two sides: for the issuing (importer's) bank it is an import LC; for the advising/negotiating (exporter's) bank it is an export LC.",u:"Bank department naming."},
+ {n:"Inland / Domestic LC",g:"By geography",d:"Buyer and seller in the same country (e.g., inland LC for domestic purchase). In India usually subject to UCP 600 and the bank's inland LC policy.",u:"Domestic credit purchases."},
+ {n:"Documentary vs Clean LC",g:"By documents",d:"Documentary — payment against transport/commercial documents. Clean — only a draft or simple demand, no documents (SBLCs are close to clean).",u:"Almost all commercial LCs are documentary."},
+ {n:"Straight LC",g:"By availability",d:"The undertaking runs only to the beneficiary presenting at the issuing bank's counters (or a named paying bank), not to negotiating banks.",u:"US-style credits."}
+];
+
+const PARTIES = {
+ applicant:{t:"Applicant (Importer / Buyer)",d:"Party on whose request the credit is issued (Art 2). Signs the LC application and counter-indemnity, provides margin, pays the issuing bank on a complying presentation. In a BG the applicant is the 'principal debtor'."},
+ beneficiary:{t:"Beneficiary (Exporter / Seller)",d:"Party in whose favour the credit is issued. Ships goods and presents documents. Gets paid only if documents comply — not if the goods are perfect."},
+ issuing:{t:"Issuing Bank (Opening bank)",d:"Bank that issues the credit at the applicant's request. Gives the definite, irrevocable undertaking to honour a complying presentation (Art 7). Takes credit risk on the applicant."},
+ advising:{t:"Advising Bank",d:"Advises the credit to the beneficiary. Its only duty: satisfy itself of the apparent authenticity of the credit and that the advice reflects its terms (Art 9). No undertaking to pay unless it also confirms."},
+ confirming:{t:"Confirming Bank",d:"Adds its own definite undertaking, in addition to the issuing bank's, to honour or negotiate (Art 8). Typically the advising bank. Takes risk on the issuing bank and its country."},
+ nominated:{t:"Nominated / Negotiating Bank",d:"Bank with which the credit is available (Art 2, 12). It may honour or negotiate; it is not obliged to unless it is the confirming bank. Examines documents and forwards them."},
+ reimbursing:{t:"Reimbursing Bank",d:"Bank (often where the currency is cleared, e.g., a New York bank for USD) authorised by the issuing bank to pay the claiming bank. Governed by URR 725. Does not examine documents."}
+};
+
+const FLOW = [
+ {t:"Sales contract",who:"Buyer ⇄ Seller",d:"Buyer and seller agree: goods, price, Incoterm (say CIF Mundra), payment by 'irrevocable LC at sight, confirmed', latest shipment date, documents required.",tip:"The LC must mirror the contract — but once issued, the bank deals only with the LC (Art 4)."},
+ {t:"LC application",who:"Buyer → Issuing bank",d:"Importer submits the LC application, counter-indemnity, margin (cash or within sanctioned NFB limit). Bank checks limits, FEMA/import eligibility, KYC, sanctions screening, and drafts the LC.",tip:"Avoid 'non-documentary conditions' — conditions without a document to evidence them are disregarded (Art 14h)."},
+ {t:"Issuance (MT700)",who:"Issuing bank → Advising bank",d:"Issuing bank sends MT700 over SWIFT to the advising bank in the seller's country. From this moment the issuing bank is irrevocably bound (Art 7b).",tip:"Field 40E names applicable rules: 'UCP LATEST VERSION'."},
+ {t:"Advising / confirmation",who:"Advising bank → Seller",d:"Advising bank verifies apparent authenticity and advises the LC. If requested (field 49 'CONFIRM') and willing, it adds confirmation.",tip:"Advising ≠ paying. Only confirmation creates a second undertaking."},
+ {t:"Seller scrutinises the LC",who:"Seller",d:"Seller checks every term: can I ship by the date? Can I get each document? Amount, tolerance, partial shipment, port names. Seeks amendment (MT707) if needed.",tip:"Partial acceptance of an amendment is not allowed — it is treated as rejection (Art 10e)."},
+ {t:"Shipment",who:"Seller → Carrier",d:"Seller ships the goods, obtains the on-board Bill of Lading, insurance (if CIF/CIP), invoice, packing list, certificate of origin, inspection certificate.",tip:"On-board date on the B/L = date of shipment for the 21-day rule (Art 20)."},
+ {t:"Presentation",who:"Seller → Nominated bank",d:"Seller presents documents within 21 calendar days after shipment and not later than expiry (Art 14c, 6d).",tip:"Missing the 21 days makes documents 'stale' — a discrepancy."},
+ {t:"Examination & negotiation",who:"Nominated / confirming bank",d:"Bank has max 5 banking days following presentation to decide compliance (Art 14b). If compliant it honours/negotiates and forwards documents with MT754.",tip:"A confirming bank must pay a complying presentation even if the issuing bank later fails."},
+ {t:"Issuing bank examination",who:"Issuing bank",d:"Again max 5 banking days. Compliant → must honour and reimburse the nominated bank (Art 7c). Discrepant → may approach applicant for waiver (Art 16b) or send a single refusal notice listing all discrepancies (MT734).",tip:"Missed the deadline or forgot a discrepancy? Bank is precluded from claiming non-compliance (Art 16f)."},
+ {t:"Applicant pays / accepts",who:"Buyer → Issuing bank",d:"Importer pays (sight) or accepts (usance) and receives the original documents. If he can't pay, the bank pays anyway and the LC 'devolves' into a funded advance.",tip:"Devolved LCs are fund-based exposures — prudential norms of funded credit apply."},
+ {t:"Reimbursement",who:"Reimbursing bank → Claiming bank",d:"If the LC names a reimbursing bank, the negotiating bank claims there (MT742) under the issuing bank's authorisation (MT740), governed by URR 725.",tip:"Reimbursing bank does not see documents."},
+ {t:"Delivery of goods",who:"Buyer ⇄ Carrier",d:"Importer surrenders the original B/L to the shipping line, clears customs and takes delivery.",tip:"If goods arrive before documents, a shipping guarantee may be needed."}
+];
+
+const BGFLOW = [
+ {t:"Underlying contract",d:"Tender or contract stipulates a BG — type, amount, validity, format (often the employer's own format)."},
+ {t:"Request & appraisal",d:"Applicant requests BG from its bank. Bank appraises like any credit: NFB limit, margin, security, counter-indemnity, purpose. Under RBI NFB Directions 2025, issue normally only to customers having fund-based facilities (with listed exceptions)."},
+ {t:"Drafting & vetting",d:"Bank vets the format: fixed amount, fixed expiry, claim period, no open-ended liability, invocation mechanics, governing law, jurisdiction. Removes clauses making the bank adjudicate the underlying dispute."},
+ {t:"Stamping & execution",d:"Executed on non-judicial stamp paper of appropriate value under the relevant State Stamp Act. Signed by two authorised officials (per delegation)."},
+ {t:"Advice / confirmation",d:"Cover message via SFMS (IFN 760 COV) to the beneficiary's bank so the beneficiary can verify genuineness — or issued electronically as an e-BG (e.g., via NeSL). For foreign beneficiaries: SWIFT MT760."},
+ {t:"Life of the BG",d:"Amendments (increase, extension, reduction). Beneficiary may serve 'extend or pay' demand near expiry. Bank charges commission periodically."},
+ {t:"Invocation",d:"Beneficiary sends a written demand within validity/claim period, in the manner and to the address stated, with any required statement. Bank checks only whether the demand conforms to the BG terms."},
+ {t:"Payment & recovery",d:"Conforming demand → bank pays without reference to disputes. Debits applicant's account; if no funds, the claim devolves into a funded overdue."},
+ {t:"Expiry & closure",d:"After expiry + claim period, liability ceases (Section 28 Contract Act exception 3 lets banks stipulate this). Reverse the limit, mark closed, obtain original BG / discharge where possible."}
+];
+
+const DOCS = [
+ {n:"Draft / Bill of Exchange",a:"(no specific article)",d:"Unconditional order drawn by the beneficiary on the bank (never on the applicant — Art 6c). Sight or usance.",c:["Drawn on the issuing/nominated bank","Amount in words and figures agree","Tenor exactly as LC (e.g., 90 days after B/L date)","Endorsed if required"]},
+ {n:"Commercial Invoice",a:"Art 18",d:"Must appear issued by the beneficiary, made out in the applicant's name, in the LC currency; need not be signed.",c:["Goods description must correspond with the LC (other docs may be general)","Amount not exceeding LC unless bank accepts (Art 18b)","Unit price and Incoterm as in LC","Issued in the name of applicant"]},
+ {n:"Bill of Lading (port-to-port)",a:"Art 20",d:"Document of title for sea carriage. Must name the carrier and be signed by carrier/master/agent; indicate on-board shipment; show ports of loading and discharge as per LC.",c:["'Shipped on board' or on-board notation with date","Full set of originals as issued","Clean — no clause declaring defective condition (Art 27)","Not 'on deck' (Art 26)","Consignee 'to order of issuing bank' typically"]},
+ {n:"Multimodal Transport Document",a:"Art 19",d:"Covers at least two modes (e.g., truck + ship). Shows dispatch/taking in charge or on board at the place stated.",c:["Named carrier, signed","Place of taking in charge and final destination as LC"]},
+ {n:"Sea Waybill (non-negotiable)",a:"Art 21",d:"Like a B/L but not a document of title — goods delivered to named consignee.",c:["Weaker security for the bank — no control over goods"]},
+ {n:"Charter Party B/L",a:"Art 22",d:"B/L subject to a charter party (bulk cargo). Bank does not examine the charter party.",c:["Signed by master/owner/charterer or agent","Port of discharge may be a range of ports"]},
+ {n:"Air Waybill",a:"Art 23",d:"Never a document of title. Indicates goods accepted for carriage; date of issuance = shipment date unless actual flight date notation.",c:["Original for consignor/shipper","Airport of departure & destination as LC"]},
+ {n:"Road / Rail / Inland Waterway",a:"Art 24",d:"Lorry receipt (LR), railway receipt (RR). Shipment date = date of receipt stamp/issuance.",c:["In India, 'LR' from IBA-approved transporters often stipulated for inland LCs"]},
+ {n:"Courier / Post Receipt",a:"Art 25",d:"Shows name of courier, stamped/signed, date of pick-up.",c:[]},
+ {n:"Insurance Policy / Certificate",a:"Art 28",d:"Issued and signed by insurer/underwriter. Cover notes are not accepted. Must be in LC currency, minimum 110% of CIF/CIP value if not stated, effective no later than shipment date.",c:["Policy acceptable instead of certificate, not vice-versa","Risks as stipulated (e.g., ICC(A), war, SRCC)","Covers from loading point to discharge/destination as per LC"]},
+ {n:"Certificate of Origin",a:"Art 14f",d:"Content must fulfil its function and not conflict. Often from Chamber of Commerce, EPC, or preferential (e.g., under FTA).",c:["Issuer as stated in LC","Country of origin as required"]},
+ {n:"Packing List / Weight List",a:"Art 14f",d:"Details of packages, marks, weights. Banks check only for consistency with other documents.",c:[]},
+ {n:"Inspection / Quality / Phyto Certificate",a:"Art 14f",d:"Issued by the named agency (SGS, BV, Govt lab). If the issuer is not named, any issuer acceptable (Art 14f).",c:["If LC says 'issued by an independent inspector' — any party other than beneficiary"]},
+ {n:"Beneficiary Certificate",a:"Art 14f",d:"Statement signed by beneficiary, e.g., 'one set of non-negotiable documents sent to applicant by courier'.",c:["Wording must match required statement in substance"]}
+];
+
+const UCP = [
+ [1,"Application of UCP","Applies when the credit expressly says it is subject to UCP 600. Binding on all parties unless expressly modified or excluded."],
+ [2,"Definitions","Advising bank, applicant, banking day, beneficiary, complying presentation, confirmation, confirming bank, credit, honour, issuing bank, negotiation, nominated bank, presentation, presenter. 'Honour' = pay at sight / incur deferred payment undertaking / accept a draft."],
+ [3,"Interpretations","Credit is irrevocable even without saying so. 'On or about' = ±5 calendar days inclusive. 'To, until, till, from, between' include the dates mentioned; 'before' and 'after' exclude them. 'From' and 'after' for maturity exclude the date. First half = 1–15, second half = 16–end; beginning = 1–10, middle = 11–20, end = 21–last day. Branches in different countries are separate banks."],
+ [4,"Credits v. Contracts","The credit is separate from the sale contract. Banks are not bound by it even if referenced. Issuing bank should discourage including copies of contracts."],
+ [5,"Documents v. Goods","Banks deal with documents, not with goods, services or performance."],
+ [6,"Availability, Expiry Date & Place for Presentation","Must state the bank with which it is available (or 'any bank') and whether by sight payment, deferred payment, acceptance or negotiation. Must not be issued available by a draft drawn on the applicant. Must state an expiry date; place of presentation = place of the bank with which it's available."],
+ [7,"Issuing Bank Undertaking","Issuing bank must honour a complying presentation, and is irrevocably bound from the time of issuance. Must reimburse a nominated bank that honoured or negotiated."],
+ [8,"Confirming Bank Undertaking","Confirming bank must honour or negotiate without recourse a complying presentation. Bound from the time it adds confirmation. May advise without confirming but must inform the issuing bank without delay."],
+ [9,"Advising of Credits and Amendments","Advising bank advises without undertaking to honour. Must satisfy itself as to apparent authenticity. May use a second advising bank. If it cannot verify authenticity, must tell the bank it received the instructions from."],
+ [10,"Amendments","No amendment or cancellation without agreement of issuing bank, confirming bank (if any) and beneficiary. Beneficiary should notify acceptance or rejection; partial acceptance = rejection. 'Amendment deemed accepted unless rejected within X days' clauses are disregarded."],
+ [11,"Teletransmitted and Pre-Advised Credits","Authenticated teletransmission is the operative instrument; mail confirmation is disregarded. Pre-advice binds the issuing bank to issue without delay."],
+ [12,"Nomination","Nomination doesn't oblige the nominated bank to honour/negotiate unless it agrees expressly (or is the confirming bank). Nomination to accept a draft or incur a DPU authorises the bank to prepay or purchase."],
+ [13,"Bank-to-Bank Reimbursement","If the credit says reimbursement is subject to URR 725, those rules apply. Issuing bank remains responsible if reimbursement is not provided."],
+ [14,"Standard for Examination of Documents","Examine on the face to see if documents appear compliant. Max 5 banking days following presentation. Transport documents to be presented not later than 21 calendar days after shipment, and within expiry. Data need not be identical but must not conflict. Non-documentary conditions are disregarded. Documents may be dated before the credit but not later than presentation. Addresses need not match exactly if in same country."],
+ [15,"Complying Presentation","When the issuing/confirming/nominated bank determines a presentation is complying, it must honour/negotiate and forward documents."],
+ [16,"Discrepant Documents, Waiver and Notice","Bank may refuse. Issuing bank may approach applicant for waiver (time limit not extended). Refusal notice: single notice, state each discrepancy, and what bank is doing with documents (holding, returning, holding until waiver). By telecom, not later than close of 5th banking day. Failure = precluded from claiming non-compliance."],
+ [17,"Original Documents and Copies","At least one original of each document. A document is original if it bears an apparently original signature/mark/stamp unless it says it's a copy."],
+ [18,"Commercial Invoice","Issued by beneficiary (except transferred credits), made out to applicant, same currency, need not be signed. Goods description must correspond with the credit."],
+ [19,"Multimodal Transport Document","Covering at least two different modes. Carrier named and signed; dispatch/taking in charge/on board indicated; places as stated."],
+ [20,"Bill of Lading","Carrier named, signed by carrier/master/agent; on-board indication; ports of loading and discharge as credit; sole original or full set; terms of carriage may be on back. Transhipment allowed if the entire carriage is covered by one B/L — even if credit prohibits it, when goods are in containers/trailers/LASH barges."],
+ [21,"Non-Negotiable Sea Waybill","Same structure as Art 20 for sea waybills."],
+ [22,"Charter Party Bill of Lading","Signed by master/owner/charterer or agent. Banks will not examine charter party contracts."],
+ [23,"Air Transport Document","Carrier named and signed; goods accepted for carriage; date of issuance = shipment date unless actual date of shipment notation; original for consignor."],
+ [24,"Road, Rail or Inland Waterway","Carrier named and signed; date of receipt; places as credit. Rail document with no carrier identified accepted if stamped by railway."],
+ [25,"Courier Receipt, Post Receipt or Certificate of Posting","Courier name, stamp/signature, pick-up date."],
+ [26,"'On Deck', 'Shipper's Load and Count', 'Said by Shipper to Contain'","Transport document must not indicate goods are or will be loaded on deck ('may be loaded on deck' is OK). Clauses like 'shipper's load and count' are acceptable. Charges additional to freight may be shown."],
+ [27,"Clean Transport Document","Only clean documents accepted — no clause declaring defective condition of goods or packaging. The word 'clean' need not appear."],
+ [28,"Insurance Document and Coverage","Issued and signed by insurer/underwriter/agents. Cover notes not accepted. Policy acceptable in lieu of certificate. Date not later than shipment unless cover is effective from shipment. Same currency; minimum 110% of CIF/CIP value if no amount stated. Covers at least from place of taking in charge/shipment to discharge/final destination. May contain exclusion clauses; may indicate a franchise/excess."],
+ [29,"Extension of Expiry Date or Last Day for Presentation","If expiry or last day falls on a day the bank is closed (other than force majeure), it extends to the next banking day. Latest shipment date is NOT extended. The nominated bank must state the presentation was made within the extended period."],
+ [30,"Tolerance in Credit Amount, Quantity and Unit Prices","'About' / 'approximately' = ±10% of the amount, quantity or unit price it refers to. ±5% quantity tolerance allowed if the credit doesn't state quantity in packing units/individual items and total drawing doesn't exceed the amount. If full quantity shipped and unit price not reduced, 5% less in amount is allowed when partial shipments are not allowed."],
+ [31,"Partial Drawings or Shipments","Partial drawings/shipments allowed unless prohibited. Several sets of transport documents for the same voyage/conveyance, same destination are not partial shipment even with different dates."],
+ [32,"Instalment Drawings or Shipments","If an instalment is not drawn/shipped within its period, the credit ceases for that and any subsequent instalment."],
+ [33,"Hours of Presentation","Bank has no obligation to accept presentation outside its banking hours."],
+ [34,"Disclaimer on Effectiveness of Documents","Banks assume no liability for form, sufficiency, accuracy, genuineness, falsification or legal effect of documents, or for the goods."],
+ [35,"Disclaimer on Transmission and Translation","No liability for delays/loss in transit. If a nominated bank finds presentation complying and forwards it, the issuing/confirming bank must pay even if documents are lost in transit."],
+ [36,"Force Majeure","No liability for interruption by acts of God, riots, war, strikes etc. Bank won't honour a credit that expired during such interruption."],
+ [37,"Disclaimer for Acts of an Instructed Party","Bank using another bank does so for the applicant's account and risk. Charges of the other bank are for the instructing party's account."],
+ [38,"Transferable Credits","Must state 'transferable'. Transferred only once (second beneficiary can't transfer onward, but can transfer back to the first). Can be transferred in parts if partial shipments allowed. Amount, unit price, expiry, presentation period and latest shipment may be reduced/curtailed; insurance % may be increased. First beneficiary may substitute its invoice and draft."],
+ [39,"Assignment of Proceeds","Beneficiary may assign proceeds under applicable law — only the proceeds, not the right to perform under the credit. No need for the credit to be transferable."]
+];
+
+const INCO = {
+ EXW:{n:"Ex Works",m:"Any mode",risk:0,cost:0,ins:"None (buyer may insure)",exp:"Buyer",imp:"Buyer",doc:"Warehouse receipt / FCR — seller never handles carriage. Seller can't easily produce a B/L for an LC; avoid EXW with LCs.",note:"Maximum obligation for buyer. Buyer even loads the goods at seller's premises. Often unsuitable for exports because the buyer must do export clearance in the seller's country."},
+ FCA:{n:"Free Carrier",m:"Any mode",risk:2,cost:2,ins:"None",exp:"Seller",imp:"Buyer",doc:"Since 2020 parties can agree that the buyer instructs its carrier to issue an on-board B/L to the seller — making FCA LC-friendly.",note:"If named place is seller's premises, seller loads. If elsewhere, seller delivers on its own vehicle, ready for unloading. Recommended replacement for FOB for container cargo."},
+ CPT:{n:"Carriage Paid To",m:"Any mode",risk:2,cost:6,ins:"None",exp:"Seller",imp:"Buyer",doc:"Transport doc showing 'freight prepaid'.",note:"Two critical points: risk passes at handover to the first carrier, but seller pays carriage up to named destination."},
+ CIP:{n:"Carriage and Insurance Paid To",m:"Any mode",risk:2,cost:6,ins:"Seller — ICC(A) 'all risks' (raised in 2020), min 110%",exp:"Seller",imp:"Buyer",doc:"Transport doc 'freight prepaid' + insurance document (Art 28).",note:"Like CPT plus insurance. 2020 raised minimum cover from ICC(C) to ICC(A)."},
+ DAP:{n:"Delivered At Place",m:"Any mode",risk:6,cost:6,ins:"None (seller bears risk, so usually insures for itself)",exp:"Seller",imp:"Buyer",doc:"Transport doc — but since seller bears transit risk, an LC rarely asks for insurance.",note:"Delivered on arriving means of transport, ready for unloading at named place. Buyer unloads and clears imports."},
+ DPU:{n:"Delivered at Place Unloaded",m:"Any mode",risk:7,cost:7,ins:"None (seller self-insures)",exp:"Seller",imp:"Buyer",doc:"Transport doc + often a delivery/receipt confirmation.",note:"Replaced DAT in 2020. Only term where seller must unload at destination."},
+ DDP:{n:"Delivered Duty Paid",m:"Any mode",risk:8,cost:9,ins:"None (seller self-insures)",exp:"Seller",imp:"Seller",doc:"Rarely paired with LC — seller performs almost everything in buyer's country.",note:"Maximum obligation for seller, including import duties and taxes (GST/IGST in India). Seller must be able to import in buyer's country."},
+ FAS:{n:"Free Alongside Ship",m:"Sea / inland waterway",risk:3,cost:3,ins:"None",exp:"Seller",imp:"Buyer",doc:"Dock receipt / mate's receipt; B/L arranged by buyer.",note:"Goods placed alongside the vessel (quay or barge) at named port. Bulk cargo, timber."},
+ FOB:{n:"Free On Board",m:"Sea / inland waterway",risk:4,cost:4,ins:"None",exp:"Seller",imp:"Buyer",doc:"On-board B/L, 'freight collect' / 'freight payable at destination'.",note:"Risk passes when goods are on board the vessel. Buyer nominates vessel and pays freight. Not appropriate for containers handed to the terminal earlier — use FCA."},
+ CFR:{n:"Cost and Freight",m:"Sea / inland waterway",risk:4,cost:6,ins:"None",exp:"Seller",imp:"Buyer",doc:"On-board B/L marked 'freight prepaid'.",note:"Seller pays freight to destination port; risk still transfers on board at loading port."},
+ CIF:{n:"Cost, Insurance and Freight",m:"Sea / inland waterway",risk:4,cost:6,ins:"Seller — minimum ICC(C), min 110%",exp:"Seller",imp:"Buyer",doc:"On-board B/L 'freight prepaid' + insurance policy/certificate.",note:"Most common term in LC trade. Insurance is minimum (ICC C) unless the LC/contract asks for more."}
+};
+const STAGES = ["Seller's premises","Export clearance","Handed to carrier","Alongside ship","On board","Main carriage","Arrival at destination","Unloaded","Import clearance","Buyer's premises"];
+
+const BANKS = [
+ ["Issuing / Opening Bank","LC & BG","Issues the credit or guarantee on the applicant's instructions; primary undertaking."],
+ ["Advising / Notifying Bank","LC & BG","Passes the instrument to the beneficiary after checking apparent authenticity. No payment obligation."],
+ ["Second Advising Bank","LC","When the first advising bank uses another bank (e.g., the beneficiary's own bank) to advise (Art 9c)."],
+ ["Confirming Bank","LC","Adds its own undertaking at the issuing bank's request (Art 8)."],
+ ["Silent Confirmer","LC","Gives risk cover to the beneficiary without the issuing bank's mandate."],
+ ["Nominated Bank","LC","Bank with which the credit is available; may honour/negotiate (Art 12)."],
+ ["Negotiating Bank","LC","Nominated bank that purchases drafts/documents by advancing funds before it is reimbursed."],
+ ["Paying Bank","LC","Nominated to pay at sight or on deferred maturity."],
+ ["Accepting Bank","LC","Nominated to accept a time draft and pay at maturity."],
+ ["Reimbursing Bank","LC","Pays the claiming bank on the issuing bank's authorisation (URR 725). Usually the issuing bank's nostro correspondent."],
+ ["Claiming Bank","LC","The bank that claims reimbursement from the reimbursing bank (usually the negotiating bank)."],
+ ["Transferring Bank","LC","Nominated bank that transfers a transferable credit to a second beneficiary (Art 38)."],
+ ["Presenting Bank","LC / Collections","Beneficiary's bank that presents documents on its behalf. In collections (URC 522) it presents to the drawee."],
+ ["Remitting Bank","Collections","Exporter's bank that sends documents for collection."],
+ ["Collecting Bank","Collections","Any bank other than the remitting bank involved in a collection."],
+ ["Guarantor Bank","BG","Issues the guarantee; the 'surety' in Indian Contract Act terms."],
+ ["Counter-Guarantor / Instructing Bank","BG","Issues a counter-guarantee asking a local bank to issue the guarantee (URDG 758)."],
+ ["Beneficiary's Bank (for SFMS advice)","BG","Receives the IFN 760 COV cover message so the beneficiary can verify the BG's genuineness."],
+ ["Correspondent / Nostro Bank","All","Bank abroad holding your bank's foreign-currency account through which settlement happens."]
+];
+
+const SWIFT = [
+ ["MT700 / 701","Issue of a Documentary Credit (701 = continuation)","Issuing → Advising"],
+ ["MT705","Pre-advice of a Documentary Credit","Issuing → Advising"],
+ ["MT707 / 708","Amendment to a Documentary Credit","Issuing → Advising"],
+ ["MT710 / 711","Advice of a Third Bank's Documentary Credit","Advising → Second advising"],
+ ["MT720 / 721","Transfer of a Documentary Credit","Transferring → Advising of 2nd beneficiary"],
+ ["MT730","Acknowledgement","Receiver → Sender"],
+ ["MT732","Advice of Discharge","Issuing → Presenting (applicant paid/accepted)"],
+ ["MT734","Advice of Refusal","Issuing → Presenting (discrepancies)"],
+ ["MT740","Authorisation to Reimburse","Issuing → Reimbursing"],
+ ["MT742","Reimbursement Claim","Claiming → Reimbursing"],
+ ["MT747","Amendment to an Authorisation to Reimburse","Issuing → Reimbursing"],
+ ["MT750","Advice of Discrepancy","Presenting → Issuing (seeking approval)"],
+ ["MT752","Authorisation to Pay, Accept or Negotiate","Issuing → Nominated (after discrepancy)"],
+ ["MT754","Advice of Payment / Acceptance / Negotiation","Nominated → Issuing"],
+ ["MT756","Advice of Reimbursement or Payment","Issuing → Presenting"],
+ ["MT759","Ancillary Trade Structured Message","Free-format for trade (e.g., fraud alerts, requests)"],
+ ["MT760","Issue of a Demand Guarantee / Standby LC","Issuer → Advising / Beneficiary's bank"],
+ ["MT761","Issue of Demand Guarantee / SBLC (continuation)","Issuer → Advising"],
+ ["MT765","Guarantee / Standby LC Demand","Beneficiary's bank → Guarantor"],
+ ["MT767","Amendment to Guarantee / SBLC","Issuer → Advising"],
+ ["MT768","Acknowledgement of a Guarantee / SBLC Message","Receiver → Sender"],
+ ["MT769","Advice of Reduction or Release","Guarantor → Beneficiary's bank"],
+ ["MT785","Guarantee / SBLC Non-Extension Notification","Issuer → Beneficiary's bank"],
+ ["MT786","Guarantee / SBLC Demand Refusal","Guarantor → Presenter"],
+ ["MT787","Guarantee / SBLC Amendment Response","Advising → Issuer"],
+ ["IFN 760 COV (SFMS)","Domestic BG cover message","Issuing bank → Beneficiary's bank (India)"],
+ ["IFN 700 / 707 / 754 (SFMS)","Domestic inland LC issue / amendment / negotiation advice","Indian banks over SFMS"]
+];
+
+const CASES = [
+ {lc:"Credit amount: ABOUT USD 100,000.",doc:"Invoice and draft for USD 108,000.",ok:true,e:"'About' allows ±10% of the amount (Art 30a). USD 108,000 is within USD 110,000."},
+ {lc:"Quantity: 1,000 MT of wheat in bulk. Amount USD 300,000. Partial shipments prohibited.",doc:"B/L for 1,040 MT. Invoice for USD 298,500.",ok:true,e:"Bulk quantity (not packing units) — ±5% tolerance applies if the drawing doesn't exceed the credit amount (Art 30b). 1,040 MT is +4%."},
+ {lc:"Quantity: 500 cartons of ceramic tiles.",doc:"Packing list and invoice show 520 cartons.",ok:false,e:"Quantity stated in packing units — the 5% tolerance of Art 30b does not apply. 520 cartons exceeds the LC."},
+ {lc:"Latest shipment date: 30 June. Expiry: 31 July.",doc:"B/L on-board date: 2 July.",ok:false,e:"Shipment after the latest shipment date. Note: even if 30 June were a bank holiday, the latest shipment date is never extended (Art 29c)."},
+ {lc:"Presentation period not stated. Expiry: 30 July.",doc:"B/L on-board date 1 June. Documents presented 26 June.",ok:false,e:"Default presentation period is 21 calendar days after shipment (Art 14c). Last day was 22 June. Documents are stale — even though the LC hadn't expired."},
+ {lc:"Insurance: Policy/certificate for 110% of CIF value covering ICC(A).",doc:"Insurance certificate dated 5 March. B/L on-board date 3 March. No statement about cover start.",ok:false,e:"Insurance document must be dated no later than shipment unless it shows cover effective from a date not later than shipment (Art 28e)."},
+ {lc:"Amount USD 50,000 CIF. Insurance amount not stated.",doc:"Insurance certificate for USD 52,500.",ok:false,e:"If amount not stated, minimum cover is 110% of CIF/CIP value (Art 28f ii) = USD 55,000. 105% is short."},
+ {lc:"Commercial invoice required.",doc:"Invoice issued by beneficiary, in applicant's name, in USD — not signed.",ok:true,e:"A commercial invoice need not be signed (Art 18a iv) unless the credit specifically requires it."},
+ {lc:"Goods: 'Indian Basmati Rice 1121, Steam, crop 2026'.",doc:"Invoice: 'Rice'. B/L: 'Rice'.",ok:false,e:"The invoice description must correspond with the credit (Art 18c). The B/L can use a general description not conflicting (Art 14e) — but the invoice cannot."},
+ {lc:"Transhipment: prohibited. Port-to-port shipment Shanghai to Nhava Sheva.",doc:"B/L covers the whole voyage Shanghai–Nhava Sheva in container, showing transhipment at Colombo.",ok:true,e:"Art 20c ii — a B/L indicating transhipment is acceptable, even if the credit prohibits transhipment, if goods are shipped in a container and the entire carriage is covered by the same B/L."},
+ {lc:"Standard terms.",doc:"B/L bears the clause: 'cargo loaded on deck'.",ok:false,e:"A transport document must not indicate that goods are or will be loaded on deck (Art 26a). 'May be loaded on deck' would be acceptable."},
+ {lc:"Applicant address: 12 MG Road, Udaipur, India.",doc:"Commercial invoice shows applicant at '14 Hiran Magri, Udaipur, India'.",ok:true,e:"Addresses of applicant and beneficiary need not match the credit if they are in the same country (Art 14j). Exception: where the applicant's address appears as part of the consignee or notify-party details on a transport document, it must be as stated in the credit — so the same difference on a B/L notify party would be a discrepancy."},
+ {lc:"Expiry 15 August (holiday in issuing bank's country; bank closed).",doc:"Documents presented on 16 August.",ok:true,e:"Expiry extends to the next banking day when the bank is closed for reasons other than force majeure (Art 29a). The nominated bank must state this in its covering schedule (Art 29b)."},
+ {lc:"Partial shipments: NOT allowed. Port of loading Mundra, discharge Jebel Ali.",doc:"Two B/Ls — dated 3 May and 5 May — both on the same vessel, same voyage, same destination.",ok:true,e:"Presentation of multiple transport documents showing shipment on the same means of conveyance and same journey, for the same destination, is not a partial shipment even with different dates (Art 31b). The latest date is taken as the shipment date."},
+ {lc:"Certificate of analysis required — issuer not specified.",doc:"Certificate issued by the beneficiary itself.",ok:true,e:"If the credit doesn't state the issuer, any issuer (even the beneficiary) is acceptable as long as content fulfils the function and doesn't conflict (Art 14f, ISBP). If the LC said 'independent' it would have to be someone other than the beneficiary."},
+ {lc:"BG: 'Payable on first written demand stating that the contractor has failed to perform.' Expiry 31 Dec, claim period to 31 Mar.",doc:"Beneficiary's demand received 10 Feb with the required statement. Applicant tells bank the dispute is under arbitration.",ok:true,e:"Demand is within the claim period and conforms. A dispute or arbitration in the underlying contract is no ground to refuse — only established, egregious fraud or irretrievable injustice may justify a court injunction."}
+];
+
+const QUIZ = [
+ {q:"Under UCP 600, a credit that does not say whether it is revocable or irrevocable is:",o:["Revocable","Irrevocable","Invalid","Revocable until advised"],a:1,e:"Art 3: a credit is irrevocable even if there is no indication to that effect."},
+ {q:"Maximum time a bank has to examine documents under UCP 600:",o:["7 banking days","5 calendar days","5 banking days following the day of presentation","21 days"],a:2,e:"Art 14b — max five banking days following the day of presentation."},
+ {q:"In a Bank Guarantee, under Section 126 of the Indian Contract Act, the bank is the:",o:["Principal debtor","Creditor","Surety","Indemnifier"],a:2,e:"Applicant = principal debtor; beneficiary = creditor; bank = surety. But a BG's obligation is independent of the underlying contract."},
+ {q:"'Shipment on or about 10 May' means shipment between:",o:["5 and 15 May inclusive","1 and 20 May","9 and 11 May","10 and 15 May"],a:0,e:"Art 3: 'on or about' = 5 calendar days before until 5 days after, both inclusive."},
+ {q:"Which Incoterm 2020 requires the seller to unload the goods at destination?",o:["DAP","DDP","DPU","CIP"],a:2,e:"DPU — Delivered at Place Unloaded — is the only term where the seller unloads."},
+ {q:"Under CIF, risk passes from seller to buyer when:",o:["Goods arrive at destination port","Goods are on board the vessel at the port of shipment","Buyer pays","Insurance is taken"],a:1,e:"C-terms have two critical points — cost to destination, risk at shipment."},
+ {q:"Minimum insurance cover required under CIP (Incoterms 2020):",o:["ICC(C)","ICC(B)","ICC(A)","No insurance"],a:2,e:"2020 raised CIP to ICC(A)/all risks; CIF remains at ICC(C) minimum."},
+ {q:"A transferable credit can be transferred:",o:["Any number of times","Only once (though back to first beneficiary is allowed)","Only by the applicant","Only if confirmed"],a:1,e:"Art 38d."},
+ {q:"The confirming bank's undertaking is:",o:["Subject to issuing bank paying first","A separate definite undertaking to honour or negotiate without recourse","Only to advise","Only valid for sight LCs"],a:1,e:"Art 8."},
+ {q:"Which LC lets the exporter get an advance before shipment against just an undertaking?",o:["Green clause","Red clause","Revolving","Back-to-back"],a:1,e:"Red clause = unsecured pre-shipment advance; green clause requires warehouse receipt."},
+ {q:"A beneficiary accepts some changes of a multi-point amendment and rejects others. This is:",o:["Partial acceptance — valid for accepted points","Treated as rejection of the whole amendment","Treated as acceptance","Referred to ICC"],a:1,e:"Art 10e — partial acceptance is not allowed and is deemed notification of rejection."},
+ {q:"If an LC's expiry date falls on a bank holiday, the latest shipment date:",o:["Also extends","Does not extend","Extends by 5 days","Becomes the expiry date"],a:1,e:"Art 29c: latest date for shipment is not extended."},
+ {q:"Indian courts will generally injunct payment under an unconditional BG only in cases of:",o:["Any dispute","Pending arbitration","Egregious fraud or irretrievable injustice / special equities","Applicant's request"],a:2,e:"Settled through cases like U.P. State Sugar Corp v. Sumac International and Himadri Chemicals."},
+ {q:"Section 28 (Exception 3) of the Indian Contract Act allows a bank guarantee to fix a claim period of:",o:["Any period","Not less than one year from the specified event (e.g., expiry)","Exactly 3 years","Not more than 6 months"],a:1,e:"Exception 3 (2013 amendment) — banks may stipulate extinguishment of rights after a period not less than one year from the specified event."},
+ {q:"The SWIFT message to issue a documentary credit is:",o:["MT760","MT700","MT754","MT103"],a:1,e:"MT700. MT760 is for guarantees/SBLCs; MT754 advises payment/negotiation."},
+ {q:"Under capital rules, a performance guarantee typically carries a credit conversion factor of:",o:["100%","50%","20%","0%"],a:1,e:"Transaction-related contingents (performance, bid bonds) — 50%; financial guarantees (direct credit substitutes) — 100%; short-term self-liquidating trade LCs — 20%."},
+ {q:"Under UCP 600, a commercial invoice:",o:["Must be signed","Need not be signed","Must be notarised","Must be issued by the bank"],a:1,e:"Art 18a iv."},
+ {q:"An LC 'available by negotiation with any bank' is called:",o:["Straight","Restricted","Freely negotiable","Revolving"],a:2,e:"Any bank becomes a nominated bank."},
+ {q:"The rules that commonly govern Standby LCs are:",o:["URC 522","ISP98","URR 725","Incoterms"],a:1,e:"ISP98 is designed for standbys; UCP 600 or URDG 758 can also be used."},
+ {q:"A middleman opens a second, independent LC for its supplier using the LC it received as security. This is a:",o:["Transferable LC","Back-to-back LC","Revolving LC","Confirmed LC"],a:1,e:"Back-to-back — two separate credits; the bank has full exposure on the second."},
+ {q:"Default period for presenting documents including a transport document is:",o:["15 days","21 calendar days after shipment, within expiry","30 days","Till expiry only"],a:1,e:"Art 14c."},
+ {q:"Which term is the best replacement for FOB when goods are containerised and handed to the terminal?",o:["FAS","EXW","FCA","DAP"],a:2,e:"ICC recommends FCA for containers, since risk under FOB only passes on board."},
+ {q:"Banks deal with:",o:["Goods","Documents","Contracts","Performance"],a:1,e:"Art 5 — the principle of documentary autonomy."},
+ {q:"A shipping guarantee is issued in favour of:",o:["The exporter","The customs","The shipping company / carrier","The insurer"],a:2,e:"It indemnifies the carrier for releasing goods without the original B/L."},
+ {q:"RBI (Non-Fund Based Credit Facilities) Directions, 2025 came into effect:",o:["1 April 2025","6 August 2025, mandatorily","1 April 2026 (or earlier if an RE chose)","1 January 2027"],a:2,e:"Issued 6 Aug 2025; effective 1 Apr 2026 or earlier as decided by the RE."}
+];
+
+const GLOSS = [
+ ["Applicant","Party on whose request a credit/guarantee is issued."],["Beneficiary","Party in whose favour the credit/guarantee is issued."],
+ ["Honour","Pay at sight; incur a deferred payment undertaking and pay at maturity; or accept a draft and pay at maturity (UCP Art 2)."],
+ ["Negotiation","Purchase by the nominated bank of drafts/documents by advancing or agreeing to advance funds before reimbursement is due."],
+ ["Complying presentation","Presentation in accordance with the credit terms, UCP 600 and international standard banking practice (ISBP)."],
+ ["Discrepancy","Any non-compliance of documents with the credit terms, UCP or ISBP."],["Waiver","Applicant's acceptance of discrepant documents."],
+ ["Stale documents","Documents presented after the presentation period (default 21 days after shipment)."],
+ ["Devolvement","When a bank pays under an LC/BG and the applicant hasn't funded it — NFB exposure becomes fund-based."],
+ ["Margin","Cash or deposit kept by the applicant as security for NFB limits."],["Counter-indemnity","Applicant's written undertaking to reimburse the bank for any payment under the LC/BG."],
+ ["Claim period","Period after BG expiry within which a demand lodged/claim enforced remains valid; minimum one year from specified event under Sec 28 Exc. 3."],
+ ["Invocation","Beneficiary's formal demand for payment under a guarantee."],["Extend or pay","Beneficiary's demand to extend validity failing which pay."],
+ ["Demand guarantee","Guarantee payable on demand without proof of default (independent undertaking)."],
+ ["Conditional guarantee","Payment only upon proof of default/adjudication — rarer and less valued by beneficiaries."],
+ ["Autonomy / independence principle","LC/BG is independent of the underlying contract; bank pays on terms of the instrument alone."],
+ ["Strict compliance","Documents must comply with the credit terms — not 'nearly' comply. Moderated by ISBP's 'no conflict' standard."],
+ ["Fraud exception","Courts may stop payment where fraud is clearly established and known to the bank."],
+ ["ISBP 821","ICC's International Standard Banking Practice for examination of documents under UCP 600 (2023 edition)."],
+ ["eUCP 2.1","Supplement to UCP for electronic presentation of documents."],["URR 725","Uniform Rules for Bank-to-Bank Reimbursements."],
+ ["URC 522","Uniform Rules for Collections (D/P, D/A)."],["URDG 758","Uniform Rules for Demand Guarantees (2010)."],
+ ["ISP98","International Standby Practices — rules for standby LCs."],["URBPO 750","Rules for Bank Payment Obligation — electronic matching alternative to LCs."],
+ ["D/P","Documents against Payment — collection where documents are released when the drawee pays."],
+ ["D/A","Documents against Acceptance — documents released when the drawee accepts a time draft."],
+ ["Bill of Lading","Receipt for goods, evidence of contract of carriage, and document of title (for sea transport)."],
+ ["On-board notation","Dated notation on B/L stating goods are loaded on a named vessel."],
+ ["Clean B/L","B/L without clauses declaring defective condition of goods or packaging."],
+ ["Freight prepaid / collect","Whether freight is paid by the shipper (C & D terms) or payable by consignee (F terms)."],
+ ["Transhipment","Unloading from one vessel/conveyance and reloading on another during carriage."],
+ ["Partial shipment","Shipment in more than one lot; allowed unless prohibited (Art 31)."],
+ ["Usance","Credit period granted under a time draft (e.g., 90 days after B/L)."],
+ ["Banker's acceptance","Time draft accepted by a bank — a marketable short-term instrument."],
+ ["DPU (Deferred Payment Undertaking)","Bank's promise under a deferred-payment LC to pay on maturity (not to confuse with Incoterm DPU)."],
+ ["Nostro / Vostro","Our account with you / your account with us — settlement accounts between banks."],
+ ["SFMS","Structured Financial Messaging System (IDRBT) — India's domestic interbank messaging, used for inland LCs and BG cover messages."],
+ ["e-BG","Electronic bank guarantee issued and stored on a digital platform (e.g., NeSL), removing stamp-paper and verification fraud risk."],
+ ["NeSL","National E-Governance Services Ltd — information utility offering e-BG and e-stamping."],
+ ["Country risk","Risk that a country's government policies prevent payment (e.g., exchange controls)."],
+ ["Confirmation fee","Charged by the confirming bank to take risk on the issuing bank/country."],
+ ["Pre-advice","Brief preliminary advice of an LC (MT705); issuing bank is bound to issue."],
+ ["CCF","Credit Conversion Factor — converts off-balance-sheet exposures to credit equivalents for capital adequacy."],
+ ["LoU / LoC","Letters of Undertaking / Comfort for trade credit — discontinued by RBI in March 2018."],
+ ["Incoterms","ICC rules defining delivery, risk and cost obligations of seller and buyer; current version Incoterms 2020."],
+ ["Named place","Location attached to an Incoterm (e.g., FOB Mundra; DAP Udaipur warehouse)."],
+ ["Second beneficiary","Party to whom a transferable credit is transferred."],
+ ["Reduction clause","Clause automatically reducing a guarantee amount (e.g., as advance is recovered)."],
+ ["Effectiveness clause","Clause making a guarantee effective only when a condition happens (e.g., advance credited)."],
+ ["Evergreen clause","Automatic extension clause unless notice of non-extension is given."],
+ ["Non-documentary condition","A condition in an LC without stating a document to evidence it — disregarded by banks (Art 14h)."]
+];
+
+/* ================= RENDER HELPERS ================= */
+const $ = s=>document.querySelector(s);
+let seen = {};
+try{ seen = JSON.parse(localStorage.getItem('bglc_seen')||'{}'); }catch(e){}
+function saveSeen(){ try{localStorage.setItem('bglc_seen',JSON.stringify(seen));}catch(e){} }
+
+function buildNav(){
+  const nav = $('#nav');
+  NAV.forEach(([g,items])=>{
+    const d=document.createElement('div');d.className='grp';d.textContent=g;nav.appendChild(d);
+    items.forEach(([id,t])=>{
+      const a=document.createElement('a');a.href='#'+id;a.dataset.id=id;a.innerHTML='<span class="dot"></span>'+t;
+      a.onclick=()=>nav.classList.remove('open');nav.appendChild(a);
+    });
+  });
+}
+function updateNav(cur){
+  document.querySelectorAll('nav.side a').forEach(a=>{
+    a.classList.toggle('on',a.dataset.id===cur);
+    a.classList.toggle('seen',!!seen[a.dataset.id]);
+  });
+  const pct=Math.round(Object.keys(seen).filter(k=>ORDER.includes(k)).length/ORDER.length*100);
+  $('#progtxt').textContent=pct+'%';$('#progbar').style.width=pct+'%';
+}
+function pager(id){
+  const i=ORDER.indexOf(id);const p=ORDER[i-1],n=ORDER[i+1];
+  return `<div class="pager">${p?`<a class="btn" href="#${p}">← ${TITLES[p]}</a>`:'<span></span>'}${n?`<a class="btn pri" style="background:var(--accent);color:var(--j-on-accent);text-decoration:none;border-color:var(--accent)" href="#${n}">${TITLES[n]} →</a>`:''}</div>`;
+}
+
+/* ================= VIEWS ================= */
+const V = {};
+
+V.home = ()=>`
+<div class="hero"><h1>Bank Guarantees & Letters of Credit</h1>
+<p>A self-paced course that takes you from "why does trade need banks at all" to reading an MT700 field by field, spotting discrepancies like a trade-ops desk, and vetting a BG format. Every module has something to click.</p>
+<p class="small" style="color:var(--muted)">Built around UCP 600, ISBP 821, URDG 758, ISP98, Incoterms 2020, the Indian Contract Act and RBI (Non-Fund Based Credit Facilities) Directions, 2025.</p></div>
+<div class="tip"><b>How to use this:</b> go in order the first time (the left menu ticks green as you visit). Then use <b>Calculators</b>, <b>Spot the discrepancy</b> and the <b>Final quiz</b> to test yourself. Progress is saved in this browser.</div>
+<div class="grid g3">
+${NAV.slice(1).flatMap(g=>g[1]).map(([id,t])=>`<div class="card modcard" onclick="location.hash='${id}'"><h3>${t}</h3><span class="small">${seen[id]?'✓ visited':'Not yet visited'}</span></div>`).join('')}
+</div>`;
+
+V.foundations = ()=>`
+<h1>1 · Why trade needs banks</h1>
+<p class="lead">An exporter in Gujarat and an importer in Germany don't know each other, are under different laws, and are separated by weeks of sea voyage. Each fears the other: the seller fears shipping and not getting paid; the buyer fears paying and not getting goods. Banks bridge that trust gap by substituting <b>their own creditworthiness</b> for the buyer's (LC) or the seller's/contractor's (BG).</p>
+<h2>The payment-risk ladder</h2>
+<p>Click each method to see who carries the risk.</p>
+<div class="ladder" id="ladder"></div>
+<div class="card" id="ladderOut"></div>
+<h2>The two big families</h2>
+<div class="grid g2">
+<div class="card"><h4>Letter of Credit</h4><p><b>Primary payment instrument.</b> The bank promises the seller: "Present these documents within these dates and I will pay." It is <i>expected</i> to be drawn — that's how the seller gets paid.</p><p class="small">Bank's question: Are the documents compliant?</p></div>
+<div class="card"><h4>Bank Guarantee</h4><p><b>Secondary / default instrument.</b> The bank promises the beneficiary: "If my customer fails, I will pay you on demand." It is <i>expected not</i> to be drawn — a draw means something went wrong.</p><p class="small">Bank's question: Is the demand in conformity with the guarantee?</p></div>
+</div>
+<div class="key"><b>The one idea that unlocks everything: autonomy.</b> Both instruments are independent of the underlying contract. The bank doesn't care whether the goods are good or the contractor really defaulted. It looks only at documents (LC) or the demand (BG). This is why banks can process them quickly — and why fraud is the only real escape hatch.</div>
+<h2>Non-fund based (NFB) credit</h2>
+<p>Banks call LCs and BGs <b>non-fund based</b> facilities: no money leaves the bank on day one, but the bank takes a contingent liability. If the bank has to pay and the customer can't reimburse, the exposure <b>devolves</b> into a fund-based loan. That's why NFB limits are appraised as rigorously as cash credit.</p>
+${pager('foundations')}`;
+
+V.bg = ()=>`
+<h1>2 · Bank Guarantee fundamentals</h1>
+<p class="lead">A bank guarantee is a written, irrevocable undertaking by a bank to pay a sum to the beneficiary if the applicant fails to fulfil an obligation — usually payable on the beneficiary's demand.</p>
+<h2>Three parties (Indian Contract Act, Sec 126)</h2>
+<div class="tw"><table><tr><th>Contract Act term</th><th>In a BG</th><th>Example (tender)</th></tr>
+<tr><td>Principal debtor</td><td>Applicant — bank's customer</td><td>ABC Constructions Pvt Ltd</td></tr>
+<tr><td>Creditor</td><td>Beneficiary</td><td>PWD Rajasthan / NHAI</td></tr>
+<tr><td>Surety</td><td>Guarantor bank</td><td>Your branch</td></tr></table></div>
+<p>Under Sec 128, a surety's liability is co-extensive with the principal debtor's. But courts treat a bank guarantee as an <b>independent contract</b> between bank and beneficiary — the bank must pay according to the terms of the guarantee itself, whatever the dispute between applicant and beneficiary.</p>
+<h2>Interactive: read a BG clause</h2>
+<p>Click a clause to see what it does and what a vetting officer looks for.</p>
+<div class="chips" id="bgclauses"></div>
+<div class="card" id="bgclauseOut"><span class="small">Select a clause above.</span></div>
+<h2>Demand vs conditional</h2>
+<div class="grid g2">
+<div class="card"><h4>Unconditional / On-demand</h4><p>"…pay on first written demand without demur, protest or reference to the applicant…". Bank pays on a conforming demand. Over 90% of Indian BGs are worded this way because beneficiaries (Govt, PSUs) insist.</p></div>
+<div class="card"><h4>Conditional</h4><p>Payment only if beneficiary proves default — e.g., an arbitral award, or certificate from an engineer. Safer for the applicant, less valued by the beneficiary. Banks prefer to avoid acting as judges, so even 'conditional' terms should be documentary (e.g., "against a copy of an arbitral award").</p></div>
+</div>
+<h2>Financial vs performance — why the bank cares</h2>
+<p>A <b>financial guarantee</b> substitutes for credit (if the customer doesn't pay money, you pay). A <b>performance guarantee</b> covers a non-monetary obligation (if the customer doesn't build the road, you pay). The financial one behaves like a loan — 100% credit conversion factor for capital; performance-related contingents carry 50%.</p>
+${pager('bg')}`;
+
+const CLAUSES = [
+ ["Amount clause","'…not exceeding ₹25,00,000 (Rupees Twenty-Five Lakh only)'","Fixes the bank's maximum liability. Must be fixed — words and figures must match. Never 'amount as may be demanded'."],
+ ["Validity clause","'This guarantee is valid up to 31.03.2027'","Expiry date. Must be a specific date. Reject 'till the contract is completed' or 'till the beneficiary discharges' (open-ended)."],
+ ["Claim period clause","'…unless a demand or claim under this guarantee is made on us in writing on or before 31.03.2028, all rights of the beneficiary shall be forfeited…'","Sec 28 Exception 3 allows extinguishing rights after a period ≥ 1 year from the specified event. Standard Indian practice: validity + 12 months claim period."],
+ ["Pay on demand","'…we undertake to pay…on demand, without demur, merely on a demand from the beneficiary stating that the amount is due…'","Makes it an independent demand guarantee. Bank cannot ask for proof."],
+ ["Waiver of surety defences","'…the guarantor shall not be discharged by any variation, extension of time or forbearance…'","Overrides Sections 133–135 of the Contract Act (variance/time given discharges surety). Standard in beneficiary formats."],
+ ["Notwithstanding dispute","'…notwithstanding any dispute raised by the contractor in any suit or proceeding…'","Reinforces autonomy. Applicant can't stop payment just by raising a dispute."],
+ ["Jurisdiction / governing law","'…courts at Udaipur alone shall have jurisdiction…'","Banks prefer the jurisdiction where the issuing branch is located."],
+ ["Effectiveness / reduction","'…this guarantee shall become effective on receipt of advance in A/c No…'; '…shall stand reduced proportionately on recovery…'","Protects applicant and bank in APGs."],
+ ["Auto-renewal / evergreen","'…shall be automatically renewed every year…'","Red flag — creates indefinite liability. Most bank policies prohibit open-ended or auto-renewing BGs without fresh sanction."],
+ ["Delivery of demand","'…demand to be made at our branch at … by registered post / SFMS / e-mail from…'","Specifies how and where a demand is valid — critical for deciding whether an invocation conforms."]
+];
+
+V['bg-types'] = ()=>`
+<h1>3 · Types of Bank Guarantee</h1>
+<p class="lead">Filter by class and open any card.</p>
+<div class="chips" id="bgfilter"><button class="sel" data-f="all">All</button><button data-f="Performance">Performance</button><button data-f="Financial">Financial</button></div>
+<div id="bgtypes"></div>
+<h2>Direct vs indirect</h2>
+<p><b>Direct guarantee:</b> your bank issues directly to the beneficiary (domestic norm). <b>Indirect:</b> your bank issues a <b>counter-guarantee</b> to a bank in the beneficiary's country, which issues its own local guarantee. Cross-border projects (Middle East contracts) often demand indirect guarantees under URDG 758.</p>
+${pager('bg-types')}`;
+
+V['bg-life'] = ()=>`
+<h1>4 · BG lifecycle & invocation</h1>
+<p class="lead">Step through a guarantee from request to closure.</p>
+<div class="timeline" id="bgtl"></div>
+<div class="card" id="bgstep"></div>
+<div class="row"><button onclick="bgMove(-1)">← Back</button><button class="pri" onclick="bgMove(1)">Next →</button></div>
+<h2>Is this invocation valid? — the checklist</h2>
+<div class="grid g2">
+<div class="card"><h4>Check</h4><ol>
+<li>Received <b>within validity / claim period</b> (date of receipt at the specified place, not date of letter).</li>
+<li>From the <b>beneficiary</b> (or its authorised official) — verify signatures/authority.</li>
+<li>At the <b>place and mode</b> specified.</li>
+<li>Amount ≤ guarantee amount (outstanding after reductions).</li>
+<li>Contains any <b>statement/document</b> the BG requires (e.g., "the contractor has failed to…").</li>
+<li>Refers to the correct BG number.</li>
+</ol></div>
+<div class="card"><h4>Don't</h4><ul>
+<li>Don't investigate whether the default really happened.</li>
+<li>Don't delay to let the applicant get a stay — banks have been penalised for that.</li>
+<li>Don't pay partial or 'negotiate' terms with the beneficiary.</li>
+<li>Don't accept an invocation after the claim period.</li>
+</ul><p class="small">Inform the applicant immediately; pay within the time stated (or promptly). Unjustified delay can attract interest and reputational damage.</p></div>
+</div>
+${pager('bg-life')}`;
+
+V['bg-law'] = ()=>`
+<h1>5 · Law, fraud & URDG 758</h1>
+<h2>The autonomy principle in Indian courts</h2>
+<p>The Supreme Court has repeatedly held that an unconditional bank guarantee must be honoured according to its terms, regardless of disputes in the underlying contract. Courts will restrain encashment only in narrow cases:</p>
+<div class="grid g2">
+<div class="card"><h4>1 · Egregious fraud</h4><p>Fraud of an egregious nature, of which the bank has notice, which vitiates the very foundation of the guarantee — clearly established, not just alleged.</p></div>
+<div class="card"><h4>2 · Irretrievable injustice / special equities</h4><p>Allowing encashment would cause irretrievable harm — e.g., the applicant could never recover the money (the beneficiary is insolvent abroad).</p></div>
+</div>
+<p>Landmark cases commonly cited: <i>U.P. Co-operative Federation v. Singh Consultants</i> (1988), <i>Svenska Handelsbanken v. Indian Charge Chrome</i> (1994), <i>U.P. State Sugar Corporation v. Sumac International</i> (1997), <i>Himadri Chemicals v. Coal Tar Refining</i> (2007) and <i>Gujarat Maritime Board v. L&T Infrastructure</i> (2016).</p>
+<div class="note">Practical lesson: when an applicant rushes in with "don't pay, we've filed arbitration", the bank pays a conforming demand unless a <b>court order</b> restraining payment is served on it before payment.</div>
+<h2>Relevant sections of the Indian Contract Act, 1872</h2>
+<div class="tw"><table><tr><th>Section</th><th>Rule</th><th>Effect on BG</th></tr>
+<tr><td>124–125</td><td>Contract of indemnity</td><td>Counter-indemnity from applicant to bank.</td></tr>
+<tr><td>126</td><td>Contract of guarantee; surety, principal debtor, creditor</td><td>Defines the three parties.</td></tr>
+<tr><td>128</td><td>Surety's liability co-extensive</td><td>Modified by the independence of BGs.</td></tr>
+<tr><td>133–135, 139</td><td>Variance, release, time to debtor discharge surety</td><td>Beneficiary formats waive these.</td></tr>
+<tr><td>140–141</td><td>Surety's subrogation & benefit of securities</td><td>After paying, bank steps into creditor's shoes.</td></tr>
+<tr><td>145</td><td>Implied promise to indemnify surety</td><td>Bank recovers from applicant.</td></tr>
+<tr><td>28, Exception 3</td><td>Claim period in bank guarantees</td><td>Rights may extinguish after ≥1 year from specified event.</td></tr>
+</table></div>
+<h2>URDG 758 — international demand guarantees</h2>
+<p>ICC Uniform Rules for Demand Guarantees (2010). Apply when the guarantee says so — common for foreign beneficiaries.</p>
+<details><summary>Key URDG 758 rules</summary><ul>
+<li><b>Art 5</b> — Independence of guarantee and counter-guarantee.</li>
+<li><b>Art 15</b> — A demand must be supported by a statement indicating in what respect the applicant is in breach (unless excluded).</li>
+<li><b>Art 19–20</b> — Examination on the face; guarantor has <b>5 business days</b> following presentation to examine a demand.</li>
+<li><b>Art 23</b> — 'Extend or pay': guarantor may suspend payment up to 30 calendar days.</li>
+<li><b>Art 24</b> — Rejection notice must list each reason; failure means preclusion.</li>
+<li><b>Art 25</b> — Reduction and termination; if no expiry date, terminates three years after issue (for counter-guarantees, 3 years + 30 days).</li>
+<li><b>Art 34–35</b> — Governing law & jurisdiction default to the guarantor's location.</li>
+</ul></details>
+<h2>ISP98 — standby LCs</h2>
+<p>International Standby Practices, built for standbys: documentary, independent, rules on presentation, examination (3 business days not unreasonable; more than 7 deemed unreasonable — Rule 5.01), transfer and assignment. Choose ISP98 for SBLCs; UCP 600 suits commercial LCs.</p>
+${pager('bg-law')}`;
+
+V.lc = ()=>`
+<h1>6 · LC fundamentals & parties</h1>
+<p class="lead">UCP 600 Art 2: a <b>credit</b> is any arrangement, however named, that is irrevocable and constitutes a definite undertaking of the issuing bank to honour a complying presentation.</p>
+<p>Click each party in the diagram.</p>
+<div class="card" style="padding:8px">
+<svg viewBox="0 0 760 360" width="100%" id="psvg">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#7b8494"/></marker></defs>
+<line x1="150" y1="70" x2="610" y2="70" stroke="#7b8494" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+<text x="380" y="60" text-anchor="middle" font-size="12" fill="#4a5363">① Sales contract (goods)</text>
+<line x1="90" y1="100" x2="90" y2="240" stroke="#7b8494" marker-end="url(#ar)"/><text x="98" y="175" font-size="12" fill="#4a5363">② applies</text>
+<line x1="170" y1="270" x2="580" y2="270" stroke="#7b8494" marker-end="url(#ar)"/><text x="380" y="262" text-anchor="middle" font-size="12" fill="#4a5363">③ LC (MT700)</text>
+<line x1="670" y1="240" x2="670" y2="100" stroke="#7b8494" marker-end="url(#ar)"/><text x="580" y="175" font-size="12" fill="#4a5363">④ advises</text>
+<line x1="590" y1="300" x2="170" y2="300" stroke="#9a3b26" stroke-dasharray="3 3" marker-end="url(#ar)"/><text x="380" y="318" text-anchor="middle" font-size="12" fill="#9a3b26">⑥ documents → ⑦ payment flows back</text>
+<g class="party" data-p="applicant"><rect x="20" y="40" width="140" height="58" rx="8" fill="#fffdf9" stroke="#1d2430"/><text x="90" y="65" text-anchor="middle" font-weight="600" font-size="14">Applicant</text><text x="90" y="84" text-anchor="middle" font-size="11" fill="#7b8494">Importer · Udaipur</text></g>
+<g class="party" data-p="beneficiary"><rect x="600" y="40" width="140" height="58" rx="8" fill="#fffdf9" stroke="#1d2430"/><text x="670" y="65" text-anchor="middle" font-weight="600" font-size="14">Beneficiary</text><text x="670" y="84" text-anchor="middle" font-size="11" fill="#7b8494">Exporter · Hamburg</text></g>
+<g class="party" data-p="issuing"><rect x="20" y="242" width="150" height="58" rx="8" fill="#fffdf9" stroke="#1d2430"/><text x="95" y="267" text-anchor="middle" font-weight="600" font-size="14">Issuing Bank</text><text x="95" y="286" text-anchor="middle" font-size="11" fill="#7b8494">Importer's bank</text></g>
+<g class="party" data-p="advising"><rect x="590" y="242" width="150" height="58" rx="8" fill="#fffdf9" stroke="#1d2430"/><text x="665" y="262" text-anchor="middle" font-weight="600" font-size="13">Advising / Confirming</text><text x="665" y="280" text-anchor="middle" font-weight="600" font-size="13">/ Nominated Bank</text><text x="665" y="294" text-anchor="middle" font-size="10" fill="#7b8494">Exporter's side</text></g>
+<g class="party" data-p="reimbursing"><rect x="305" y="140" width="150" height="54" rx="8" fill="#fffdf9" stroke="#1d2430"/><text x="380" y="163" text-anchor="middle" font-weight="600" font-size="13">Reimbursing Bank</text><text x="380" y="181" text-anchor="middle" font-size="11" fill="#7b8494">e.g. USD nostro, NY</text></g>
+<text x="380" y="345" text-anchor="middle" font-size="12" fill="#4a5363">⑤ Seller ships goods to buyer (physically, through carrier)</text>
+</svg></div>
+<div class="chips"><button data-p="confirming" class="pbtn">Confirming bank</button><button data-p="nominated" class="pbtn">Nominated / negotiating bank</button></div>
+<div class="card" id="partyOut"><span class="small">Click a box.</span></div>
+<h2>The four pillars of LC law</h2>
+<div class="grid g2">
+<div class="card"><h4>Autonomy (Art 4)</h4>The credit is separate from the sales contract.</div>
+<div class="card"><h4>Documentary nature (Art 5)</h4>Banks deal with documents, not goods.</div>
+<div class="card"><h4>Strict compliance (Art 14–15)</h4>Documents must comply on their face with LC, UCP and ISBP; data must not conflict.</div>
+<div class="card"><h4>Irrevocability (Art 3, 7, 10)</h4>Once issued, no change without all parties' consent.</div>
+</div>
+<h2>Anatomy of an MT700 (key fields)</h2>
+<div class="tw"><table><tr><th>Field</th><th>Name</th><th>What to check</th></tr>
+<tr><td class="mono">40A</td><td>Form of credit</td><td>IRREVOCABLE / IRREVOCABLE TRANSFERABLE</td></tr>
+<tr><td class="mono">20</td><td>Documentary credit number</td><td>Unique reference</td></tr>
+<tr><td class="mono">31C / 31D</td><td>Date of issue / date & place of expiry</td><td>Expiry place matters — expiry 'in applicant's country' is a trap for exporters</td></tr>
+<tr><td class="mono">40E</td><td>Applicable rules</td><td>UCP LATEST VERSION</td></tr>
+<tr><td class="mono">50 / 59</td><td>Applicant / Beneficiary</td><td>Names, addresses</td></tr>
+<tr><td class="mono">32B / 39A</td><td>Currency, amount / tolerance</td><td>e.g., 05/05 = ±5%</td></tr>
+<tr><td class="mono">41a</td><td>Available with … by …</td><td>ANY BANK BY NEGOTIATION / ISSUING BANK BY PAYMENT</td></tr>
+<tr><td class="mono">42C / 42a</td><td>Drafts at / drawee</td><td>Never drawn on applicant</td></tr>
+<tr><td class="mono">43P / 43T</td><td>Partial shipments / transhipment</td><td>ALLOWED / NOT ALLOWED</td></tr>
+<tr><td class="mono">44A–44F</td><td>Places of taking in charge, ports of loading/discharge, final destination</td><td>Must match transport doc</td></tr>
+<tr><td class="mono">44C / 44D</td><td>Latest date of shipment / shipment period</td><td>Feasibility for seller</td></tr>
+<tr><td class="mono">45A</td><td>Description of goods (incl. Incoterm)</td><td>Invoice must correspond</td></tr>
+<tr><td class="mono">46A</td><td>Documents required</td><td>Can each document actually be obtained?</td></tr>
+<tr><td class="mono">47A</td><td>Additional conditions</td><td>Watch for non-documentary conditions</td></tr>
+<tr><td class="mono">71D</td><td>Charges</td><td>Who pays which bank's fees</td></tr>
+<tr><td class="mono">48</td><td>Period for presentation</td><td>Default 21 days</td></tr>
+<tr><td class="mono">49</td><td>Confirmation instructions</td><td>CONFIRM / MAY ADD / WITHOUT</td></tr>
+<tr><td class="mono">53a</td><td>Reimbursing bank</td><td>Where to claim</td></tr>
+<tr><td class="mono">78</td><td>Instructions to paying/accepting/negotiating bank</td><td>How to send docs & claim</td></tr>
+</table></div>
+${pager('lc')}`;
+
+V['lc-avail'] = ()=>`
+<h1>7 · How an LC pays — availability</h1>
+<p class="lead">Every credit must state with which bank it is available and how (Art 6b): by <b>sight payment</b>, <b>deferred payment</b>, <b>acceptance</b> or <b>negotiation</b>.</p>
+<div class="chips" id="avchips"></div>
+<div class="card" id="avOut"></div>
+<h2>Sight vs usance in one picture</h2>
+<div class="tw"><table><tr><th></th><th>Sight</th><th>Deferred payment</th><th>Acceptance</th><th>Negotiation</th></tr>
+<tr><td>When seller paid</td><td>On compliance</td><td>At maturity</td><td>At maturity (or discount accepted draft)</td><td>Upfront by negotiating bank</td></tr>
+<tr><td>Draft needed?</td><td>Optional</td><td>No</td><td>Yes — time draft</td><td>Usually yes</td></tr>
+<tr><td>Who gives credit to buyer</td><td>None</td><td>Seller</td><td>Seller (or discounter)</td><td>Depends on tenor</td></tr>
+<tr><td>Bank's instrument</td><td>Payment</td><td>Deferred payment undertaking</td><td>Banker's acceptance</td><td>Purchase of draft/docs</td></tr>
+</table></div>
+<div class="tip"><b>Recourse:</b> a negotiating bank that is <i>not</i> the confirming bank generally negotiates <b>with recourse</b> to the beneficiary — if the issuing bank doesn't reimburse, it can recover from the exporter. A confirming bank negotiates <b>without recourse</b> (Art 8a ii).</div>
+${pager('lc-avail')}`;
+
+const AVAIL = {
+ "Sight payment":"Nominated bank (or issuing bank) pays as soon as it determines the presentation complies. Simplest for the seller. Draft optional.",
+ "Deferred payment":"Bank incurs a deferred payment undertaking and pays at maturity (e.g., 180 days after B/L date). No draft. Under Art 12b a nominated bank is authorised to prepay/purchase its own DPU — the seller can get discounting.",
+ "Acceptance":"Beneficiary draws a time draft on the nominated bank, which accepts it — creating a banker's acceptance — and pays at maturity. The seller can discount the accepted draft in the market.",
+ "Negotiation":"Nominated bank purchases the draft and/or documents by advancing funds before it is reimbursed (Art 2). Restricted (named bank) or freely negotiable (any bank). Common in Indian exports — packing credit is liquidated by negotiation of export bills."
+};
+
+V['lc-types'] = ()=>`
+<h1>8 · Types of LC</h1>
+<p class="lead">${LCTYPES.length} varieties, grouped. Use the filter or search.</p>
+<input id="lcq" placeholder="Search e.g. 'transfer', 'advance', 'usance'…" style="max-width:420px">
+<div class="chips" id="lcg"></div>
+<div class="grid g2" id="lclist"></div>
+<h2>Transferable vs back-to-back</h2>
+<div class="tw"><table><tr><th></th><th>Transferable (Art 38)</th><th>Back-to-back</th></tr>
+<tr><td>Number of credits</td><td>One credit, transferred</td><td>Two separate credits</td></tr>
+<tr><td>Buyer's consent</td><td>Needed — LC must be marked 'transferable'</td><td>Not needed</td></tr>
+<tr><td>Middleman's bank risk</td><td>Low (transferring bank doesn't give new undertaking unless it confirms)</td><td>Full — it's the issuing bank of the second LC</td></tr>
+<tr><td>Supplier identity</td><td>Visible to buyer unless documents substituted carefully</td><td>Easier to keep hidden</td></tr>
+</table></div>
+${pager('lc-types')}`;
+
+V['lc-flow'] = ()=>`
+<h1>9 · LC flow simulator</h1>
+<p class="lead">A sight LC under CIF terms, step by step. Use arrows or click the timeline.</p>
+<div class="timeline" id="tl"></div>
+<div class="card">
+<svg viewBox="0 0 760 230" width="100%" id="fsvg"></svg>
+</div>
+<div class="card" id="fstep"></div>
+<div class="row"><button onclick="flowMove(-1)">← Back</button><button class="pri" onclick="flowMove(1)">Next →</button><button onclick="flowGo(0)">Restart</button></div>
+${pager('lc-flow')}`;
+
+V.docs = ()=>`
+<h1>10 · Documents under an LC</h1>
+<p class="lead">The bank pays against paper. Know each document's job and what examiners check.</p>
+<div id="doclist"></div>
+<div class="tip"><b>ISBP 821</b> (2023) is the ICC's practice manual — e.g., misspellings that don't change meaning aren't discrepancies ('mashine' for 'machine'), but 'model 321' vs 'model 123' is. Read ISBP alongside UCP.</div>
+${pager('docs')}`;
+
+V.ucp = ()=>`
+<h1>11 · UCP 600 article by article</h1>
+<p class="lead">All 39 articles summarised. Search a word (e.g., "days", "insurance", "transfer").</p>
+<input id="ucpq" placeholder="Search UCP 600…" style="max-width:420px">
+<div class="card" id="ucplist" style="padding:4px 18px"></div>
+<p class="small">These are summaries for learning. For operational decisions refer to the official ICC text (Publication No. 600) and ISBP 821.</p>
+${pager('ucp')}`;
+
+V.dates = ()=>`
+<h1>12 · Dates, tolerances & interpretation</h1>
+<h2>Words that change dates (Art 3)</h2>
+<div class="tw"><table><tr><th>Expression</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>on or about</td><td>5 calendar days before to 5 after, inclusive</td><td>'on or about 10 May' → 5–15 May</td></tr>
+<tr><td>to, until, till, from, between</td><td>Include the date mentioned (for shipment)</td><td>'shipment from 1 May' includes 1 May</td></tr>
+<tr><td>before, after</td><td>Exclude the date</td><td>'before 31 May' → latest 30 May</td></tr>
+<tr><td>from, after (maturity)</td><td>Exclude the date</td><td>'60 days after B/L date 14 May' → 13 July</td></tr>
+<tr><td>first half / second half</td><td>1–15 / 16–last day</td><td></td></tr>
+<tr><td>beginning / middle / end</td><td>1–10 / 11–20 / 21–last day</td><td></td></tr>
+<tr><td>prompt, immediately, as soon as possible</td><td>Disregarded unless required in a document</td><td></td></tr>
+</table></div>
+<h2>Tolerances (Art 30)</h2>
+<ul><li><b>'About' / 'approximately'</b> → ±10% of whatever it qualifies (amount, quantity, unit price).</li>
+<li><b>Bulk goods</b> (quantity not in units/items) → ±5% quantity, if drawing ≤ credit amount.</li>
+<li><b>Full quantity shipped, partial shipments prohibited</b> → up to 5% less in amount allowed.</li></ul>
+<h2>Key time limits cheat-sheet</h2>
+<div class="tw"><table><tr><th>Rule</th><th>Limit</th><th>Source</th></tr>
+<tr><td>Bank's examination time</td><td>Max 5 banking days following presentation</td><td>UCP Art 14b</td></tr>
+<tr><td>Presentation after shipment</td><td>21 calendar days (default), within expiry</td><td>UCP Art 14c</td></tr>
+<tr><td>Refusal notice</td><td>By close of 5th banking day</td><td>UCP Art 16d</td></tr>
+<tr><td>Expiry on bank holiday</td><td>Next banking day (not latest shipment date)</td><td>UCP Art 29</td></tr>
+<tr><td>Insurance minimum</td><td>110% of CIF/CIP</td><td>UCP Art 28f</td></tr>
+<tr><td>Demand guarantee examination</td><td>5 business days</td><td>URDG Art 20</td></tr>
+<tr><td>Guarantee without expiry</td><td>Terminates after 3 years</td><td>URDG Art 25c</td></tr>
+<tr><td>Standby examination</td><td>3 business days reasonable; &gt;7 unreasonable</td><td>ISP98 Rule 5.01</td></tr>
+<tr><td>BG claim period (India)</td><td>Not less than 1 year from specified event</td><td>Contract Act s.28 Exc.3</td></tr>
+</table></div>
+<p>Try these live in the <a href="#tools">Calculators</a>.</p>
+${pager('dates')}`;
+
+V.incoterms = ()=>`
+<h1>13 · Incoterms 2020 explorer</h1>
+<p class="lead">Incoterms tell you <b>where the seller delivers</b>, <b>when risk passes</b>, and <b>who pays which costs</b>. They do not decide when ownership passes or the price/payment method. Pick a term:</p>
+<div class="chips" id="incochips"></div>
+<div class="card" id="incoOut"></div>
+<div class="small">Bars are simplified. Exact cost split for loading/unloading at terminals depends on the contract and port practice.</div>
+<h2>Groups to remember</h2>
+<div class="grid g2">
+<div class="card"><h4>E — departure</h4>EXW</div>
+<div class="card"><h4>F — main carriage unpaid by seller</h4>FCA, FAS, FOB</div>
+<div class="card"><h4>C — main carriage paid by seller (two critical points)</h4>CPT, CIP, CFR, CIF</div>
+<div class="card"><h4>D — arrival (seller bears transit risk)</h4>DAP, DPU, DDP</div>
+</div>
+<div class="key"><b>Incoterms ↔ LC:</b> the Incoterm decides which documents the LC should call for. CIF/CIP → insurance doc + 'freight prepaid' transport doc. FOB/FCA → 'freight collect', no insurance doc (buyer insures). If the LC says CIF but asks for 'freight collect' B/L, the LC itself is badly drafted.</div>
+<h2>Changes in Incoterms 2020 (vs 2010)</h2>
+<ul><li>DAT renamed <b>DPU</b> (any place, not only terminal).</li><li><b>CIP</b> insurance raised to ICC(A); CIF stays ICC(C).</li><li><b>FCA</b> — optional on-board B/L mechanism for LC transactions.</li><li>Seller/buyer may use own transport (FCA, DAP, DPU, DDP).</li><li>Security-related costs allocated explicitly.</li></ul>
+${pager('incoterms')}`;
+
+V.banks = ()=>`
+<h1>14 · Every bank & its role</h1>
+<p class="lead">"Which bank is which" is where most confusion lives. One physical bank can play several roles — e.g., your Mumbai branch might be advising, confirming and negotiating bank on the same export LC.</p>
+<div class="tw"><table><tr><th>Bank</th><th>Instrument</th><th>Role</th></tr>
+${BANKS.map(b=>`<tr><td><b>${b[0]}</b></td><td><span class="tag">${b[1]}</span></td><td>${b[2]}</td></tr>`).join('')}
+</table></div>
+<div class="note">UCP Art 3: branches of a bank in different countries are considered separate banks.</div>
+${pager('banks')}`;
+
+V.swift = ()=>`
+<h1>15 · SWIFT & SFMS messages</h1>
+<p class="lead">Category 7 MT messages carry documentary credits and guarantees. SWIFT's November 2021 standards release overhauled guarantee messages (MT760 restructure, new MT765, MT785–787). In India, domestic LCs and BG advices run on SFMS (IFN series).</p>
+<input id="swq" placeholder="Filter e.g. 'refusal', '760'…" style="max-width:420px">
+<div class="tw"><table id="swt"></table></div>
+<p class="small">SWIFT is migrating trade messages progressively to ISO 20022 (tsmt/trad); MT7xx remains the working standard for documentary credits and guarantees as of this writing.</p>
+${pager('swift')}`;
+
+V.compare = ()=>`
+<h1>16 · BG vs LC vs SBLC vs Collection</h1>
+<div class="tw"><table>
+<tr><th>Feature</th><th>Letter of Credit</th><th>Bank Guarantee</th><th>Standby LC</th><th>Documentary Collection</th></tr>
+<tr><td>Purpose</td><td>Payment mechanism</td><td>Security against default</td><td>Security, LC form</td><td>Document handling for payment</td></tr>
+<tr><td>Expected to be drawn?</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td></tr>
+<tr><td>Bank undertaking</td><td>Yes — to honour complying presentation</td><td>Yes — to pay conforming demand</td><td>Yes</td><td><b>No</b> — banks only act as agents</td></tr>
+<tr><td>Trigger</td><td>Shipment documents</td><td>Demand (+ statement)</td><td>Statement of default + draft</td><td>Drawee pays (D/P) or accepts (D/A)</td></tr>
+<tr><td>Rules</td><td>UCP 600 / ISBP 821 / eUCP</td><td>URDG 758 or Indian law</td><td>ISP98 / UCP 600</td><td>URC 522</td></tr>
+<tr><td>Who benefits</td><td>Seller</td><td>Buyer / employer / authority</td><td>Either</td><td>Seller (limited)</td></tr>
+<tr><td>Bank credit risk</td><td>On applicant (importer)</td><td>On applicant (contractor/importer)</td><td>On applicant</td><td>None</td></tr>
+<tr><td>Typical CCF</td><td>20% (short-term trade)</td><td>50% performance / 100% financial</td><td>50% or 100%</td><td>—</td></tr>
+<tr><td>Cost</td><td>Opening + negotiation + confirmation fees</td><td>Commission per period</td><td>Commission</td><td>Low</td></tr>
+</table></div>
+${pager('compare')}`;
+
+V.india = ()=>`
+<h1>17 · Indian regulation & practice</h1>
+<div class="key"><b>RBI (Non-Fund Based Credit Facilities) Directions, 2025</b> — issued 6 August 2025 (RBI/DOR/2025-26/140), effective 1 April 2026 (or earlier if a bank chose). They consolidate earlier guarantee/LC/co-acceptance circulars into one framework across all regulated entities and repeal many older circulars.</div>
+<h2>What the Directions emphasise (headline points)</h2>
+<ul>
+<li><b>Credit policy:</b> the bank's credit policy must cover NFB facilities — types, limits, appraisal, security, fraud prevention.</li>
+<li><b>Same rigour as funded credit:</b> NFB facilities appraised like fund-based exposures.</li>
+<li><b>Customers with fund-based facilities:</b> NFB generally only for obligors who have fund-based credit, with defined exceptions (e.g., backed by another RE's counter-guarantee, fully secured by eligible financial collateral, obligors with no fund-based facility from any RE).</li>
+<li><b>Inter-RE guarantees:</b> in general, no guarantee favouring another RE to enable it to give fund-based credit to an obligor (trade-related exceptions exist).</li>
+<li><b>Devolvement:</b> once an NFB facility devolves, prudential norms of fund-based facilities apply.</li>
+<li><b>Partial Credit Enhancement (PCE)</b> to corporate / infra / municipal bonds permitted within limits.</li>
+<li><b>Electronic guarantees</b> and disclosure requirements introduced.</li>
+</ul>
+<div class="note">Read the actual Direction text and your bank's own NFB/BG/LC policy before applying any of this operationally — this page is a learning summary, not a compliance reference.</div>
+<h2>Operational practices you'll meet at branch / RO</h2>
+<div class="grid g2">
+<div class="card"><h4>Stamp duty</h4>BGs are executed on stamp paper as per the State Stamp Act where executed (Rajasthan Stamp Act for Rajasthan branches). Under-stamping can make the instrument inadmissible in evidence.</div>
+<div class="card"><h4>SFMS cover (IFN 760 COV)</h4>Banks send a structured SFMS message to the beneficiary's bank for every BG so its genuineness can be verified — a major anti-fraud control after fake-BG frauds.</div>
+<div class="card"><h4>e-BG</h4>Electronic BGs via NeSL (and other platforms) — no physical stamp paper (e-stamping), instant verification. Many authorities (e.g., NHAI) accept them.</div>
+<div class="card"><h4>Register & follow-up</h4>BG register, expiry diary, claim-period monitoring, periodic commission recovery, reversal of limits on expiry, follow-up for return of original BGs.</div>
+<div class="card"><h4>LoU / LoC banned</h4>After the 2018 LoU fraud, RBI discontinued Letters of Undertaking / Comfort for trade credit for imports. LCs and BGs continue, within rules.</div>
+<div class="card"><h4>FEMA & FEDAI</h4>Foreign-currency LCs/BGs must comply with FEMA (import of goods, trade credit, guarantees for non-residents) and FEDAI rules on crystallisation of overdue bills, charges and interest.</div>
+<div class="card"><h4>Inland LCs</h4>Domestic LCs should cover genuine trade transactions; accommodation bills (without underlying trade) are prohibited. Check transporter (LR) genuineness and GST invoices.</div>
+<div class="card"><h4>Margins & security</h4>Margin (cash/FD) and collateral per sanction; counter-indemnity on every BG/LC; check that the BG purpose matches sanction.</div>
+</div>
+<h2>Fraud red flags</h2>
+<ul>
+<li>BG verification request directly from a beneficiary when no SFMS cover was sent — possibly a forged BG.</li>
+<li>Inland LC bills where buyer and seller are related parties, round-tripping, or LR from unknown transporters.</li>
+<li>Applicant pushing for unusual wording (auto-renewal, open amount, payment to third party).</li>
+<li>Documents presented that are 'too perfect' or invoices with unrealistic prices (trade-based money laundering).</li>
+<li>Sanctions hits on vessel, port or counterparty.</li>
+</ul>
+${pager('india')}`;
+
+V.tools = ()=>`
+<h1>Calculators</h1>
+<div class="grid g2">
+<div class="card"><h3>Last date for presentation</h3>
+<label>On-board / shipment date</label><input type="date" id="t1s" value="2026-06-01">
+<label>LC expiry date</label><input type="date" id="t1e" value="2026-07-30">
+<label>Presentation period (days after shipment)</label><input type="number" id="t1p" value="21">
+<label><input type="checkbox" id="t1w" checked style="width:auto"> Treat Saturday & Sunday as bank holidays for extension</label>
+<button class="pri" onclick="t1()" style="margin-top:10px">Calculate</button><div class="out" id="t1o">—</div></div>
+
+<div class="card"><h3>Usance maturity date</h3>
+<label>Base date (B/L date / sight date)</label><input type="date" id="t2s" value="2026-05-14">
+<label>Tenor (days after)</label><input type="number" id="t2d" value="60">
+<button class="pri" onclick="t2()" style="margin-top:10px">Calculate</button><div class="out" id="t2o">—</div></div>
+
+<div class="card"><h3>'On or about' window</h3>
+<label>Date stated</label><input type="date" id="t3s" value="2026-05-10">
+<button class="pri" onclick="t3()" style="margin-top:10px">Calculate</button><div class="out" id="t3o">—</div></div>
+
+<div class="card"><h3>Tolerance checker (Art 30)</h3>
+<label>LC amount</label><input type="number" id="t4a" value="100000">
+<label>LC quantity</label><input type="number" id="t4q" value="1000">
+<label>Quantity basis</label><select id="t4b"><option value="bulk">Bulk (MT, litres…)</option><option value="units">Packing units / items</option></select>
+<label><input type="checkbox" id="t4ab" style="width:auto"> 'About' used for amount & quantity</label>
+<label>Drawing amount</label><input type="number" id="t4da" value="98000">
+<label>Quantity shipped</label><input type="number" id="t4dq" value="1040">
+<button class="pri" onclick="t4()" style="margin-top:10px">Check</button><div class="out" id="t4o">—</div></div>
+
+<div class="card"><h3>Insurance cover check (Art 28)</h3>
+<label>CIF / CIP value (or invoice value)</label><input type="number" id="t5v" value="50000">
+<label>Insured amount on document</label><input type="number" id="t5i" value="52500">
+<button class="pri" onclick="t5()" style="margin-top:10px">Check</button><div class="out" id="t5o">—</div></div>
+
+<div class="card"><h3>BG claim period check (s.28 Exc. 3)</h3>
+<label>BG expiry date</label><input type="date" id="t6e" value="2027-03-31">
+<label>Claim / lodgement date in format</label><input type="date" id="t6c" value="2028-03-31">
+<label>Demand received on</label><input type="date" id="t6d" value="2027-11-10">
+<button class="pri" onclick="t6()" style="margin-top:10px">Check</button><div class="out" id="t6o">—</div></div>
+
+<div class="card"><h3>Banking-day examination deadline</h3>
+<label>Date of presentation</label><input type="date" id="t7s" value="2026-11-16">
+<label>Holidays (comma-separated YYYY-MM-DD)</label><input id="t7h" placeholder="2026-11-24">
+<label>Rule</label><select id="t7r"><option value="5">UCP 600 / URDG 758 — 5 banking days</option><option value="3">ISP98 — 3 business days (reasonable)</option></select>
+<button class="pri" onclick="t7()" style="margin-top:10px">Calculate</button><div class="out" id="t7o">—</div></div>
+</div>
+<p class="small">Calculators illustrate rules; real decisions depend on the credit's own terms (which override defaults), bank holiday calendars of the place of presentation, and ISBP.</p>
+${pager('tools')}`;
+
+V.cases = ()=>`
+<h1>Spot the discrepancy</h1>
+<p class="lead">${CASES.length} cases. Read the LC term and the document, then decide. Score: <b id="cscore">0 / 0</b></p>
+<div id="caselist"></div>
+${pager('cases')}`;
+
+V.quiz = ()=>`
+<h1>Final quiz</h1>
+<div class="score">Score: <b id="qscore">0</b> / ${QUIZ.length} answered: <span id="qans">0</span> <button onclick="render()" style="float:right">Reset</button></div>
+<div id="qlist"></div>
+${pager('quiz')}`;
+
+V.glossary = ()=>`
+<h1>Glossary</h1>
+<input id="glq" placeholder="Search ${GLOSS.length} terms…" style="max-width:420px">
+<dl class="gl" id="gll"></dl>
+${pager('glossary')}`;
+
+/* ================= INTERACTIONS ================= */
+function afterRender(id){
+  if(id==='foundations'){
+    const M=[["Cash in advance",95,5,"Buyer pays before shipment. Exporter safe; importer bears all risk (may never get goods)."],
+      ["Letter of Credit",25,30,"Bank undertakes to pay against compliant documents. Exporter's risk shifts to the bank (and to its own document discipline). Importer is sure documents evidencing shipment exist before paying."],
+      ["Collection D/P",45,50,"Banks release documents only against payment, but don't guarantee payment. If buyer refuses, goods sit at the foreign port."],
+      ["Collection D/A",70,70,"Documents released on acceptance of a time draft; buyer gets goods and may not pay at maturity. Exporter carries credit risk."],
+      ["Open account",95,5,"Goods and documents sent directly; buyer pays later. Importer safe; exporter fully exposed (unless insured/ECGC)."]];
+    const L=$('#ladder');
+    M.forEach((m,i)=>{const d=document.createElement('div');d.innerHTML='<b>'+m[0]+'</b>';d.onclick=()=>{L.querySelectorAll('div').forEach(x=>x.classList.remove('on'));d.classList.add('on');
+      const ex = i===0?5:m[1], im = i===0?95:m[2];
+      $('#ladderOut').innerHTML=`<h3 style="margin-top:0">${m[0]}</h3><p>${m[3]}</p><label>Exporter's risk</label><div class="meter"><i style="width:${ex}%;background:var(--accent)"></i></div><label>Importer's risk</label><div class="meter"><i style="width:${im}%;background:var(--teal)"></i></div>`;};L.appendChild(d);if(i===1)d.click();});
+  }
+  if(id==='bg'){
+    const c=$('#bgclauses');CLAUSES.forEach((k,i)=>{const b=document.createElement('button');b.textContent=k[0];b.onclick=()=>{c.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');$('#bgclauseOut').innerHTML=`<h3 style="margin-top:0">${k[0]}</h3><div class="lc" style="background:var(--j-surface-2);border-radius:6px;padding:8px 12px;font-style:italic">${k[1]}</div><p style="margin-top:10px">${k[2]}</p>`;};c.appendChild(b);});
+  }
+  if(id==='bg-types'){
+    const draw=f=>{$('#bgtypes').innerHTML=BGTYPES.filter(t=>f==='all'||t.cls.includes(f)).map(t=>`<details><summary>${t.n} <span class="tag ${t.cls.startsWith('Fin')?'r':''}">${t.cls}</span></summary><p><b>Why:</b> ${t.why}</p><p><b>Amount:</b> ${t.amt}</p><p><b>Validity:</b> ${t.val}</p><div class="note" style="margin:6px 0 12px">${t.watch}</div></details>`).join('');};
+    draw('all');document.querySelectorAll('#bgfilter button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#bgfilter button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');draw(b.dataset.f);});
+  }
+  if(id==='bg-life'){ bgI=0; const tl=$('#bgtl'); BGFLOW.forEach((s,i)=>{const sp=document.createElement('span');sp.title=s.t;sp.onclick=()=>{bgI=i;bgDraw();};tl.appendChild(sp);}); bgDraw(); }
+  if(id==='lc'){
+    const show=p=>{document.querySelectorAll('#psvg .party').forEach(g=>g.classList.toggle('on',g.dataset.p===p||(p==='confirming'||p==='nominated')&&g.dataset.p==='advising'));const P=PARTIES[p];$('#partyOut').innerHTML=`<h3 style="margin-top:0">${P.t}</h3><p>${P.d}</p>`;};
+    document.querySelectorAll('#psvg .party').forEach(g=>g.onclick=()=>show(g.dataset.p));
+    document.querySelectorAll('.pbtn').forEach(b=>b.onclick=()=>show(b.dataset.p));
+  }
+  if(id==='lc-avail'){const c=$('#avchips');Object.keys(AVAIL).forEach((k,i)=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{c.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');$('#avOut').innerHTML=`<h3 style="margin-top:0">${k}</h3><p>${AVAIL[k]}</p>`;};c.appendChild(b);if(!i)b.click();});}
+  if(id==='lc-types'){
+    const groups=['All',...new Set(LCTYPES.map(t=>t.g))];let g='All';
+    const draw=()=>{const q=($('#lcq').value||'').toLowerCase();$('#lclist').innerHTML=LCTYPES.filter(t=>(g==='All'||t.g===g)&&(t.n+t.d+t.u).toLowerCase().includes(q)).map(t=>`<div class="card" style="margin:0"><span class="tag g">${t.g}</span><h3 style="margin:.3em 0">${t.n}</h3><p>${t.d}</p><p class="small"><b>Used when:</b> ${t.u}</p></div>`).join('')||'<p>No match.</p>';};
+    const c=$('#lcg');groups.forEach(x=>{const b=document.createElement('button');b.textContent=x;if(x==='All')b.classList.add('sel');b.onclick=()=>{g=x;c.querySelectorAll('button').forEach(y=>y.classList.remove('sel'));b.classList.add('sel');draw();};c.appendChild(b);});
+    $('#lcq').oninput=draw;draw();
+  }
+  if(id==='lc-flow'){ fI=0; const tl=$('#tl'); FLOW.forEach((s,i)=>{const sp=document.createElement('span');sp.title=s.t;sp.onclick=()=>flowGo(i);tl.appendChild(sp);}); flowDraw(); }
+  if(id==='docs'){$('#doclist').innerHTML=DOCS.map(d=>`<details><summary>${d.n} <span class="tag">${d.a}</span></summary><p>${d.d}</p>${d.c.length?'<ul>'+d.c.map(x=>'<li>'+x+'</li>').join('')+'</ul>':''}</details>`).join('');}
+  if(id==='ucp'){const draw=()=>{const q=($('#ucpq').value||'').toLowerCase();$('#ucplist').innerHTML=UCP.filter(a=>(a[1]+a[2]+' '+a[0]).toLowerCase().includes(q)).map(a=>`<div class="art"><b class="n">Art ${a[0]}</b><div><b>${a[1]}</b><br><span style="color:var(--ink2)">${a[2]}</span></div></div>`).join('')||'<p>No match.</p>';};$('#ucpq').oninput=draw;draw();}
+  if(id==='incoterms'){const c=$('#incochips');Object.keys(INCO).forEach((k,i)=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{c.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');incoDraw(k);};c.appendChild(b);if(k==='CIF')b.click();});}
+  if(id==='swift'){const draw=()=>{const q=($('#swq').value||'').toLowerCase();$('#swt').innerHTML='<tr><th>Message</th><th>Purpose</th><th>Typical direction</th></tr>'+SWIFT.filter(s=>s.join(' ').toLowerCase().includes(q)).map(s=>`<tr><td class="mono"><b>${s[0]}</b></td><td>${s[1]}</td><td>${s[2]}</td></tr>`).join('');};$('#swq').oninput=draw;draw();}
+  if(id==='cases'){let r=0,n=0;$('#caselist').innerHTML=CASES.map((c,i)=>`<div class="case" id="c${i}"><b>Case ${i+1}</b><div class="lc"><b>LC:</b> ${c.lc}</div><div class="doc"><b>Presented:</b> ${c.doc}</div><div class="row" style="margin-top:8px"><button data-i="${i}" data-v="1">✓ Compliant</button><button data-i="${i}" data-v="0">✗ Discrepant</button></div><div class="vslot"></div></div>`).join('');
+    document.querySelectorAll('#caselist button').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,box=$('#c'+i);if(box.dataset.done)return;box.dataset.done=1;const c=CASES[i];const right=(b.dataset.v==='1')===c.ok;n++;if(right)r++;$('#cscore').textContent=r+' / '+n;b.classList.add('sel');box.querySelector('.vslot').innerHTML=`<div class="verdict ${right?'ok':'no'}"><b>${right?'Correct':'Not quite'} — ${c.ok?'Compliant':'Discrepant'}.</b> ${c.e}</div>`;});}
+  if(id==='quiz'){let s=0,a=0;$('#qlist').innerHTML=QUIZ.map((q,i)=>`<div class="q" id="q${i}"><b>${i+1}. ${q.q}</b><div class="opts">${q.o.map((o,j)=>`<button data-i="${i}" data-j="${j}">${o}</button>`).join('')}</div><div class="vslot"></div></div>`).join('');
+    document.querySelectorAll('#qlist .opts button').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,j=+b.dataset.j,box=$('#q'+i);if(box.dataset.done)return;box.dataset.done=1;a++;const q=QUIZ[i];if(j===q.a)s++;box.querySelectorAll('.opts button').forEach((x,k)=>{if(k===q.a)x.classList.add('right');else if(k===j)x.classList.add('wrong');});box.querySelector('.vslot').innerHTML=`<div class="verdict ${j===q.a?'ok':'no'}">${q.e}</div>`;$('#qscore').textContent=s;$('#qans').textContent=a;if(a===QUIZ.length){box.querySelector('.vslot').innerHTML+=`<div class="key" style="margin-top:14px"><b>Finished: ${s}/${QUIZ.length} (${Math.round(s/QUIZ.length*100)}%).</b> ${s/QUIZ.length>=.8?'Excellent — you know your trade finance.':'Revisit the modules where you slipped, then reset and try again.'}</div>`;}});}
+  if(id==='glossary'){const draw=()=>{const q=($('#glq').value||'').toLowerCase();$('#gll').innerHTML=GLOSS.slice().sort((x,y)=>x[0].localeCompare(y[0])).filter(g=>(g[0]+g[1]).toLowerCase().includes(q)).map(g=>`<dt>${g[0]}</dt><dd>${g[1]}</dd>`).join('');};$('#glq').oninput=draw;draw();}
+}
+
+let bgI=0;
+function bgDraw(){const s=BGFLOW[bgI];document.querySelectorAll('#bgtl span').forEach((x,i)=>x.classList.toggle('on',i<=bgI));$('#bgstep').innerHTML=`<div class="flowstep"><div class="n">${bgI+1}</div><div><h3 style="margin:.1em 0 .3em">${s.t}</h3><p>${s.d}</p></div></div>`;}
+function bgMove(d){bgI=Math.max(0,Math.min(BGFLOW.length-1,bgI+d));bgDraw();}
+
+let fI=0;
+const NODES={buyer:[70,40,"Buyer"],seller:[690,40,"Seller"],ib:[70,180,"Issuing bank"],ab:[690,180,"Advising/Nom. bank"],rb:[380,180,"Reimb. bank"],carrier:[380,40,"Carrier"]};
+const ARROWS=[["buyer","seller","contract"],["buyer","ib","application"],["ib","ab","MT700"],["ab","seller","advice"],["seller","ab","amend?"],["seller","carrier","goods"],["seller","ab","documents"],["ab","ib","docs + MT754"],["ib","buyer","docs / debit"],["buyer","ib","payment"],["rb","ab","reimbursement"],["carrier","buyer","goods vs B/L"]];
+function flowDraw(){
+  const s=FLOW[fI];document.querySelectorAll('#tl span').forEach((x,i)=>x.classList.toggle('on',i<=fI));
+  const a=ARROWS[fI];let svg=`<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" style="fill:var(--accent)"/></marker></defs>`;
+  for(const k in NODES){const [x,y,t]=NODES[k];const act=a[0]===k||a[1]===k;svg+=`<rect x="${x-68}" y="${y-20}" width="136" height="40" rx="8" style="fill:${act?'var(--accent-soft)':'var(--card)'};stroke:${act?'var(--accent)':'var(--line)'};stroke-width:${act?2.5:1}"/><text x="${x}" y="${y+5}" text-anchor="middle" font-size="13" font-weight="600" style="fill:var(--ink)">${t}</text>`;}
+  const [x1,y1]=NODES[a[0]],[x2,y2]=NODES[a[1]];const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;
+  const ox=dx/L*72*(Math.abs(dx)>Math.abs(dy)?1:0.4), oy=dy/L*(Math.abs(dy)>Math.abs(dx)?24:20);
+  const sx=x1+ox,sy=y1+oy,ex=x2-ox,ey=y2-oy;
+  svg+=`<line x1="${sx}" y1="${sy}" x2="${ex}" y2="${ey}" style="stroke:var(--accent)" stroke-width="2.5" marker-end="url(#ar2)"/><rect x="${(sx+ex)/2-60}" y="${(sy+ey)/2-12}" width="120" height="22" rx="11" style="fill:var(--accent)"/><text x="${(sx+ex)/2}" y="${(sy+ey)/2+3}" text-anchor="middle" font-size="11.5" style="fill:var(--j-on-accent)">${a[2]}</text>`;
+  $('#fsvg').innerHTML=svg;
+  $('#fstep').innerHTML=`<div class="flowstep"><div class="n">${fI+1}</div><div><h3 style="margin:.1em 0 .2em">${s.t}</h3><span class="tag">${s.who}</span><p>${s.d}</p><div class="tip" style="margin:6px 0 0">${s.tip}</div></div></div>`;
+}
+function flowMove(d){fI=Math.max(0,Math.min(FLOW.length-1,fI+d));flowDraw();}
+function flowGo(i){fI=i;flowDraw();}
+
+function incoDraw(k){
+  const t=INCO[k];
+  const bar=(lim,lab)=>`<div class="jbar">${STAGES.map((s,i)=>`<div class="${i<lim?'s':'b'}">${i===0?lab:''}</div>`).join('')}</div>`;
+  $('#incoOut').innerHTML=`<h2 style="margin-top:0;border:0">${k} — ${t.n} <span class="tag">${t.m}</span></h2>
+  <div class="journey">${STAGES.map(s=>`<div class="st">${s}</div>`).join('')}</div>
+  <div class="small">Risk <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--teal);margin:0 4px 0 10px"></span>seller<span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--gold);margin:0 4px 0 10px"></span>buyer</div>${bar(k==='EXW'?0:Math.min(10,t.risk+1),'')}
+  <div class="small">Cost</div>${bar(k==='EXW'?0:Math.min(10,t.cost+1),'')}
+  <div class="tw"><table><tr><th>Risk passes</th><td>${k==='EXW'?'At seller\'s premises, goods placed at buyer\'s disposal':'After: '+STAGES[t.risk]}</td></tr>
+  <tr><th>Insurance</th><td>${t.ins}</td></tr><tr><th>Export clearance</th><td>${t.exp}</td></tr><tr><th>Import clearance</th><td>${t.imp}</td></tr>
+  <tr><th>LC documents</th><td>${t.doc}</td></tr></table></div><p>${t.note}</p>`;
+}
+
+/* calculators */
+const D=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d));};
+const F=d=>d.toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'});
+const add=(d,n)=>new Date(d.getTime()+n*864e5);
+const wk=d=>d.getUTCDay()===0||d.getUTCDay()===6;
+function t1(){const s=D($('#t1s').value),e=D($('#t1e').value),p=+$('#t1p').value;let last=add(s,p);let txt=`Shipment + ${p} days = <b>${F(last)}</b><br>`;let lim=last<e?last:e;txt+=`Earlier of that and expiry (${F(e)}) = <b>${F(lim)}</b>`;
+ if(lim.getTime()===e.getTime()&&$('#t1w').checked&&wk(e)){let x=e;while(wk(x))x=add(x,1);txt+=`<br>Expiry falls on a weekend → extended to next banking day <b>${F(x)}</b> (Art 29a).`;}
+ else if($('#t1w').checked&&wk(lim)){let x=lim;while(wk(x))x=add(x,1);txt+=`<br>Last day for presentation falls on a weekend → extends to the next banking day <b>${F(x)}</b> (Art 29a). The latest shipment date is never extended (Art 29c).`;}
+ $('#t1o').innerHTML=txt;}
+function t2(){const s=D($('#t2s').value),n=+$('#t2d').value;$('#t2o').innerHTML=`Maturity = base date excluded, count ${n} days → <b>${F(add(s,n))}</b><br><span style="color:#aab">Art 3: 'from'/'after' for maturity excludes the date mentioned. If maturity is a non-banking day, payment is made on the next banking day.</span>`;}
+function t3(){const s=D($('#t3s').value);$('#t3o').innerHTML=`Window: <b>${F(add(s,-5))}</b> to <b>${F(add(s,5))}</b>, both inclusive (11 days).`;}
+function t4(){const A=+$('#t4a').value,Q=+$('#t4q').value,b=$('#t4b').value,ab=$('#t4ab').checked,da=+$('#t4da').value,dq=+$('#t4dq').value;let out=[];
+ const amax=ab?A*1.1:A;out.push(`Amount: drawing ${da.toLocaleString()} vs max ${amax.toLocaleString()} → <b>${da<=amax?'OK':'EXCEEDS'}</b>`);
+ let qmin,qmax,basis;if(ab){qmin=Q*.9;qmax=Q*1.1;basis="'about' ±10%";}else if(b==='bulk'){qmin=Q*.95;qmax=Q*1.05;basis='±5% bulk tolerance (Art 30b)';}else{qmin=Q;qmax=Q;basis='no tolerance (units/items)';}
+ const qok=dq>=qmin&&dq<=qmax;out.push(`Quantity: ${dq} vs allowed ${qmin.toFixed(2)}–${qmax.toFixed(2)} [${basis}] → <b>${qok?'OK':'OUTSIDE'}</b>`);
+ if(!ab&&b==='bulk'&&da>A)out.push('Note: the 5% quantity tolerance applies only if the drawing does not exceed the credit amount.');
+ $('#t4o').innerHTML=out.join('<br>')+`<br>Overall: <b>${(da<=amax&&qok&&!(b==='bulk'&&!ab&&da>A))?'Compliant on tolerance':'Discrepant'}</b>`;}
+function t5(){const v=+$('#t5v').value,i=+$('#t5i').value,m=v*1.1;$('#t5o').innerHTML=`Minimum required (if LC is silent) = 110% × ${v.toLocaleString()} = <b>${m.toLocaleString()}</b><br>Insured: ${i.toLocaleString()} (${(i/v*100).toFixed(1)}%) → <b>${i>=m?'OK':'SHORT — discrepant'}</b>`;}
+function t6(){const e=D($('#t6e').value),c=D($('#t6c').value),d=D($('#t6d').value);const one=new Date(Date.UTC(e.getUTCFullYear()+1,e.getUTCMonth(),e.getUTCDate()));let o=[];
+ o.push(`Claim period after expiry: ${Math.round((c-e)/864e5)} days → ${c>=one?'<b>≥ 1 year — consistent with s.28 Exc. 3</b>':'<b>less than 1 year — check: s.28 Exc. 3 requires not less than one year from the specified event</b>'}`);
+ o.push(d<=e?'Demand within validity → <b>valid on timing</b>':d<=c?'Demand after expiry but within claim period → <b>valid on timing</b> (check your BG wording: some formats require the claim to be lodged within validity and enforced within the claim period)':'Demand after claim date → <b>time-barred; rights extinguished</b>');
+ $('#t6o').innerHTML=o.join('<br>');}
+function t7(){let d=D($('#t7s').value);const h=($('#t7h').value||'').split(',').map(x=>x.trim()).filter(Boolean);const n=+$('#t7r').value;let c=0,x=d;const isOff=z=>wk(z)||h.includes(z.toISOString().slice(0,10));const list=[];
+ while(c<n){x=add(x,1);if(!isOff(x)){c++;list.push(F(x));}}$('#t7o').innerHTML=`Presentation: ${F(d)}<br>Banking days counted (following presentation): ${list.join(' · ')}<br>Deadline: close of business on <b>${F(x)}</b>`;}
+
+/* ================= ROUTER ================= */
+function render(){
+  let id=(location.hash||'').slice(1);if(!V[id])id='home';
+  $('#main').innerHTML=V[id]();afterRender(id);
+  if(id!=='home'){seen[id]=1;saveSeen();}
+  updateNav(id);window.scrollTo(0,0);
+  if(window.Jharokha) Jharokha.remember({title:'BG & LC Masterclass', sub:TITLES[id]||'Course map', url:location.href});
+}
+buildNav();window.addEventListener('hashchange',render);render();
+</script>
+</body>
+</html>

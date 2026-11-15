@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="j_bg">#141A24</color>
+    <style name="AppTheme" parent="android:Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/j_bg</item>
+        <item name="android:colorAccent">#E8A93C</item>
+    </style>
+</resources>

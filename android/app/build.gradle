@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.nkotwar.jharokha'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.nkotwar.jharokha'
+        minSdk 23
+        targetSdk 34
+        // Bump BOTH when the app shell changes (Java code, manifest, icons).
+        // Web content updates never need this.
+        versionCode 1
+        versionName '1.0'
+    }
+
+    signingConfigs {
+        release {
+            // Fixed key so every new APK installs over the old one.
+            storeFile rootProject.file('signing/jharokha.jks')
+            storePassword System.getenv('JHAROKHA_STORE_PASSWORD') ?: 'jharokha-tv'
+            keyAlias 'jharokha'
+            keyPassword System.getenv('JHAROKHA_KEY_PASSWORD') ?: 'jharokha-tv'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    buildFeatures { buildConfig true }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.assets.srcDirs += "$buildDir/generated/webassets"
+    }
+}
+
+// Bundle a copy of /web so the app opens even on its very first launch without internet.
+def copyWeb = tasks.register('copyWeb', Copy) {
+    from rootProject.file('../web')
+    into "$buildDir/generated/webassets/web"
+}
+preBuild.dependsOn copyWeb
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.11.0'
+}
