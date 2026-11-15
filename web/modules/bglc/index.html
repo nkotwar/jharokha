@@ -1024,6 +1024,26 @@ function render(){
   if(window.Jharokha) Jharokha.remember({title:'BG & LC Masterclass', sub:TITLES[id]||'Course map', url:location.href});
 }
 buildNav();window.addEventListener('hashchange',render);render();
+
+/* Remote Back goes UP a level instead of replaying every chapter visited:
+   reading pane -> chapter menu -> course map -> Jharokha home. */
+window.JharokhaPageBack = function(){
+  const main = document.getElementById('main'), nav = document.getElementById('nav');
+  const navShown = nav.getBoundingClientRect().right > 0;
+  const a = document.activeElement;
+  if (navShown && a && main.contains(a)) {
+    const cur = nav.querySelector('a.on') || nav.querySelector('a[data-id]');
+    if (cur) { cur.focus({preventScroll:true}); cur.scrollIntoView({block:'nearest'}); return true; }
+  }
+  const id = (location.hash||'').slice(1);
+  if (V[id] && id !== 'home') {
+    history.replaceState(null, '', '#home'); render();
+    const m = nav.querySelector('a[data-id="home"]'); if (m && navShown) m.focus({preventScroll:true});
+    return true;
+  }
+  if (window.Jharokha) { Jharokha.home(); return true; }
+  return false;
+};
 </script>
 </body>
 </html>
