@@ -246,12 +246,22 @@
   }
   function home() { location.href = ROOT; }
 
-  /* ---------- recents ---------- */
+  /* ---------- recents ----------
+     One entry per app (the "Continue" row). item = {app, title, sub, url, scroll?}.
+     Older saved entries had no `app`; it is derived from the URL so they still de-duplicate. */
+  function appKey(x) { if (x.app) return x.app; var m = /modules\/([^\/?#]+)/.exec(x.url || ''); return m ? m[1] : (x.url || ''); }
+  function recent() {
+    var seen = {}, out = [];
+    (pref('recent') || []).forEach(function (x) { var k = appKey(x); if (!seen[k]) { seen[k] = 1; out.push(x); } });
+    return out;
+  }
   function remember(item) {
     if (!item || !item.url) return;
-    var list = (pref('recent') || []).filter(function (x) { return x.url !== item.url; });
+    var k = appKey(item);
+    var list = recent().filter(function (x) { return appKey(x) !== k; });
     item.at = Date.now(); list.unshift(item); pref('recent', list.slice(0, 8));
   }
+  function recentFor(app) { var r = recent(); for (var i = 0; i < r.length; i++) if (appKey(r[i]) === app) return r[i]; return null; }
 
   /* ---------- voice ---------- */
   var voiceCb = null;
@@ -279,7 +289,7 @@
     ROOT: ROOT, THEMES: THEMES, pref: pref, setTheme: setTheme, toast: toast,
     isTV: isTV, native: N, nativeHas: nativeHas,
     move: move, back: back, home: home, remember: remember,
-    recent: function () { return pref('recent') || []; },
+    recent: recent, recentFor: recentFor,
     voice: voice, loadJSON: loadJSON,
     apkVersion: function () { return nativeHas('versionCode') ? Number(N.versionCode()) : null; },
     // called by the Android app:

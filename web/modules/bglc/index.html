@@ -1021,13 +1021,27 @@ function render(){
   $('#main').innerHTML=V[id]();afterRender(id);
   if(id!=='home'){seen[id]=1;saveSeen();}
   updateNav(id);window.scrollTo(0,0);
-  if(window.Jharokha) Jharokha.remember({title:'BG & LC Masterclass', sub:TITLES[id]||'Course map', url:location.href});
+  if(window.Jharokha && !backing) Jharokha.remember({app:'bglc', title:'BG & LC Masterclass', sub:TITLES[id]||'Course map', url:location.href, scroll:0});
 }
-buildNav();window.addEventListener('hashchange',render);render();
+let backing=false;   // true while the user is stepping back with the remote: don't overwrite "Continue"
+buildNav();window.addEventListener('hashchange',()=>{backing=false;render();});
+(function firstRender(){
+  // Opened from "Continue": put the reader back where they left off.
+  const r = window.Jharokha && Jharokha.recentFor('bglc');
+  const resume = r && r.url === location.href && r.scroll > 0 ? r.scroll : 0;
+  render();
+  if (resume) { setTimeout(()=>window.scrollTo(0, resume), 60); Jharokha.remember(Object.assign({}, r, {scroll: resume})); }
+})();
 
 /* Remote Back goes UP a level instead of replaying every chapter visited:
    reading pane -> chapter menu -> course map -> Jharokha home. */
 window.JharokhaPageBack = function(){
+  const here = (location.hash||'').slice(1);
+  if (window.Jharokha && V[here] && here !== 'home') {
+    // Save exactly where the reader was (chapter + scroll) before stepping out.
+    Jharokha.remember({app:'bglc', title:'BG & LC Masterclass', sub:TITLES[here], url:location.href, scroll:Math.round(scrollY)});
+  }
+  backing = true;
   const main = document.getElementById('main'), nav = document.getElementById('nav');
   const navShown = nav.getBoundingClientRect().right > 0;
   const a = document.activeElement;
