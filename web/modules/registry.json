@@ -134,7 +134,7 @@
     {
       "id": "ccp",
       "title": "CCP Credit Desk",
-      "subtitle": "IIBF Certified Credit Professional — cards, labs, cases, mock tests",
+      "subtitle": "IIBF Certified Credit Professional — lessons, labs, cases, mock tests",
       "category": "Learn",
       "icon": "tool",
       "path": "modules/ccp/",
@@ -167,29 +167,34 @@
           "k": "current developments msme psl gold loan ecl project finance"
         },
         {
-          "t": "Module A cards — credit basics",
-          "h": "deck-A",
-          "k": "principles lending borrowers huf partnership llp company exposure car crilc"
+          "t": "CCP lessons A — credit basics",
+          "h": "learn-A",
+          "k": "lending principles borrowers huf partnership llp company facilities exposure capital adequacy rating"
         },
         {
-          "t": "Module B cards — financial analysis",
-          "h": "deck-B",
-          "k": "balance sheet ratios tnw dscr cash flow project appraisal npv irr payback"
+          "t": "CCP lessons B — financial statements",
+          "h": "learn-B",
+          "k": "balance sheet tnw cash flow ratios dscr project appraisal npv irr payback break even"
         },
         {
-          "t": "Module C cards — working capital",
-          "h": "deck-C",
-          "k": "mpbf tandon nayak turnover method drawing power cma lc bg co-acceptance"
+          "t": "CCP lessons C — working capital",
+          "h": "learn-C",
+          "k": "operating cycle turnover method nayak mpbf tandon cash budget cma drawing power lc limit"
         },
         {
-          "t": "Module D cards — export, PSL, retail",
-          "h": "deck-D",
-          "k": "packing credit pcfc ecgc priority sector msme mudra cgtmse home loan gold loan ltv"
+          "t": "CCP lessons D — other credits",
+          "h": "learn-D",
+          "k": "export packing credit pcfc ecgc msme cgtmse priority sector psl home loan gold loan ltv education kcc dri"
         },
         {
-          "t": "Module E cards — monitoring & NPA",
-          "h": "deck-E",
-          "k": "documentation stamping limitation pledge hypothecation mortgage npa sma provisioning sarfaesi drt ibc wilful"
+          "t": "CCP lessons E — monitoring & NPA",
+          "h": "learn-E",
+          "k": "documentation stamping limitation pledge hypothecation mortgage sma npa provisioning restructuring sarfaesi drt ibc"
+        },
+        {
+          "t": "CCP revision cards",
+          "h": "decks",
+          "k": "flash cards revision"
         },
         {
           "t": "Ratio Lab",

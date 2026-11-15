@@ -113,6 +113,40 @@ tr.hi td{background:color-mix(in srgb,var(--j-accent) 10%,var(--j-surface))}
 .pal button{padding:7px 0;font-size:.85rem}
 .pal button.done{background:color-mix(in srgb,var(--j-good) 22%,var(--j-surface))}
 .pal button.cur{border-color:var(--j-accent)}
+
+/* lessons */
+.lesson{font-size:1.05rem;line-height:1.7;max-width:820px}
+.lesson h3{font-family:"Source Serif 4",serif;color:var(--j-text);font-size:1.3rem;margin:1.5em 0 .5em}
+.lesson p,.lesson li{color:var(--j-text)}
+.lesson table{margin:12px 0}
+.lesson ol.steps li,.lesson ul li{margin:6px 0}
+.why,.eg,.think,.examc{border-radius:12px;padding:14px 18px;margin:16px 0}
+.why{background:color-mix(in srgb,var(--j-accent-2) 14%,var(--j-surface));border-left:4px solid var(--j-accent-2)}
+.why>b:first-child,.eg>b:first-child,.examc>b:first-child{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;color:var(--j-accent)}
+.eg{background:var(--j-surface);border:1px solid var(--j-line)}
+.eg table{font-size:.9rem}
+.think{background:color-mix(in srgb,var(--j-warn) 12%,var(--j-surface));border-left:4px solid var(--j-warn)}
+.think details{margin-top:8px}.think summary{cursor:pointer;font-weight:600;color:var(--j-accent)}
+.examc{background:color-mix(in srgb,var(--j-bad) 10%,var(--j-surface));border-left:4px solid var(--j-bad)}
+.examc ul{margin:4px 0 0;padding-left:20px}
+.viz{background:var(--j-surface);border:1px solid var(--j-line);border-radius:12px;padding:16px;margin:14px 0}
+.flow,.cycle,.timeline2,.match{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.flow span,.cycle span,.timeline2 span{background:var(--j-surface-2);border-radius:10px;padding:8px 12px;font-weight:500}
+.flow i,.cycle i,.match i{color:var(--j-muted);font-style:normal;font-size:.9rem}
+.timeline2 span{flex:1;min-width:120px;text-align:center;font-size:.9rem}
+.match{display:grid;grid-template-columns:1fr auto 1fr;gap:10px}
+.match span{background:var(--j-surface-2);border-radius:10px;padding:8px 12px}
+.cs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.cs span{background:var(--j-surface-2);border-radius:10px;padding:10px;font-size:.88rem;color:var(--j-text-2)}
+.cs b{display:block;color:var(--j-accent);font-size:1rem}
+.eq{font-family:"IBM Plex Mono",monospace;font-size:1rem;text-align:center;padding:6px}
+.ladder2{display:grid;gap:6px}
+.ladder2 span{background:var(--j-surface-2);border-radius:8px;padding:6px 12px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;line-height:1.8}
+.bars2 div{margin:8px 0}.bars2 span{display:block;height:10px;background:var(--j-accent);border-radius:5px;margin-bottom:4px}
+.split{display:flex;gap:4px}.split span{padding:10px;border-radius:8px;text-align:center;background:var(--j-accent);color:var(--j-on-accent)}.split span+span{background:var(--j-accent-2)}
+.lq{background:var(--j-surface);border:1px solid var(--j-line);border-radius:14px;padding:6px 16px 12px;margin:12px 0}
+.lq .qtext{font-size:1.05rem;margin:10px 0}
 @media (max-width:900px){.lab{grid-template-columns:1fr}.outputs{position:static}}
 @media (max-width:860px){
   nav.side{position:fixed;left:-280px;z-index:20;transition:.25s}
@@ -131,6 +165,11 @@ tr.hi td{background:color-mix(in srgb,var(--j-accent) 10%,var(--j-surface))}
 <main id="main" data-nav-zone></main>
 </div>
 <script src="data.js"></script>
+<script src="lessons-A.js"></script>
+<script src="lessons-B.js"></script>
+<script src="lessons-C.js"></script>
+<script src="lessons-D.js"></script>
+<script src="lessons-E.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

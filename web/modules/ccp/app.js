@@ -16,9 +16,10 @@ const CR = n => '₹' + inr(n) + ' crore';
 /* ================= NAV ================= */
 const NAV = [
   ['Start', [['home', 'Dashboard'], ['radar', 'Exam Radar'], ['news', 'What’s new']]],
-  ['Concept cards', Object.keys(M).map(k => ['deck-' + k, k + ' · ' + M[k].short]).concat([['deck-review', 'Review pile']])],
+  ['Learn', Object.keys(M).map(k => ['learn-' + k, k + ' · ' + M[k].short])],
   ['Labs', [['lab-ratio', 'Ratio Lab'], ['lab-wc', 'Working Capital Lab'], ['lab-project', 'Project Lab'], ['lab-npa', 'NPA Time Machine']]],
-  ['Practice', [['cases', 'Credit Desk cases'], ['numericals', 'Unlimited numericals'], ['practice', 'Practice by module'], ['daily', 'Daily 10'], ['mock', 'Full mock (100 Q)'], ['mistakes', 'My mistakes']]]
+  ['Practice', [['cases', 'Credit Desk cases'], ['numericals', 'Unlimited numericals'], ['practice', 'Practice by module'], ['daily', 'Daily 10'], ['mock', 'Full mock (100 Q)'], ['mistakes', 'My mistakes']]],
+  ['Quick revision', [['decks', 'Revision cards'], ['deck-review', 'Review pile']]]
 ];
 const TITLES = Object.fromEntries(NAV.flatMap(g => g[1]));
 function buildNav() {
@@ -32,7 +33,7 @@ function buildNav() {
     });
   });
 }
-function navKey(route) { if (route.startsWith('case-')) return 'cases'; if (route.startsWith('card-')) return 'deck-' + (cardById(route.slice(5)) || {}).m; if (route === 'quiz') return (session && session.navKey) || 'practice'; return route; }
+function navKey(route) { if (route.startsWith('case-')) return 'cases'; if (route.startsWith('card-') || /^deck-[A-E]$/.test(route)) return 'decks'; if (route.startsWith('lesson-')) return 'learn-' + ((lessonById(route.slice(7)) || {}).m || 'A'); if (route === 'quiz') return (session && session.navKey) || 'practice'; return route; }
 function updateNav(route) { const k = navKey(route); document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('on', a.dataset.id === k)); }
 
 /* ================= STORAGE ================= */
@@ -42,6 +43,10 @@ function stat(m, ok) { const s = P('stats') || {}; s[m] = s[m] || { r: 0, t: 0 }
 function addMistake(q) { let w = P('wrong') || []; w = w.filter(x => x.q !== q.q); w.unshift({ m: q.m, q: q.q, o: q.o, a: q.a, e: q.e, gen: !!q.gen }); P('wrong', w.slice(0, 200)); }
 function clearMistake(q) { P('wrong', (P('wrong') || []).filter(x => x.q !== q.q)); }
 const cardById = id => C.CARDS.find(c => c.id === id);
+const LESSONS = (C.LESSONS || []).slice().sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }));
+const lessonById = id => LESSONS.find(l => l.id === id);
+const lessonsDone = () => P('lessons') || {};
+const nextLesson = () => LESSONS.find(l => !lessonsDone()[l.id]);
 
 /* ================= NUMERICAL GENERATORS ================= */
 function opts(correct, wrongs, fmt) {
@@ -106,16 +111,18 @@ let backing = false;
 V.home = () => {
   const st = P('stats') || {}, cs = cardState();
   const mods = Object.keys(M).map(k => {
-    const cards = C.CARDS.filter(c => c.m === k), got = cards.filter(c => cs[c.id] === 'got').length, s = st[k] || { r: 0, t: 0 };
-    return `<a class="mod" href="#deck-${k}"><span class="mk">${k}</span><b>${esc(M[k].name)}</b><span class="bars"><i style="width:${Math.round(got / cards.length * 100)}%"></i></span><small>${got}/${cards.length} cards · ${s.t ? Math.round(s.r / s.t * 100) + '% of ' + s.t + ' Qs right' : 'no questions yet'}</small></a>`;
+    const ls = LESSONS.filter(l => l.m === k), done = ls.filter(l => lessonsDone()[l.id]).length, s = st[k] || { r: 0, t: 0 };
+    return `<a class="mod" href="#learn-${k}"><span class="mk">${k}</span><b>${esc(M[k].name)}</b><span class="bars"><i style="width:${ls.length ? Math.round(done / ls.length * 100) : 0}%"></i></span><small>${done}/${ls.length} lessons · ${s.t ? Math.round(s.r / s.t * 100) + '% of ' + s.t + ' Qs right' : 'no questions yet'}</small></a>`;
   }).join('');
-  const sess = P('session');
-  return `<div class="hero"><h1>CCP Credit Desk</h1><p>IIBF Certified Credit Professional — learn by doing: flip cards, play with live labs, sit at the credit desk, and test yourself.</p>
+  const sess = P('session'), nl = nextLesson();
+  return `<div class="hero"><h1>CCP Credit Desk</h1><p>IIBF Certified Credit Professional — learn each topic from scratch, try it in live labs, sit at the credit desk, and test yourself.</p>
   <div class="facts"><span><b>${C.EXAM.questions}</b> questions</span><span><b>${C.EXAM.minutes / 60} hrs</b></span><span><b>${C.EXAM.pass}</b> to pass</span><span><b>No</b> negative marking</span><span>5-mark case studies</span></div></div>
   <div class="row3">
     ${sess && !sess.done ? `<a class="act pri" href="#quiz">Resume: ${esc(sess.title)} (${sess.idx + 1}/${sess.items.length})</a>` : ''}
+    ${nl ? `<a class="act pri" href="#lesson-${nl.id}">${Object.keys(lessonsDone()).length ? 'Continue learning' : 'Start learning'}: ${nl.id} · ${esc(nl.t)}</a>` : '<span class="act">All lessons done ✓</span>'}
     <a class="act" href="#daily">Daily 10</a><a class="act" href="#cases">A Credit Desk case</a><a class="act" href="#numericals">Numericals</a><a class="act" href="#mock">Full mock</a>
   </div>
+  <p class="small">New to the subject? Go through the lessons in order (A1 → E6), using the labs as you go; then practise; keep the revision cards for the last weeks.</p>
   <h2>Your modules</h2><div class="mods">${mods}</div>
   <p class="small">${esc(C.EXAM.note)} ${esc(C.EXAM.cutoff)}</p>`;
 };
@@ -127,7 +134,44 @@ V.radar = () => `<h1>Exam Radar</h1><p class="lead">Themes that keep turning up 
 V.news = () => `<h1>What’s new before the cut-off</h1><p class="lead">${esc(C.EXAM.cutoff)}</p>
   <div class="list">${C.NEWS.map(n => `<a class="li" href="#card-${n.card}"><span class="date">${esc(n.d)}</span><span><b>${esc(n.t)}</b><small>${esc(n.b)}</small></span></a>`).join('')}</div>`;
 
+/* ---------- lessons ---------- */
+Object.keys(M).forEach(k => V['learn-' + k] = () => {
+  const ls = LESSONS.filter(l => l.m === k), d = lessonsDone();
+  return `<h1>Module ${k} · ${esc(M[k].name)}</h1><p class="lead">${ls.length} lessons · about ${ls.reduce((n, l) => n + l.mins, 0)} minutes. Each one explains the idea from scratch, works an example, and ends with quick checks.</p>
+  <div class="list">${ls.map(l => `<a class="li" href="#lesson-${l.id}"><span class="mk">${l.id}</span><span><b>${esc(l.t)}</b><small>${l.mins} min${d[l.id] ? ' · completed ✓' : ''}</small></span></a>`).join('')}</div>`;
+});
+function lessonView(id) {
+  const l = lessonById(id); if (!l) return '<p>Lesson not found.</p>';
+  const ls = LESSONS.filter(x => x.m === l.m), i = ls.indexOf(l), done = lessonsDone()[l.id], nxt = LESSONS[LESSONS.indexOf(l) + 1];
+  return `<div class="qhead"><span class="tag">Module ${l.m} · Lesson ${i + 1} of ${ls.length}</span><span>${l.mins} min read</span>${done ? '<span>Completed ✓</span>' : ''}</div>
+  <h1>${esc(l.t)}</h1>
+  <article class="lesson">${l.body}</article>
+  ${l.check && l.check.length ? `<h2>Check yourself</h2>${l.check.map((q, qi) => `<div class="lq" id="lq${qi}"><div class="qtext">${qi + 1}. ${esc(q.q)}</div><div class="opts">${q.o.map((o, oi) => `<button class="opt" data-q="${qi}" data-i="${oi}"><span>${'ABCD'[oi]}</span>${esc(o)}</button>`).join('')}</div><div class="fbslot"></div></div>`).join('')}` : ''}
+  <div class="cardctl">
+    ${l.lab ? `<a class="btn" href="#${l.lab}">Try it in the ${esc(TITLES[l.lab])}</a>` : ''}
+    ${l.cards && l.cards.length ? `<a class="btn" href="#card-${l.cards[0]}">Revision cards for this lesson</a>` : ''}
+  </div>
+  <div class="cardctl">
+    ${i > 0 ? `<a class="btn" href="#lesson-${ls[i - 1].id}">◀ ${ls[i - 1].id}</a>` : ''}
+    <button class="pri" id="lessonDone">${done ? 'Completed ✓ — ' : 'Mark complete'}${nxt ? ' → next: ' + nxt.id : ''}</button>
+  </div>`;
+}
+function lessonWire(id) {
+  const l = lessonById(id); if (!l) return;
+  document.querySelectorAll('.lq .opt').forEach(b => b.onclick = () => {
+    const qi = +b.dataset.q, oi = +b.dataset.i, q = l.check[qi], box = document.getElementById('lq' + qi);
+    if (box.dataset.done) return; box.dataset.done = 1;
+    box.querySelectorAll('.opt').forEach((x, k) => { if (k === q.a) x.classList.add('right'); else if (k === oi) x.classList.add('wrong'); });
+    box.querySelector('.fbslot').innerHTML = `<div class="fb ${oi === q.a ? 'ok' : 'no'}"><b>${oi === q.a ? 'Correct.' : 'Not quite — answer ' + 'ABCD'[q.a] + '.'}</b> ${esc(q.e)}</div>`;
+    const qq = { m: l.m, q: q.q, o: q.o, a: q.a, e: q.e }; stat(l.m, oi === q.a); if (oi === q.a) clearMistake(qq); else addMistake(qq);
+  });
+  const btn = document.getElementById('lessonDone');
+  if (btn) btn.onclick = () => { const d = lessonsDone(); d[l.id] = Date.now(); P('lessons', d); const nxt = LESSONS[LESSONS.indexOf(l) + 1]; location.hash = nxt ? 'lesson-' + nxt.id : 'home'; };
+}
+
 /* ---------- decks ---------- */
+V.decks = () => `<h1>Revision cards</h1><p class="lead">Quick-fire question → answer cards with exam traps. Best used after the lessons, for revision. Mark each "Got it" or "Review again".</p>
+<div class="list">${Object.keys(M).map(k => { const cs = cardState(), all = C.CARDS.filter(c => c.m === k), got = all.filter(c => cs[c.id] === 'got').length; return `<a class="li" href="#deck-${k}"><span class="mk">${k}</span><span><b>${esc(M[k].name)}</b><small>${got}/${all.length} marked "Got it"</small></span></a>`; }).join('')}<a class="li" href="#deck-review"><span class="mk">↺</span><span><b>Review pile</b><small>Cards you marked "Review again"</small></span></a></div>`;
 let deck = { key: null, list: [], i: 0, flip: false, filter: 'all' };
 function deckList(key, filter) {
   const cs = cardState();
@@ -389,14 +433,17 @@ function resultView() {
 function restartLike() { const s = session; session = null; if (!s) return; if (s.kind === 'mock') location.hash = 'mock'; else if (s.kind === 'case') location.hash = 'case-' + s.caseId; else if (s.kind === 'daily') location.hash = 'daily'; else location.hash = s.navKey || 'practice'; }
 
 /* ================= RENDER ================= */
+function subFor(r) { if (r === 'quiz' && session) return session.title; if (r.startsWith('lesson-')) { const l = lessonById(r.slice(7)); if (l) return l.id + ' · ' + l.t; } if (r.startsWith('case-')) { const c = C.CASES.find(x => x.id === r.slice(5)); if (c) return c.title; } return TITLES[navKey(r)] || TITLES[r] || 'Dashboard'; }
 function route() { const h = (location.hash || '').slice(1); return h || 'home'; }
 function viewFor(r) {
   if (r.startsWith('case-')) return caseView(r.slice(5));
+  if (r.startsWith('lesson-')) return lessonView(r.slice(7));
   if (r.startsWith('card-')) { const c = cardById(r.slice(5)); if (c) { const h = deckView(c.m, c.id); history.replaceState(null, '', '#deck-' + c.m); return h; } }
   return (V[r] || V.home)();
 }
 function wire(r) {
   if (r.startsWith('deck-') || r.startsWith('card-')) deckWire();
+  if (r.startsWith('lesson-')) lessonWire(r.slice(7));
   if (r === 'lab-ratio') labWire(ratioCalc);
   if (r === 'lab-wc') labWire(wcCalc);
   if (r === 'lab-project') labWire(projCalc);
@@ -425,13 +472,13 @@ function render() {
   $('#main').innerHTML = viewFor(r); wire(r); updateNav(r); window.scrollTo(0, 0);
   if (r === 'quiz') focusFirstOpt();
   else if (document.activeElement === document.body) $('#main').focus({ preventScroll: true });
-  if (!backing) J.remember({ app: 'ccp', title: 'CCP Credit Desk', sub: r === 'quiz' && session ? session.title : (TITLES[navKey(r)] || 'Dashboard'), url: location.href, scroll: 0 });
+  if (!backing) J.remember({ app: 'ccp', title: 'CCP Credit Desk', sub: subFor(r), url: location.href, scroll: 0 });
 }
 
 /* Back: reading pane → menu → dashboard → Jharokha home (never replays history) */
 window.JharokhaPageBack = function () {
   const main = $('#main'), nav = $('#nav'), navShown = nav.getBoundingClientRect().right > 0, a = document.activeElement, r = route();
-  if (r !== 'home') J.remember({ app: 'ccp', title: 'CCP Credit Desk', sub: r === 'quiz' && session ? session.title : (TITLES[navKey(r)] || ''), url: location.href, scroll: Math.round(scrollY) });
+  if (r !== 'home') J.remember({ app: 'ccp', title: 'CCP Credit Desk', sub: subFor(r), url: location.href, scroll: Math.round(scrollY) });
   backing = true; save();
   if (navShown && a && main.contains(a)) { const cur = nav.querySelector('a.on') || nav.querySelector('a'); cur.focus({ preventScroll: true }); cur.scrollIntoView({ block: 'nearest' }); return true; }
   if (r !== 'home') { history.replaceState(null, '', '#home'); render(); const h = nav.querySelector('a[data-id="home"]'); if (h && navShown) h.focus({ preventScroll: true }); return true; }
